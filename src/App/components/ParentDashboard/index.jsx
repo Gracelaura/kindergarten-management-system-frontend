@@ -1,8 +1,17 @@
 import React from 'react'
+import { Outlet } from 'react-router-dom'
+import Sidebar from './Sidebar'
 
 function ParentDashboard() {
   return (
-    <div>ParentDashboard</div>
+    <div>
+      <div>
+        <Sidebar/>
+      </div>
+      <div>
+        <Outlet/>
+      </div>
+    </div>
   )
 }
 
