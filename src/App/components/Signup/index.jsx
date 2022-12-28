@@ -6,7 +6,6 @@ function Signup({ onLogin }) {
   const [name, setFullName] = useState("");
   const [email, setEmail] = useState("");
   const [phonenumber, setPhoneNumber] = useState("");
-  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [passwordConfirmation, setPasswordConfirmation] = useState("");
   const [errors, setErrors] = useState([]);
@@ -22,7 +21,6 @@ function Signup({ onLogin }) {
       body: JSON.stringify({
         fullName: name,
         email,
-        username,
         phonenumber,
         password,
         password_confirmation: passwordConfirmation,
@@ -65,14 +63,6 @@ function Signup({ onLogin }) {
         type="email"
         value={email}
         placeholder="Enter your email..."
-      /><br></br>
-      <label>Username</label>
-      <input
-        onChange={(e) => setUsername(e.target.value)}
-        id="number"
-        className="registerinput"
-        type="text"
-        placeholder="Enter your username..."
       /><br></br>
        <label>Phone Number</label>
       <input
