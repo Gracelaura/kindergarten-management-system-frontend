@@ -5,6 +5,7 @@ function Signup({ onLogin }) {
  // eslint-disable-next-line no-unused-vars
   const [name, setFullName] = useState("");
   const [email, setEmail] = useState("");
+  const [phonenumber, setPhoneNumber] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [passwordConfirmation, setPasswordConfirmation] = useState("");
@@ -22,6 +23,7 @@ function Signup({ onLogin }) {
         fullName: name,
         email,
         username,
+        phonenumber,
         password,
         password_confirmation: passwordConfirmation,
       }),
@@ -40,12 +42,13 @@ function Signup({ onLogin }) {
     });
   }
   return (
-<div className="mx-auto max-w-2xl py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
+<div className="signupform">
     
     <form onSubmit={handleSubmit} className="registerform">
+      <h1>Teacher Registration</h1>
       <fieldset>
         <legend>SIGN UP HERE</legend>
-        <label>Full Names</label>
+        <label>Full Name</label>
       <input
         onChange={(e) => setFullName(e.target.value)}
         id="full_name"
@@ -71,6 +74,14 @@ function Signup({ onLogin }) {
         type="text"
         placeholder="Enter your username..."
       /><br></br>
+       <label>Phone Number</label>
+      <input
+        onChange={(e) => setPhoneNumber(e.target.value)}
+        id="number"
+        className="registerinput"
+        type="number"
+        placeholder="Enter your phone number..."
+      /><br></br>
       <label>Password</label>
       <input
         onChange={(e) => setPassword(e.target.value)}
@@ -91,7 +102,7 @@ function Signup({ onLogin }) {
       /><br></br>
       <button className="loginbutton">Sign Up</button>
       <p>
-        Already Signed Up?
+        Already have an account?
         <Link to="/login" style={{ color: "blue", paddingLeft: "10px" }}>
           Login Here
         </Link>
