@@ -46,7 +46,7 @@ function Signup({ onLogin }) {
       <h1>Teacher Registration</h1>
       <fieldset>
         <legend>SIGN UP HERE</legend>
-        <label>Full Name</label>
+        <label>Teacher's Full Name</label>
       <input
         onChange={(e) => setFullName(e.target.value)}
         id="full_name"
@@ -69,7 +69,7 @@ function Signup({ onLogin }) {
         onChange={(e) => setPhoneNumber(e.target.value)}
         id="number"
         className="registerinput"
-        type="number"
+        type="float"
         placeholder="Enter your phone number..."
       /><br></br>
       <label>Password</label>

@@ -1,11 +1,12 @@
 import React from 'react'
-import Signup from '../Signup'
+// import Signup from '../Signup';
+import ParentSignup from '../ParentSignup';
 
 function Home() {
   return (
     <div className='bg-red-500 text-5xl grid grid-cols-3'>
-        <div className=''><Signup/></div>
-        {/* <div><ParentSignup/></div> */}
+        {/* <div className=''><Signup/></div> */}
+        <div className=''><ParentSignup/></div>
         
         {/* <div className='bg-yellow-300 h-11'>two</div> */}
         {/* <div className='bg-black h-11'>three</div> */}
