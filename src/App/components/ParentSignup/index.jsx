@@ -2,42 +2,44 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 function ParentSignup({ onLogin}) {
-  const [name, setFullName] = useState("");
-  const [email, setEmail] = useState("");
-  const [phonenumber, setPhoneNumber] = useState("");
-  const [password, setPassword] = useState("");
-  const [passwordConfirmation, setPasswordConfirmation] = useState("");
+  const [parent, setParent] = useState([])
+  const [parentLogin, setParentLogin] = useState({
+    firstname: "",
+    last_name: "",
+    phone_number: "",
+    password: "",
+    role: ""
+  })
   const [errors, setErrors] = useState([]);
   const navigate = useNavigate();
+
+  function handleChange(e) {
+    setParentLogin({...parentLogin, [e.target.name]: e.target.value})
+  }
+
+  function onSignin(){
+    navigate("/" )
+  }
+  
+
  function handleSubmit(e) {
     e.preventDefault();
     setErrors([]);
-    fetch("/signup", {
+    fetch("http://127.0.0.1:3000/parents", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({
-        fullName: name,
-        email,
-        phonenumber,
-        password,
-        password_confirmation: passwordConfirmation,
-      }),
-    }).then((r) => {
-      if (r.ok) {
-        r.json().then((user) => onLogin(user));
-        setTimeout(() => {
-          navigate("/login");
-        }, 1000);
-      } else {
-        r.json().then((err) => {
-          setErrors(err.errors);
-          console.log(errors);
-        });
-      }
-    });
+      body: JSON.stringify(parentLogin),
+    }).then((res) => res.json())
+      .then((res)=> {localStorage.setItem("jwt", res.jwt)
+      setParent(res.parent)
+      }, navigate("/parents_dashboard"))
   }
+
+  const token = localStorage.getItem("jwt")
+  console.log(token)
+  console.log(parent)
   return (
 <div className="signupform">
     
@@ -47,47 +49,50 @@ function ParentSignup({ onLogin}) {
         <legend>SIGN UP HERE</legend>
         <label>Parent's Full Name</label>
       <input
-        onChange={(e) => setFullName(e.target.value)}
-        id="full_name"
+      //  onChange={e => setForm({...form, review:e.target.value})}
+        onChange={handleChange}
+        // :first_name, :last_name, :phone_number, :password, :role
+        id="first_name"
         className="signupinput"
         type="text"
-        value={name}
-        placeholder="Enter your full names..."
+        name="first_name"
+        placeholder="Enter your first name..."
       /><br></br>
-      <label>Email</label>
+      <label>Last Name</label>
       <input
-        onChange={(e) => setEmail(e.target.value)}
-        id="email"
+        onChange={handleChange}
+        id="last_name"
         className="registerinput"
-        type="email"
-        value={email}
-        placeholder="Enter your email..."
+        type="text"
+        name="last_name"
+        placeholder="Enter your last name..."
       /><br></br>
        <label>Phone Number</label>
       <input
-        onChange={(e) => setPhoneNumber(e.target.value)}
-        id="number"
+        onChange={handleChange}
+        id="phone_number"
         className="registerinput"
-        type="float"
+        type="number"
+        name="phone_number"
         placeholder="Enter your phone number..."
       /><br></br>
       <label>Password</label>
       <input
-        onChange={(e) => setPassword(e.target.value)}
+        onChange={handleChange}
         id="password"
         className="registerinput"
         type="password"
-        value={password}
+        name="password"
         placeholder="Enter your password..."
       />
-      <label>Confirm Password</label>
+      <label>Role</label>
       <input
-        onChange={(e) => setPasswordConfirmation(e.target.value)}
-        id="text"
+        onChange={handleChange}
+        id="role"
         className="registerinput"
-        type="password"
-        value={passwordConfirmation}
-        placeholder="Confirm password..."
+        type="text"
+        name="role"
+        placeholder="Enter your role"
       /><br></br>
       <button className="loginbutton">Sign Up</button>
       <p>
