@@ -53,7 +53,7 @@ function ParentSignup({ onLogin}) {
           <img src="https://i.ibb.co/rkY319L/Screenshot-2023-01-01-at-01-08-52.png" alt="image"></img>
         </div>
         <h2 className="text">Kinderjoy Parent</h2>
-        <h2 className="text2">Already have an account? <Link to="/login" style={{ color: "#B124A3"}}>
+        <h2 className="text2">Already have an account? <Link to="/parent_login" style={{ color: "#B124A3"}}>
           Login Here
         </Link>
 </h2>

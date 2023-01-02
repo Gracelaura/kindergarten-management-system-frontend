@@ -1,0 +1,99 @@
+.input2{
+    /* position: relative; */
+    border-radius: 12px;
+    border: 1px solid gray; 
+    box-sizing: border-box;
+    color: #eee;
+    font-size: 18px;
+    height: 3rem;
+    outline: 1;
+    padding: 0px 20px 0;
+    margin-bottom: 0.5em;
+    margin-top: 2em;
+    margin-left: 1.5em;
+    width: 85%;
+   
+    
+  }
+  .button-2 {
+    background-color: 
+    #B124A3;
+    border-radius: 8px;
+    border-style: none;
+    box-sizing: border-box;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline-block;
+    font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    height: 3rem;
+    line-height: 20px;
+    list-style: none;
+    /* margin-top: 2.5em; */
+    outline: none;
+    padding: 10px 16px;
+    position: absolute;
+    text-align: center;
+    text-decoration: none;
+    transition: color 100ms;
+    vertical-align: baseline;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    top: 18rem;
+    left: 1.5rem; 
+    width: 86%;
+  
+  }
+
+  .img-div{
+    background-color: black;
+    height: 120px;
+    width: 120px;
+    left: 45rem;
+    position: absolute;
+    top: 2rem;
+  }
+
+  .login-form{
+    /* background-color: black; */
+    position: absolute;
+    top: 14rem;
+    margin: 0;
+    align-items: center;
+    min-height: fit-content;
+    max-width: fit-content;
+  }
+
+  .img-div img{
+    width: inherit;
+    height: inherit;
+  }
+
+  .h2-text{
+font-weight: 700;
+font-size: 24px;
+line-height: 30px;
+text-align: center;
+letter-spacing: 0.3px;
+position: absolute;
+  }
+
+  .label{
+position: relative;
+font-family: 'Mulish';
+font-style: normal;
+font-weight: 700;
+font-size: 12px;
+line-height: 15px;
+letter-spacing: 0.3px;
+text-transform: uppercase;
+color: #9FA2B4;
+left: 1.8rem;
+top: 2rem;
+}
+
+.errormsg{
+  color: red;
+}

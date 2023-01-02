@@ -25,6 +25,7 @@ function App() {
         <Route path="/parent_login" element={<ParentLogin />} />
         <Route path="/parent_signup" element={<ParentSignup />} />
         <Route path="/signup" element={<Signup />} />
+        
         <Route path="/dashboard" element={<Dashboard />}>
           <Route path="kids_list" element={<KidsList />} />
           <Route path="attendance" element={<Attendance />} />
