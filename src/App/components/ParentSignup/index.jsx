@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-
+import "./parentsignup.css";
 function ParentSignup({ onLogin}) {
   const [parent, setParent] = useState([])
   const [parentLogin, setParentLogin] = useState({
@@ -17,12 +17,12 @@ function ParentSignup({ onLogin}) {
     setParentLogin({...parentLogin, [e.target.name]: e.target.value})
   }
 
-  function onSignin(){
-    navigate("/" )
-  }
+  
+  
+  
   
 
- function handleSubmit(e) {
+   function handleSubmit(e) {
     e.preventDefault();
     setErrors([]);
     fetch("http://127.0.0.1:3000/parents", {
@@ -31,80 +31,85 @@ function ParentSignup({ onLogin}) {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(parentLogin),
-    }).then((res) => res.json())
-      .then((res)=> {localStorage.setItem("jwt", res.jwt)
-      setParent(res.parent)
-      }, navigate("/parents_dashboard"))
+    }).then((res)=>{
+      if(res.ok){
+        res.json().then((data) => setParent(data),navigate("/parents_dashboard"))
+      }else{
+        res.json().then((error)=> alert(error.errors))
+      }
+    })
   }
-
+  localStorage.setItem("jwt", parent.jwt)
   const token = localStorage.getItem("jwt")
   console.log(token)
   console.log(parent)
+
+  
   return (
-<div className="signupform">
-    
-    <form onSubmit={handleSubmit} className="registerform">
-      <h1>Parent Registration</h1>
-      <fieldset>
-        <legend>SIGN UP HERE</legend>
-        <label>Parent's Full Name</label>
-      <input
-      //  onChange={e => setForm({...form, review:e.target.value})}
-        onChange={handleChange}
-        // :first_name, :last_name, :phone_number, :password, :role
+  <div className="container">
+  <div className="main-container">
+      <div className="card-one">
+        <div className="sub-card">
+          <img src="https://i.ibb.co/rkY319L/Screenshot-2023-01-01-at-01-08-52.png" alt="image"></img>
+        </div>
+        <h2 className="text">Kinderjoy Parent</h2>
+        <h2 className="text2">Already have an account? <Link to="/login" style={{ color: "#B124A3"}}>
+          Login Here
+        </Link>
+</h2>
+      </div>
+      <div className="card-two">
+        <h3>New Parent Registration</h3>
+        <form className="form" onSubmit={handleSubmit} >
+        <input
         id="first_name"
-        className="signupinput"
+        className="input"
         type="text"
         name="first_name"
         placeholder="Enter your first name..."
-      /><br></br>
-      <label>Last Name</label>
-      <input
         onChange={handleChange}
+      />
+      <input
         id="last_name"
-        className="registerinput"
+        className="input"
         type="text"
         name="last_name"
         placeholder="Enter your last name..."
-      /><br></br>
-       <label>Phone Number</label>
-      <input
         onChange={handleChange}
+      />
+      <input
         id="phone_number"
-        className="registerinput"
+        className="input"
         type="number"
         name="phone_number"
         placeholder="Enter your phone number..."
-      /><br></br>
-      <label>Password</label>
-      <input
         onChange={handleChange}
+      />
+      <input
         id="password"
-        className="registerinput"
+        className="input"
         type="password"
         name="password"
         placeholder="Enter your password..."
-      />
-      <label>Role</label>
-      <input
         onChange={handleChange}
+      />
+      <input
         id="role"
-        className="registerinput"
+        className="input"
         type="text"
         name="role"
-        placeholder="Enter your role"
-      /><br></br>
-      <button className="loginbutton">Sign Up</button>
-      <p>
-        Already have an account?
-        <Link to="/login" style={{ color: "blue", paddingLeft: "10px" }}>
-          Login Here
-        </Link>
-      </p>
-      </fieldset>
+        placeholder="Enter your role..."
+        onChange={handleChange}
+      />
+      <button className="button-1" type="submit">Register</button>
     </form>
-  </div>
-  );
+      </div>
+    </div>
+    </div>
+    
+    
+  
+  )
 }
 
 export default ParentSignup

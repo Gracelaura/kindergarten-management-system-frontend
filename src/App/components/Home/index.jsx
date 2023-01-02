@@ -4,7 +4,7 @@ import ParentSignup from '../ParentSignup';
 
 function Home() {
   return (
-    <div className='bg-red-500 text-5xl grid grid-cols-3'>
+    <div >
         {/* <div className=''><Signup/></div> */}
         <div className=''><ParentSignup/></div>
         
