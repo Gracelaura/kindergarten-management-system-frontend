@@ -6,7 +6,6 @@ function ParentLogin() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-
     // Make a POST request to the backend with the parent name and password
     fetch('/login', {
       method: 'POST',
@@ -20,7 +19,7 @@ function ParentLogin() {
     })
       .then((response) => response.json())
       .then((data) => {
-        // Do something with the response data
+        // response data
         console.log(data);
       });
   };
