@@ -1,0 +1,156 @@
+.main-container{
+    position: relative;
+    display: flex;
+    width: 980px;
+    height: 582px;
+    background-color: gray;
+    border-radius: 30px;
+    /* margin-top: 3rem;
+    margin-left: 9rem; */
+    left: 9rem;
+    top: 3rem;
+  
+    
+  }
+  
+  .card-one{
+  background-color: #FFE6EE;
+  border-radius: 30px 0px 0px 30px;
+  width: 600px;
+  height: 582px;
+  justify-content: center;
+  }
+  .sub-card{
+  position: relative;
+  width: 357px;
+  height: 314px;
+  left: 120px;
+  top: 73px;
+  background-color: black;
+  }
+  .text{
+  width: 362px;
+  height: 50px;
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 50px;
+  letter-spacing: 0.2px;
+  color: #252B42;
+  position: relative;
+  margin-top: 2em;
+  margin-left: 3.5em;
+  }
+  .card-two{
+    width: 380px;
+    height: 582px;
+    background-color: white;
+    border-radius: 0px 30px 30px 0px;
+    
+    
+  }
+  
+  .card-two h3{
+  position: relative;
+  height: 60px;
+  width: 316px;
+  /* left: 32px; */
+   top: 30px; 
+  font-family:  'Lucida Sans', Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 30px;
+  margin-left: 2em;
+  letter-spacing: 0.3px;
+  }
+  
+  .input {
+    position: relative;
+    border-radius: 12px;
+    border: 1px solid gray; 
+    box-sizing: border-box;
+    color: #eee;
+    font-size: 18px;
+    height: 10%;
+    outline: 1;
+    padding: 4px 20px 0;
+    margin-bottom: 2em;
+    margin-left: 1.5em;
+    width: 85%;
+  
+  }
+  
+    
+  
+ 
+  .button-1 {
+    background-color: 
+    #B124A3;
+    border-radius: 8px;
+    border-style: none;
+    box-sizing: border-box;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline-block;
+    font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    height: 40px;
+    line-height: 20px;
+    list-style: none;
+    margin: 0;
+    outline: none;
+    padding: 10px 16px;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    transition: color 100ms;
+    vertical-align: baseline;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    /* bottom: 3rem; */
+    left: 15.6rem; 
+  
+  }
+  
+  .button-1:hover,
+  .button-1:focus {
+    background-color: #B124A3;;
+  }
+    /* bottom: 3rem;
+    left: 15.6rem; */
+  
+    .sub-card img{
+      height: inherit;
+      width: inherit;
+    }
+  
+    .form{
+      /* background-color: #252B42; */
+      position: relative;
+      height: 81.5%;
+      border-radius: 0px 0px 30px 0px;
+      top: 2rem;
+    }
+  
+    .text2{
+      position: relative;
+      font-family: 'Mulish';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 20px;
+      line-height: 20px;
+      letter-spacing: 0.3px;
+      color: #9FA2B4;
+      left: 8.5rem;
+    }
+ 
+    .container{
+     background-color: #B124A3;
+     height: 100vh;
+     width: 100vw;
+     justify-content: center;
+    }

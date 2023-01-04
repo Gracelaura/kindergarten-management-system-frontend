@@ -1,61 +1,78 @@
-import React, { useState } from 'react';
-
+import React from 'react'
+import "./ParentLogin.css"
+import { useForm } from 'react-hook-form';
+import { Link, useNavigate } from "react-router-dom";
+import { useState } from 'react';
 function ParentLogin() {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    // Make a POST request to the backend with the parent name and password
-    fetch('/login', {
-      method: 'POST',
+  const navigate = useNavigate()
+  // Make sure to install useForm using npm to avoid errors
+  const {register, handleSubmit, formState: {errors}} = useForm()
+  const [login, setLogin] = useState([])
+  
+  function onSubmit(data){
+    console.log(data)
+    fetch("http://127.0.0.1:3000/parent_login", {
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
-      body: JSON.stringify({
-        username,
-        password,
-      }),
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        // response data
-        console.log(data);
-      });
-  };
+      body: JSON.stringify(data),
+    }).then((res)=> res.json())
+      .then((res)=> setLogin(res), navigate("/parents_dashboard"))
+  }
+
+  console.log(login)
 
   return (
-    <div className="flex flex-col items-center justify-center h-screen bg-gray-200">
-    <div className="w-1/3 flex flex-col items-center p-6 bg-white rounded-lg shadow-xl">
-      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqYgAVMzopkLZhO1T-CjbKUHRbq050yn4vtQ&usqp=CAU" alt="Logo" className="h-32 w-32 rounded-full mb-6" />
-      <h1>Parent Login</h1>
-      <form onSubmit={handleSubmit}>
-          <input
-            type="text"
-            placeholder="Parent name"
-            className="px-3 py-2 mb-3 text-gray-700 rounded-lg shadow-sm focus:outline-none focus:shadow-outline w-full"
-            value={username}
-            onChange={(event) => setUsername(event.target.value)}
-            required
-          />
-          <input
-            type="password"
-            placeholder="Password"
-            className="px-3 py-2 mb-3 text-gray-700 rounded-lg shadow-sm focus:outline-none focus:shadow-outline w-full"
-            value={password}
-            onChange={(event) => setPassword(event.target.value)}
-            required
-          />
-          <button type="submit" className="px-4 py-2 font-bold text-white bg-blue-500 rounded-full shadow-lg hover:bg-blue-700 focus:outline-none focus:shadow-outline w-full">
-            Log In
-          </button>
-        </form>
-      <div className="text-center mt-4 text-sm text-gray-600">
-        Don't have an account? <a href="/ParentSignup" className="font-bold text-blue-500 hover:text-blue-800">Sign up</a>
+    <div className="container">
+    <div className="main-container">
+        <div className="card-one">
+          <div className="sub-card">
+            <img src="https://i.ibb.co/QQrkZHb/Screenshot-2023-01-02-at-23-23-28.png" alt="image"></img>
+          </div>
+          <h2 className="text">Kinderjoy Parent</h2>
+          <h2 className="text2">Don't have an account? <Link to="/parent_signup" style={{ color: "#B124A3"}}>
+          Sign Up Here
+        </Link>
+</h2>
+          
+        </div>
+        <div className="card-two">
+          <div className="img-div">
+            <img src="https://i.ibb.co/qDhqYnx/Screenshot-2023-01-02-at-23-26-59.png" alt="Kinderjoy parent" />
+            <h2 className='h2-text'>Kinderjoy School</h2>
+          </div>
+          <form className='login-form' onSubmit={handleSubmit(onSubmit)}>
+          <label className='label'>Enter Number</label>
+        <input
+          id="phone_number"
+          className="input2"
+          type="number"
+          name="phone_number"
+          placeholder="Enter your phone number..."
+          {...register('phone_number', {
+            required: true
+          })}
+        />
+        <label className='label'>Enter Password</label>
+        <input
+          id="password"
+          className="input2"
+          type="password"
+          name="password"
+          placeholder="Enter your password..."
+          {...register('password', {
+            required: true
+          })}
+        />
+        <button className="button-2" type="submit">Login</button>
+      </form>
+        </div>
       </div>
-    </div>
-  </div>
-  );
+      </div>
+      
+      
+  )
 }
 
 export default ParentLogin;
