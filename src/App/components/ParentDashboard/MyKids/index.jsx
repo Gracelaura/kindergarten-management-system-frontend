@@ -1,5 +1,6 @@
 import { EyeIcon, EyeSlashIcon, PencilIcon, TrashIcon } from "@heroicons/react/24/solid";
 import { useEffect, useState } from "react"
+import { useNavigate } from "react-router-dom";
 
 
 function classNames(...classes) {
@@ -10,6 +11,7 @@ export default function MyKids() {
 
   const [loading, setLoading] = useState(false);
   const [students, setStudents] = useState([]);
+  const navigate=useNavigate()
 
   const  url = 'https://63ac46de34c46cd7ae7cdc8b.mockapi.io/studentList'
 
@@ -23,6 +25,10 @@ export default function MyKids() {
         setLoading(false);
       });
   },[])
+
+  function handleClick(){
+    navigate('/parents_dashboard/my_kids/:id')
+  }
 
 
   return (
@@ -116,10 +122,10 @@ export default function MyKids() {
                           'relative whitespace-nowrap py-4 pr-4 pl-3 text-right text-sm font-medium sm:pr-6 lg:pr-8'
                         )}
                       >
-                        <span className="text-gray-00 hover:text-red-900 border border-gray-600 mx-5 rounded-[16px] p-3">
+                       <button onClick={handleClick}><span className="text-gray-00 hover:text-red-900 border border-gray-600 mx-5 rounded-[16px] p-3">
                           <EyeIcon className="inline text-pink-900 h-5 mx-2"/>
                           View<span className="sr-only">, {person.name}</span>
-                        </span>
+                        </span></button> 
                         <span className="text-gray-00 hover:text-red-900 border border-gray-600 mx-5 rounded-[16px] p-3">
                           <PencilIcon className="inline text-indigo-900 h-5 mx-2"/>
                           Edit<span className="sr-only">, {person.name}</span>
