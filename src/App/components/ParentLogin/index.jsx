@@ -18,12 +18,23 @@ function ParentLogin() {
       },
       body: JSON.stringify(data),
     }).then((res)=> res.json())
-      .then((res)=> setLogin(res), navigate("/parents_dashboard"))
+      .then((res) => 
+      {
+        setLogin(res)
+        console.log(res[0].id)
+        navigate("/parents_dashboard")
+        localStorage.setItem("jwt", res[1].jwt)
+        localStorage.setItem("parent", JSON.stringify(res[0]))
+        console.log(res)
+      })
   }
 
-  console.log(login)
-
+  const token = localStorage.getItem("jwt")
+  const parent = localStorage.getItem("parent")
+  console.log(parent)
+  console.log(token)
   return (
+    
     <div className="container">
     <div className="main-container">
         <div className="card-one">

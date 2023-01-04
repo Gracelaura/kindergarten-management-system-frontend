@@ -33,7 +33,7 @@ function ParentSignup({ onLogin}) {
       body: JSON.stringify(parentLogin),
     }).then((res)=>{
       if(res.ok){
-        res.json().then((data) => setParent(data),navigate("/parents_dashboard"))
+        res.json().then((data) => setParent(data), navigate("/parents_dashboard"))
       }else{
         res.json().then((error)=> alert(error.errors))
       }
@@ -91,14 +91,6 @@ function ParentSignup({ onLogin}) {
         type="password"
         name="password"
         placeholder="Enter your password..."
-        onChange={handleChange}
-      />
-      <input
-        id="role"
-        className="input"
-        type="text"
-        name="role"
-        placeholder="Enter your role..."
         onChange={handleChange}
       />
       <button className="button-1" type="submit">Register</button>
