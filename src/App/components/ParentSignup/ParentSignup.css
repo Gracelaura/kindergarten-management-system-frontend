@@ -1,3 +1,4 @@
+
 .main-container{
     position: relative;
     display: flex;
@@ -5,12 +6,12 @@
     height: 582px;
     background-color: gray;
     border-radius: 30px;
-    /* margin-top: 3rem;
-    margin-left: 9rem; */
+    /* margin-top: 3rem; */
+    /* margin-left: 9rem; */
+    /* margin-right: 9rem; */
     left: 9rem;
     top: 3rem;
   
-    
   }
   
   .card-one{

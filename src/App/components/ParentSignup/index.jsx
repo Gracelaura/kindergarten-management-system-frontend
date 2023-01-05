@@ -87,14 +87,6 @@ function ParentSignup({ onLogin}) {
         placeholder="Enter your password..."
         onChange={handleChange}
       />
-      <input
-        id="role"
-        className="input"
-        type="text"
-        name="role"
-        placeholder="Enter your role..."
-        onChange={handleChange}
-      />
       <button className="button-1" type="submit">Register</button>
     </form>
       </div>
