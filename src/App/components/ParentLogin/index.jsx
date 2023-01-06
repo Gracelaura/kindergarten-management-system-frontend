@@ -21,11 +21,11 @@ function ParentLogin() {
       .then((res) => 
       {
         setLogin(res)
-        // console.log(res[0].id)
+        console.log(res.jwt)
         navigate("/parents_dashboard")
-        localStorage.setItem("jwt", res[1].jwt)
-        localStorage.setItem("parent", JSON.stringify(res[0]))
-        console.log(res)
+        localStorage.setItem("jwt", res.jwt)
+        localStorage.setItem("parent", JSON.stringify(res.parent))
+        console.log(res.parent)
       })
   }
 

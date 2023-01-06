@@ -20,9 +20,11 @@ import { TeacherContextProvider } from "./components/Context/teacher-context";
 
 function App() {
   return (
-    <TeacherContextProvider>
+    
     <BrowserRouter>
+    <TeacherContextProvider>
       <Routes>
+      
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/parent_login" element={<ParentLogin />} />
@@ -46,9 +48,11 @@ function App() {
             <Route path=":id" element={<SingleKid />} />
           </Route>
         </Route>
+  
       </Routes>
+      </TeacherContextProvider>
     </BrowserRouter>
-    </TeacherContextProvider>
+    
   );
 }
 

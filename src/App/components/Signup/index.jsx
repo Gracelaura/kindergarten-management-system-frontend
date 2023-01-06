@@ -1,13 +1,12 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { useForm } from 'react-hook-form';
 import { Link, useNavigate } from "react-router-dom";
-
+import { TeacherContext } from "../Context/teacher-context";
 import "./signup.css"
 function Signup({ onLogin }) {
  const {register, handleSubmit} = useForm()
- function onSubmit(data) {
-  console.log(data)
- }
+ const {onSubmition} = useContext(TeacherContext)
+ 
  return(
   <div>
     <div className="container">
@@ -28,7 +27,7 @@ function Signup({ onLogin }) {
             <img src="https://i.ibb.co/qDhqYnx/Screenshot-2023-01-02-at-23-26-59.png" alt="" />
             <h2 className='h2-text'>Kinderjoy School</h2>
           </div>
-          <form className='login-form' onSubmit={handleSubmit(onSubmit)}>
+          <form className='login-form' onSubmit={handleSubmit(onSubmition)}>
         <input
           id="first_name"
           className="input3"

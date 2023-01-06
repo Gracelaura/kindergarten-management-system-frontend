@@ -1,12 +1,11 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { useForm } from 'react-hook-form';
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from 'react';
+import { TeacherContext } from '../Context/teacher-context';
 function Login() {
-
-  function onSubmit(data) {
-    console.log(data)
-  }
+  const {onSubmit} = useContext(TeacherContext)
+  
 
   const {register, handleSubmit} = useForm()
   return (
