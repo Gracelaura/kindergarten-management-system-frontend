@@ -35,10 +35,10 @@ setModal(modal=> true)
       </div>
 
 {modal ? <ul className="sm:mt-8 p-4" >
-  <li className="border m-2 rounded-md p-5">
+  <li className="border m-2 grid grid-cols-3 rounded-md p-5">
           <span> Nicholas njeru</span>
-         <label>Present <input name="status" type="radio" unchecked/></label>
-          <label>Absent<input type="radio" name="status" unchecked/></label>
+          <button className="outline outline-1 text-sky-600 hover:text-white hover:bg-sky-600 px-1 h-10 m-2 rounded-md">Present</button>
+          <button className="outline outline-1 text-red-500 hover:text-white hover:bg-red-600 px-1 h-10 m-2 rounded-md">Absent</button>
          </li>
 </ul>: null
 }
@@ -56,11 +56,7 @@ setModal(modal=> true)
            </Link>
          </li>: null
         }
-       
-        {/* <li className="border m-2 rounded-md p-5">this is attendance for date 09/01/2023<span className="rounded-md  float-right border outline outline-1 px-6 hover:text-white hover:bg-pink-500 text-pink-500 p-1">view</span></li>
-          <li className="border m-2 rounded-md p-5">this is attendance for date 10/01/2023<span className="rounded-md  float-right border outline outline-1 px-6 hover:text-white hover:bg-pink-500 text-pink-500 p-1">view</span></li>
-          <li className="border m-2 rounded-md p-5">this is attendance for date 11/01/2023<span className="rounded-md  float-right border outline outline-1 px-6 hover:text-white hover:bg-pink-500 text-pink-500 p-1">view</span></li> */}
-      </ul>
+         </ul>
     </div>
   );
 }
