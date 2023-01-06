@@ -21,7 +21,7 @@ function ParentLogin() {
       .then((res) => 
       {
         setLogin(res)
-        console.log(res[0].id)
+        // console.log(res[0].id)
         navigate("/parents_dashboard")
         localStorage.setItem("jwt", res[1].jwt)
         localStorage.setItem("parent", JSON.stringify(res[0]))
