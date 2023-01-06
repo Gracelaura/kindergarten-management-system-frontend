@@ -16,9 +16,11 @@ import SingleKid from "./components/ParentDashboard/MyKids/SingleKid";
 import ParentLogin from "./components/ParentLogin";
 import ParentSignup from "./components/ParentSignup";
 import Welcome from "./components/ParentDashboard/Welcome";
+import { TeacherContextProvider } from "./components/Context/teacher-context";
 
 function App() {
   return (
+    <TeacherContextProvider>
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />} />
@@ -46,6 +48,7 @@ function App() {
         </Route>
       </Routes>
     </BrowserRouter>
+    </TeacherContextProvider>
   );
 }
 
