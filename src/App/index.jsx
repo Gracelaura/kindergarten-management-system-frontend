@@ -16,6 +16,7 @@ import SingleKid from "./components/ParentDashboard/MyKids/SingleKid";
 import ParentLogin from "./components/ParentLogin";
 import ParentSignup from "./components/ParentSignup";
 import Welcome from "./components/ParentDashboard/Welcome";
+import SingleAttendance from "./components/Dashboard/Attendance/SingleAttendance";
 function App() {
   return (
     <BrowserRouter>
@@ -27,7 +28,10 @@ function App() {
         <Route path="/signup" element={<Signup />} />
         <Route path="dashboard" element={<Dashboard />}>
           <Route path="kids_list" element={<KidsList />} />
-          <Route path="attendance" element={<Attendance />} />
+          <Route path="attendance" >
+            <Route index element={<Attendance />} />
+           <Route path=":date" element={<SingleAttendance />} />
+          </Route>
           <Route path="discipline" element={<Discipline />} />
           <Route path="classes" element={<Classes />} />
           <Route path="parents" element={<Parents />} />
