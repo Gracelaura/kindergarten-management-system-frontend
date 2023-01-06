@@ -1,28 +1,30 @@
-import React from "react";
+import React,{useEffect, useState} from "react";
 import axios from "axios"
 import { useParams } from "react-router-dom";
 
 function SingleAttendance() {
-    const { date} = useParams()
-const listAttendance = async()=>{
-    console.log("attendance")
-    console.log(date)
-    const url = "http://127.0.0.1:3000/attendances"
-    const config = {
-        headers:{
-        Authorization: "Bearer eyJhbGciOiJIUzI1NiJ9.eyJ0ZWFjaGVyX2lkIjoyNn0.tgIaCKyOwiBNLCsskiDzJ6nCwW0A-dairsv_bqNBZN8"
-        }
-      }
-   const response = await axios.get(url,config)
-   console.log(response.data)
+  const [dayAttendance,setDayAttendance] = useState([])
+    const {date} = useParams()
 
+useEffect(()=>{
+  axios.get("http://localhost:3000/attendances")
+  .then(res=>setDayAttendance(res.data.filter(data=>data.date === date)))
+},[])
 
-}
   return (
-    <div>
-      <p>SingleAttendance</p>
-      <button onClick={listAttendance}>view</button>
-    </div>
+    <ul className="sm:mt-8 p-4 w-4/5 m-auto">
+      <p className="text-2xl font-extrabold text-center">List of student register for date {date} </p>
+      {
+      dayAttendance.map((item,i)=>{
+      return <li key={i} className="border m-2 rounded-md p-5 flex justify-around">
+        <span>{i+1}</span>
+        <span>{item.student_name}</span>
+        <span>{item.status}</span>
+        </li>
+    
+    })
+      }
+    </ul>
   );
 }
 
