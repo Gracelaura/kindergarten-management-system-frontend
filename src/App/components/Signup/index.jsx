@@ -17,7 +17,7 @@ function Signup({ onLogin }) {
           </div>
           <h2 className="text">Kinderjoy Teacher</h2>
           <h2 className="text2">Have an account? <Link to="/login" style={{ color: "#B124A3"}}>
-          Sign Up Here
+          Login Here
         </Link>
 </h2>
           

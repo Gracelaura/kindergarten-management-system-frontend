@@ -17,8 +17,9 @@ function ParentLogin() {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(data),
-    }).then((res)=> res.json())
-      .then((res) => 
+    }).then((res)=>{
+      if(res.ok) {
+    res.json().then((res) => 
       {
         setLogin(res)
         console.log(res.jwt)
@@ -27,6 +28,10 @@ function ParentLogin() {
         localStorage.setItem("parent", JSON.stringify(res.parent))
         console.log(res.parent)
       })
+    }else{
+      res.json().then((error)=> alert(error.errors))
+    }
+  })
   }
 
   const token = localStorage.getItem("jwt")
