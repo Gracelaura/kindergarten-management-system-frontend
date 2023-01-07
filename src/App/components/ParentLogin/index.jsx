@@ -28,7 +28,7 @@ function ParentLogin() {
     <div className="main-container">
         <div className="card-one">
           <div className="sub-card">
-            <img src="https://i.ibb.co/QQrkZHb/Screenshot-2023-01-02-at-23-23-28.png" alt="image"></img>
+            <img src="https://i.ibb.co/QQrkZHb/Screenshot-2023-01-02-at-23-23-28.png" alt="kids"/>
           </div>
           <h2 className="text">Kinderjoy Parent</h2>
           <h2 className="text2">Don't have an account? <Link to="/parent_signup" style={{ color: "#B124A3"}}>
