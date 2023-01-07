@@ -4,7 +4,7 @@ import Sidebar from './Sidebar'
 
 function Dashboard() {
   return (
-    <div className='flex sm:flex-row'>
+    <div className='flex sm:flex-row bg-pink-500'>
         <div className='w-1/6 bg-slate-200 sm:h-screen'>
             <Sidebar />
         </div>
