@@ -10,7 +10,7 @@ export const TeacherContextProvider = (props) => {
   const [onLogin, setLogin] = useState([])
    const [teacher, setTeacher] = useState([])
 
- //  This function is called in the Login Component
+
     function onSubmit(data) {
         console.log(data)
          fetch("http://127.0.0.1:3000/login", {
