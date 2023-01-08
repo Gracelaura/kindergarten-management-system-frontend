@@ -17,9 +17,12 @@ import ParentLogin from "./components/ParentLogin";
 import ParentSignup from "./components/ParentSignup";
 import Welcome from "./components/ParentDashboard/Welcome";
 import SingleAttendance from "./components/Dashboard/Attendance/SingleAttendance";
+import { TeacherContextProvider } from "./components/Context/teacher-context";
+
 function App() {
   return (
     <BrowserRouter>
+    <TeacherContextProvider>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
@@ -46,6 +49,7 @@ function App() {
           </Route>
         </Route>
       </Routes>
+      </TeacherContextProvider>
     </BrowserRouter>
   );
 }

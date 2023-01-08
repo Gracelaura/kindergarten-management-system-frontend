@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useForm } from 'react-hook-form';
-import "./parentsignup.css";
+import "./ParentSignup.css";
 function ParentSignup({ onLogin}) {
   const [parent, setParent] = useState([])
   const {register, handleSubmit} = useForm()

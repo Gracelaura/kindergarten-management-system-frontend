@@ -17,18 +17,34 @@ function ParentLogin() {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(data),
-    }).then((res)=> res.json())
-      .then((res)=> setLogin(res), navigate("/parents_dashboard"))
+    }).then((res)=>{
+      if(res.ok) {
+    res.json().then((res) => 
+      {
+        setLogin(res)
+        console.log(res.jwt)
+        navigate("/parents_dashboard")
+        localStorage.setItem("jwt", res.jwt)
+        localStorage.setItem("parent", JSON.stringify(res.parent))
+        console.log(res.parent)
+      })
+    }else{
+      res.json().then((error)=> alert(error.errors))
+    }
+  })
   }
 
-  console.log(login)
-
+  const token = localStorage.getItem("jwt")
+  const parent = localStorage.getItem("parent")
+  console.log(parent)
+  console.log(token)
   return (
+    
     <div className="container">
     <div className="main-container">
         <div className="card-one">
           <div className="sub-card">
-            <img src="https://i.ibb.co/QQrkZHb/Screenshot-2023-01-02-at-23-23-28.png" alt="kids"/>
+            <img src="https://i.ibb.co/QQrkZHb/Screenshot-2023-01-02-at-23-23-28.png" alt="image"></img>
           </div>
           <h2 className="text">Kinderjoy Parent</h2>
           <h2 className="text2">Don't have an account? <Link to="/parent_signup" style={{ color: "#B124A3"}}>
@@ -39,7 +55,7 @@ function ParentLogin() {
         </div>
         <div className="card-two">
           <div className="img-div">
-            <img src="https://i.ibb.co/qDhqYnx/Screenshot-2023-01-02-at-23-26-59.png" alt="Kinderjoy parent" />
+            <img src="https://i.ibb.co/qDhqYnx/Screenshot-2023-01-02-at-23-26-59.png" alt="" />
             <h2 className='h2-text'>Kinderjoy School</h2>
           </div>
           <form className='login-form' onSubmit={handleSubmit(onSubmit)}>
@@ -75,4 +91,4 @@ function ParentLogin() {
   )
 }
 
-export default ParentLogin;
+export default ParentLogin
