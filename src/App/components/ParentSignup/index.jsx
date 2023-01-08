@@ -1,39 +1,37 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { useForm } from 'react-hook-form';
 import "./ParentSignup.css";
 function ParentSignup({ onLogin}) {
   const [parent, setParent] = useState([])
-  const [parentLogin, setParentLogin] = useState({
-    firstname: "",
-    last_name: "",
-    phone_number: "",
-    password: "",
-    role: ""
-  })
+  const {register, handleSubmit} = useForm()
   const [errors, setErrors] = useState([]);
   const navigate = useNavigate();
 
-  function handleChange(e) {
-    setParentLogin({...parentLogin, [e.target.name]: e.target.value})
-  }
-   function handleSubmit(e) {
-    e.preventDefault();
+ 
+  
+  
+  
+  
+
+   function onSubmit(data) {
+   console.log(data)
     setErrors([]);
     fetch("http://127.0.0.1:3000/parents", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(parentLogin),
+      body: JSON.stringify(data),
     }).then((res)=>{
       if(res.ok){
-        res.json().then((data) => setParent(data),navigate("/parents_dashboard"))
+        res.json().then((data) => setParent(data), navigate("/parents_dashboard"), localStorage.setItem("jwt", data.jwt))
       }else{
         res.json().then((error)=> alert(error.errors))
       }
     })
   }
-  localStorage.setItem("jwt", parent.jwt)
+  
   const token = localStorage.getItem("jwt")
   console.log(token)
   console.log(parent)
@@ -54,14 +52,14 @@ function ParentSignup({ onLogin}) {
       </div>
       <div className="card-two">
         <h3>New Parent Registration</h3>
-        <form className="form" onSubmit={handleSubmit} >
+        <form className="form" onSubmit={handleSubmit(onSubmit)} >
         <input
         id="first_name"
         className="input"
         type="text"
         name="first_name"
         placeholder="Enter your first name..."
-        onChange={handleChange}
+        {...register('first_name') }
       />
       <input
         id="last_name"
@@ -69,7 +67,7 @@ function ParentSignup({ onLogin}) {
         type="text"
         name="last_name"
         placeholder="Enter your last name..."
-        onChange={handleChange}
+        {...register('last_name') }
       />
       <input
         id="phone_number"
@@ -77,7 +75,7 @@ function ParentSignup({ onLogin}) {
         type="number"
         name="phone_number"
         placeholder="Enter your phone number..."
-        onChange={handleChange}
+        {...register('phone_number') }
       />
       <input
         id="password"
@@ -85,7 +83,7 @@ function ParentSignup({ onLogin}) {
         type="password"
         name="password"
         placeholder="Enter your password..."
-        onChange={handleChange}
+        {...register('password')}
       />
       <button className="button-1" type="submit">Register</button>
     </form>
@@ -98,4 +96,4 @@ function ParentSignup({ onLogin}) {
   )
 }
 
-export default ParentSignup;
+export default ParentSignup
