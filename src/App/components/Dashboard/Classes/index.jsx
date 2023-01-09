@@ -25,7 +25,14 @@ const classesData = [
 function Classes() {
   return (
     <div className="classes-page">
- 
+    <h1>Classes</h1>
+    {classesData.map(klass => (
+      <div className="class-card" key={klass.id}>
+        <h2>{klass.name}</h2>
+        <p>Teacher: {klass.teacherName}</p>
+        <p>Number of students: {klass.numStudents}</p>
+      </div>
+    ))}
   </div>
   )
 }
