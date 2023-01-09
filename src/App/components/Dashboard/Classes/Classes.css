@@ -1,0 +1,26 @@
+.classes-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .class-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 20px;
+    margin: 20px 0;
+    width: 500px;
+  }
+  
+  .class-card h2 {
+    font-size: 24px;
+    margin: 10px 0;
+  }
+  
+  .class-card p {
+    font-size: 18px;
+    margin: 5px 0;
+  }

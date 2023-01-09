@@ -13,7 +13,7 @@ export default function MyKids() {
   const [students, setStudents] = useState([]);
   const navigate=useNavigate()
 
-  const  url = 'https://63ac46de34c46cd7ae7cdc8b.mockapi.io/studentList'
+  const  url = 'http://localhost:3000/students'
 
   useEffect(() => {
     setLoading(true)
@@ -99,7 +99,7 @@ export default function MyKids() {
                           'whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6 lg:pl-8'
                         )}
                       >
-                        {person.name}
+                        {person.first_name}
                       </td>
                       <td
                         className={classNames(
@@ -107,7 +107,7 @@ export default function MyKids() {
                           'whitespace-nowrap px-3 py-4 text-sm text-gray-500 hidden lg:table-cell'
                         )}
                       >
-                        {person.class}
+                        {person.surname}
                       </td>
                       <td
                         className={classNames(
