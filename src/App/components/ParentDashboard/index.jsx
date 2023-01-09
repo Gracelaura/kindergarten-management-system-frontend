@@ -8,7 +8,6 @@ import {
   HomeIcon,
   UserGroupIcon,
   XMarkIcon,
-  AcademicCapIcon,
   ListBulletIcon,
 
 } from "@heroicons/react/24/outline";
@@ -40,12 +39,8 @@ const navigation = [
     icon: CalendarIcon,
     current: false,
   },
-  {
-    name: "Discipline",
-    href: "/parents_dashboard/discipline",
-    icon: AcademicCapIcon,
-    current: false,
-  },
+  
+
 ];
 
 function classNames(...classes) {
