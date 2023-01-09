@@ -26,7 +26,7 @@ console.log(parent)
         <div className="sm:flex-auto">
           <h1 className="text-xl font-semibold text-gray-900">Students</h1>
           <p className="mt-2 text-sm text-gray-700">
-            A list of all the studentList in your account including their name, title, email and role.
+            A list of the Kid List in your account including their name, Admission number and Class.
           </p>
         </div>
         <div className="mt-4 sm:mt-0 sm:ml-16 sm:flex-none">
@@ -34,7 +34,7 @@ console.log(parent)
             type="button"
             className="inline-flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 sm:w-auto"
           >
-            Add user
+            Add Kid
           </button>
         </div>
       </div>
@@ -45,6 +45,12 @@ console.log(parent)
               <table className="min-w-full border-separate" style={{ borderSpacing: 0 }}>
                 <thead className="bg-gray-50">
                   <tr>
+                  <th
+                      scope="col"
+                      className="sticky top-0 z-10 border-b border-gray-300 bg-gray-50 bg-opacity-75 py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 backdrop-blur backdrop-filter sm:pl-6 lg:pl-8"
+                    >
+                      Admission number
+                    </th>
                     <th
                       scope="col"
                       className="sticky top-0 z-10 border-b border-gray-300 bg-gray-50 bg-opacity-75 py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 backdrop-blur backdrop-filter sm:pl-6 lg:pl-8"
@@ -55,19 +61,19 @@ console.log(parent)
                       scope="col"
                       className="sticky top-0 z-10 border-b border-gray-300 bg-gray-50 bg-opacity-75 py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 backdrop-blur backdrop-filter sm:pl-6 lg:pl-8"
                     >
-                      Surname
+                      Second Name
                     </th>
                     <th
                       scope="col"
                       className="sticky top-0 z-10 hidden border-b border-gray-300 bg-gray-50 bg-opacity-75 px-3 py-3.5 text-left text-sm font-semibold text-gray-900 backdrop-blur backdrop-filter sm:table-cell"
                     >
-                      Class
+                      Surname
                     </th>
                     <th
                       scope="col"
                       className="sticky top-0 z-10 hidden border-b border-gray-300 bg-gray-50 bg-opacity-75 px-3 py-3.5 text-left text-sm font-semibold text-gray-900 backdrop-blur backdrop-filter lg:table-cell"
                     >
-                      Parent Contact
+                      Class
                     </th>
                     <th
                       scope="col"
@@ -115,14 +121,14 @@ console.log(parent)
                           <EyeIcon className="inline text-pink-900 h-5 mx-2"/>
                           View<span className="sr-only">, {person.name}</span>
                         </span></button> 
-                        <span className="text-gray-00 hover:text-red-900 border border-gray-600 mx-5 rounded-[16px] p-3">
+                        {/* <span className="text-gray-00 hover:text-red-900 border border-gray-600 mx-5 rounded-[16px] p-3">
                           <PencilIcon className="inline text-indigo-900 h-5 mx-2"/>
                           Edit<span className="sr-only">, {person.name}</span>
                         </span>
                         <span className="text-gray-00 hover:text-red-900 border border-gray-600 mx-5 rounded-[16px] p-3">
                           <TrashIcon className="inline text-red-600 h-5 mx-2"/>
                           Delete<span className="sr-only">, {person.name}</span>
-                        </span>
+                        </span> */}
                       </td>
                     </tr>
                   ))}

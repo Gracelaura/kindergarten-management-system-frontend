@@ -6,11 +6,10 @@ import ParentContext from "../ParentContext";
 import { Link } from "react-router-dom";
 import {
   Bars3Icon,
-  CalendarIcon,
+  // CalendarIcon,
   HomeIcon,
   UserGroupIcon,
   XMarkIcon,
-  AcademicCapIcon,
   ListBulletIcon,
 
 } from "@heroicons/react/24/outline";
@@ -36,18 +35,9 @@ const navigation = [
     icon: UserGroupIcon,
     current: false,
   },
-  {
-    name: "Attendance",
-    href: "/parents_dashboard/attendance",
-    icon: CalendarIcon,
-    current: false,
-  },
-  {
-    name: "Discipline",
-    href: "/parents_dashboard/discipline",
-    icon: AcademicCapIcon,
-    current: false,
-  },
+
+  
+
 ];
 
 function classNames(...classes) {
