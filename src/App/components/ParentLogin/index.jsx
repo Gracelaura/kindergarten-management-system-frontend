@@ -25,8 +25,7 @@ function ParentLogin() {
         console.log(res.jwt)
         navigate("/parents_dashboard")
         localStorage.setItem("jwt", res.jwt)
-        localStorage.setItem("parent", JSON.stringify(res.parent))
-        console.log(res.parent)
+        localStorage.setItem("parent", `${res.parent.id}`)
       })
     }else{
       res.json().then((error)=> alert(error.errors))
@@ -36,8 +35,6 @@ function ParentLogin() {
 
   const token = localStorage.getItem("jwt")
   const parent = localStorage.getItem("parent")
-  console.log(parent)
-  console.log(token)
   return (
     
     <div className="container">

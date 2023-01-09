@@ -1,6 +1,7 @@
-import React from 'react'
-
+import React, { useContext } from 'react'
+import ParentContext from '../../../ParentContext'
 function SingleKid() {
+  const {} = useContext(ParentContext)
   return (
     <div>SingleKid</div>
   )

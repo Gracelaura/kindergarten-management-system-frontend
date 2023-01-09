@@ -1,36 +1,24 @@
 import { EyeIcon, EyeSlashIcon, PencilIcon, TrashIcon } from "@heroicons/react/24/solid";
-import { useEffect, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom";
-
+import ParentContext from "../../ParentContext";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
 export default function MyKids() {
-
+const {parent} = useContext(ParentContext)
   const [loading, setLoading] = useState(false);
   const [students, setStudents] = useState([]);
   const navigate=useNavigate()
 
-  const  url = 'https://63ac46de34c46cd7ae7cdc8b.mockapi.io/studentList'
-
-  useEffect(() => {
-    setLoading(true)
-    fetch(url)
-     .then((response) => response.json())
-     .then((data) => {
-        console.log(data)
-        setStudents(data);
-        setLoading(false);
-      });
-  },[])
 
   function handleClick(){
     navigate('/parents_dashboard/my_kids/:id')
   }
 
-
+console.log(parent)
   
   return (
     <div className="px-4 sm:px-6 lg:px-8">
