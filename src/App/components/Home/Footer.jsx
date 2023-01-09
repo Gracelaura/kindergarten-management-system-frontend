@@ -4,7 +4,7 @@ function Footer() {
 
 
 
-<div class="border-t border-solid bg-[#B124A3] mt-2 py-2">
+<div class="border-t border-solid bg-[#B124A3] mt-4 py-2">
 <div class=" px-4 mx-auto">
 
   <div class="md:flex md:-mx-4 md:items-center">
