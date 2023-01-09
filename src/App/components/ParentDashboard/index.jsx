@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useEffect } from "react";
+import axios from "axios";
 import { Fragment, useState } from "react";
 import { Dialog, Transition } from "@headlessui/react";
+import ParentContext from "../ParentContext";
 import { Link } from "react-router-dom";
 import {
   Bars3Icon,
@@ -44,8 +46,30 @@ function classNames(...classes) {
 
 export default function ParentDashboard() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
+const [parent,setParent] = useState({})
+// context
 
+const token = localStorage.getItem("jwt")
+const parentId = localStorage.getItem("parent");
+
+
+const config = {
+  headers:{
+  "content-type": "application/json",
+   Authorization: `Bearer ${token}` 
+  }
+}
+
+const url = `http://localhost:3000/parents/${parentId}`
+
+useEffect(()=>{
+axios.get(url, config)
+.then(data => setParent(data.data))
+
+},[])
+console.log(parent)
   return (
+    <ParentContext.Provider value={{parent:parent}}>
     <div className="flex h-screen">
       <Transition.Root show={sidebarOpen} as={Fragment}>
         <Dialog
@@ -224,5 +248,6 @@ export default function ParentDashboard() {
         </div>
       </div>
     </div>
+    </ParentContext.Provider>
   );
 }
