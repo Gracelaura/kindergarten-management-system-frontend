@@ -4,7 +4,7 @@ import { Dialog, Transition } from "@headlessui/react";
 import { Link } from "react-router-dom";
 import {
   Bars3Icon,
-  CalendarIcon,
+  // CalendarIcon,
   HomeIcon,
   UserGroupIcon,
   XMarkIcon,
