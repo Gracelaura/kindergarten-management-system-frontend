@@ -18,7 +18,7 @@ import ParentSignup from "./components/ParentSignup";
 import Welcome from "./components/ParentDashboard/Welcome";
 import SingleAttendance from "./components/Dashboard/Attendance/SingleAttendance";
 import { TeacherContextProvider } from "./components/Context/teacher-context";
-import KidAttendance from "./components/ParentDashboard/KidAttendance"
+
 
 function App() {
   return (
@@ -48,7 +48,7 @@ function App() {
             <Route index element={<MyKids />} />
             <Route path=":id" element={<SingleKid />} />
           </Route>
-          <Route path="attendance" element={<KidAttendance/>} />
+         
          
         </Route>
       </Routes>

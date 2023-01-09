@@ -4,7 +4,7 @@ import { Dialog, Transition } from "@headlessui/react";
 import { Link } from "react-router-dom";
 import {
   Bars3Icon,
-  CalendarIcon,
+  // CalendarIcon,
   HomeIcon,
   UserGroupIcon,
   XMarkIcon,
@@ -33,12 +33,7 @@ const navigation = [
     icon: UserGroupIcon,
     current: false,
   },
-  {
-    name: "Attendance",
-    href: "/parents_dashboard/attendance",
-    icon: CalendarIcon,
-    current: false,
-  },
+
   
 
 ];
