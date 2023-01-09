@@ -41,14 +41,14 @@ export default function MyKids() {
             A list of the Kid List in your account including their name, Admission number and Class.
           </p>
         </div>
-        <div className="mt-4 sm:mt-0 sm:ml-16 sm:flex-none">
+        {/* <div className="mt-4 sm:mt-0 sm:ml-16 sm:flex-none">
           <button
             type="button"
             className="inline-flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 sm:w-auto"
           >
             Add Kid
           </button>
-        </div>
+        </div> */}
       </div>
       {loading ? <p className="mt-5 text-5xl text-center">Loading Children....</p> :  <div className="mt-8 flex flex-col">
         <div className="-my-2 -mx-4 sm:-mx-6 lg:-mx-8">
