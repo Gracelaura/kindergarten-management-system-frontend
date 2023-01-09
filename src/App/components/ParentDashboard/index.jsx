@@ -33,12 +33,7 @@ const navigation = [
     icon: UserGroupIcon,
     current: false,
   },
-  {
-    name: "Attendance",
-    href: "/parents_dashboard/attendance",
-    icon: CalendarIcon,
-    current: false,
-  },
+
   
 
 ];

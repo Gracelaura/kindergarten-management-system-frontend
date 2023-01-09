@@ -13,7 +13,7 @@ export default function MyKids() {
   const [students, setStudents] = useState([]);
   const navigate=useNavigate()
 
-  const  url = 'https://63ac46de34c46cd7ae7cdc8b.mockapi.io/studentList'
+  const  url = ''
 
   useEffect(() => {
     setLoading(true)
