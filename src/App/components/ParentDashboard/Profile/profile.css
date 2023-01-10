@@ -25,11 +25,3 @@
     flex-direction: column;
     width: 50vh;
 }
-
-.profile-form input {
-  margin: 50px 0;
-  font-size: 20px;
-  padding: 45px 65px;
-  border-radius: 5px;
-  background-color: #EAC7C7;
-}
