@@ -20,19 +20,19 @@ import { Outlet } from "react-router-dom";
 const navigation = [
   {
     name: "Dashboard",
-    href: "/parents_dashboard",
+    href: "/parent_dashboard",
     icon: HomeIcon,
     current: true,
   },
   {
     name: "My Kids",
-    href: "/parents_dashboard/my_kids",
+    href: "/parent_dashboard/my_kids",
     icon: ListBulletIcon,
     current: false,
   },
   {
     name: "Profile",
-    href: "/parents_dashboard/profile",
+    href: "/parent_dashboard/profile",
     icon: UserGroupIcon,
     current: false,
   },

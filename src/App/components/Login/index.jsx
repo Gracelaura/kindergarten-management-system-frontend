@@ -2,6 +2,7 @@ import React, { useContext } from 'react'
 import { useForm } from 'react-hook-form';
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from 'react';
+import Nav from "../Home/Nav.jsx"
 import { TeacherContext } from '../Context/teacher-context';
 function Login() {
   const {onSubmit} = useContext(TeacherContext)
@@ -9,7 +10,9 @@ function Login() {
 
   const {register, handleSubmit} = useForm()
   return (
-    <div><div className="container">
+    <div className="w-screen h-screen">
+      <Nav/>
+      <div >
     <div className="main-container">
         <div className="card-one">
           <div className="sub-card">

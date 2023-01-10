@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useForm } from 'react-hook-form';
 import "./ParentSignup.css";
+import Nav from "../Home/Nav"
+
 function ParentSignup({ onLogin}) {
   const [parent, setParent] = useState([])
   const {register, handleSubmit} = useForm()
@@ -38,7 +40,8 @@ function ParentSignup({ onLogin}) {
 
   
   return (
-  <div className="container">
+  <div className=" w-screen h-screen">
+       <Nav/>
   <div className="main-container">
       <div className="card-one">
         <div className="sub-card">

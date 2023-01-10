@@ -42,7 +42,7 @@ function App() {
           <Route path="parents" element={<Parents />} />
           <Route path="profile" element={<Profile />} />
         </Route>
-        <Route path="parents_dashboard" element={<ParentDashboard />}>
+        <Route path="parent_dashboard" element={<ParentDashboard />}>
           <Route path="" element={<Welcome/>} />
           <Route path="profile" element={<ProfileP/>} />
           <Route path="my_kids">
