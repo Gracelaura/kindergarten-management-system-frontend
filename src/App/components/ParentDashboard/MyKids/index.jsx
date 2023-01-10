@@ -14,12 +14,10 @@ const {parent} = useContext(ParentContext)
   const navigate=useNavigate()
 
 
-  function handleClick(){
-    navigate('/parents_dashboard/my_kids/:id')
-  }
 const parent_data = localStorage.getItem("parent_data")
 
  const list =  JSON.parse(parent_data)
+ 
   return (
     <div className="px-4 sm:px-6 lg:px-8">
       <div className="sm:flex sm:items-center">
