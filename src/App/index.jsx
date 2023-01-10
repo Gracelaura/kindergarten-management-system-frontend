@@ -10,6 +10,7 @@ import Discipline from "./components/Dashboard/Discipline";
 import Classes from "./components/Dashboard/Classes";
 import Parents from "./components/Dashboard/Parents";
 import Profile from "./components/Dashboard/Profile";
+import ProfileP from "./components/ParentDashboard/Profile"
 import ParentDashboard from "./components/ParentDashboard";
 import MyKids from "./components/ParentDashboard/MyKids";
 import SingleKid from "./components/ParentDashboard/MyKids/SingleKid";
@@ -43,7 +44,7 @@ function App() {
         </Route>
         <Route path="parents_dashboard" element={<ParentDashboard />}>
           <Route path="" element={<Welcome/>} />
-          <Route path="profile" element={<Profile/>} />
+          <Route path="profile" element={<ProfileP/>} />
           <Route path="my_kids">
             <Route index element={<MyKids />} />
             <Route path=":id" element={<SingleKid />} />
