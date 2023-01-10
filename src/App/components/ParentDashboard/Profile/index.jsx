@@ -1,7 +1,8 @@
 import React from 'react'
-import './profile.css'
 
 function Profile() {
+  const parent = localStorage.getItem('parent')
+  console.log(JSON.parse(parent))
   return (
   <div className='bg-pink-50 h-full '>
     <div className='text-pink-600 text-xl text-center p-5'>PARENTS PROFILE.</div>

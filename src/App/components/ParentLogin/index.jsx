@@ -25,7 +25,7 @@ function ParentLogin() {
         console.log(res.jwt)
         navigate("/parents_dashboard")
         localStorage.setItem("jwt", res.jwt)
-        localStorage.setItem("parent", `${res.parent.id}`)
+        localStorage.setItem("parent", `${res.parent}`)
       })
     }else{
       res.json().then((error)=> alert(error.errors))
