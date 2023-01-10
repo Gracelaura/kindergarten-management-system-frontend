@@ -32,12 +32,9 @@ function ParentLogin() {
     }
   })
   }
-
-  const token = localStorage.getItem("jwt")
-  const parent = localStorage.getItem("parent")
   return (
     
-    <div className="container">
+    <div className="flex items-center justify-center">
     <div className="main-container">
         <div className="card-one">
           <div className="sub-card">
