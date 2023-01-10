@@ -1,5 +1,5 @@
 .profile {
-    border: 4px solid #1a0c13;
+    /* border: 4px solid #1a0c13; */
     border-radius: 10px;
     width: 70%;
     display: flex;
@@ -8,8 +8,7 @@
     margin: 100px auto;
     align-items: center;
     padding-top: 30px;
-    background-color: #B124A3;
-    background-image: url("/home/moringa/Development/code/phase5/kindergarten-management-system-frontend/src/App/components/ParentDashboard/Profile/assets/parent with kids2.png");
+    background-color: #4a2246;
     background-repeat: no-repeat;
     background-size: cover;
 } 
