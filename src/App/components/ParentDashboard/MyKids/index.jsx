@@ -13,10 +13,6 @@ const {parent} = useContext(ParentContext)
   const [students, setStudents] = useState([]);
   const navigate=useNavigate()
 
-
-  function handleClick(){
-    navigate('/parents_dashboard/my_kids/:id')
-  }
 const parent_data = localStorage.getItem("parent_data")
 
  const list =  JSON.parse(parent_data)
