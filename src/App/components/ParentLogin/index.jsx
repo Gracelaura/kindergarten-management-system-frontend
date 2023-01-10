@@ -39,7 +39,7 @@ function ParentLogin() {
       if (res.ok) {
         res.json().then((res) => {
           localStorage.setItem("jwt", res.jwt);
-          localStorage.setItem("parent", `${res.parent}`);
+          localStorage.setItem("parent", `${res.parent.id}`);
           return handleNotification();
         });
       } else {
@@ -51,14 +51,14 @@ function ParentLogin() {
     <div className="w-screen h-screen">
     <Nav />
       {" "}
-      
-      <div className="flex fixed items-center justify-center ">
-        
-        {modal ? (
-          <div className="fixed bg-pink-100 h-28 w-28 flex items-center">
-            hello there
+      {modal ? (
+          <div className=" bg-pink-200 text-center h-12 w-full rounded-md m-auto ">
+            Login Successful
           </div>
         ) : null}
+      <div className="flex fixed items-center justify-center ">
+        
+     
 
         {/* phone_number: "743564786",
         password: "765476", */}
