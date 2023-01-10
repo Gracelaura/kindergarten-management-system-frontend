@@ -52,7 +52,6 @@ const [parent,setParent] = useState({})
 const token = localStorage.getItem("jwt")
 const parentId = localStorage.getItem("parent");
 
-
 const config = {
   headers:{
   "content-type": "application/json",
@@ -64,10 +63,14 @@ const url = `http://localhost:3000/parents/${parentId}`
 
 useEffect(()=>{
 axios.get(url, config)
-.then(data => setParent(data.data))
+.then(data =>{
+  localStorage.setItem("parent_data",JSON.stringify(data))
+  setParent(data.data)
+}
+  )
 
 },[])
-console.log(parent)
+if(token){
   return (
     <ParentContext.Provider value={{parent:parent}}>
     <div className="flex h-screen">
@@ -250,4 +253,15 @@ console.log(parent)
     </div>
     </ParentContext.Provider>
   );
+}else{
+  return(<div className="flex flex-col content-center items-center text-4xl">
+    <h1 className="text-pink-600" >unauthorised access</h1>
+    <p>Please Signup or Login</p>
+    <div className="">
+      <button className="text-pink-600 outline outline-1 hover:bg-pink-600 hover:text-white px-3 m-2 rounded-md">Login</button>
+      <button className="text-pink-600 outline outline-1 hover:bg-pink-600 hover:text-white px-3 m-2 rounded-md">Signup</button>
+    </div>
+  </div>)
+}
+  
 }

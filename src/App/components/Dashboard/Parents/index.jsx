@@ -6,14 +6,20 @@ import { EyeIcon} from "@heroicons/react/24/solid";
 
 export default function Parents() {
   const [parents, setParents] = useState([]);
-  
+  const token = localStorage.getItem("logintoken")
   const navigate=useNavigate()
 
   const  url = 'http://127.0.0.1:3000/parents'
 
   useEffect(() => {
     
-    fetch(url)
+    fetch(url,{
+      method: "get",
+      headers: {
+        "content-type": "application/json",
+        Authorization: `Bearer ${token}`
+      }
+    })
      .then((response) => response.json())
      .then((data) => {
         console.log(data)
@@ -22,11 +28,6 @@ export default function Parents() {
       });
   }, [])
   
-  function handleClick(){
-    navigate('/parents_dashboard/my_kids/:id')
-  }
-
-
   return (
     <div className="px-4 sm:px-6 lg:px-8">
       <div className="sm:flex sm:items-center">
@@ -71,12 +72,7 @@ export default function Parents() {
                       <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{person.last_name}</td>
                       <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{person.phone_number}</td>
                       <td className="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
-                        
                       </td>
-                      <button onClick={handleClick}><span className="text-gray-00 hover:text-red-900 border border-gray-600 mx-8 rounded-[16px] px-3 h-10">
-                          <EyeIcon className="inline text-pink-900 h-5 mx-2"/>
-                          View<span className="sr-only">, {person.name}</span>
-                        </span></button> 
                     </tr>
                   ))}
                 </tbody>
