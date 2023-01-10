@@ -5,4 +5,12 @@
     border-radius: 60%;
   }
 
- 
+.input-fields{
+    height: 20px;
+    border-radius: 0.25rem;
+    background-color: #fcc; 
+    color: #f44336; 
+    text-align: center;
+    font-size: 2.5rem;
+  }
+  /* h-28 rounded-md bg-pink-200 text-pink-600 text-center text-4xl */
