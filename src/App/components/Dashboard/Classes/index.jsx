@@ -42,14 +42,18 @@ function Classes(){
   return (
     <div className="classes-page">
     <h1>Classes</h1>
+    <div className='sub-div'>
     {classes && classes.map(klass => (
       <div className="class-card" key={klass.id}>
-        <h2>{klass.name}</h2>
-        <p>Teacher: {klass.teacher.first_name} {klass.teacher.last_name}</p>
+        <div className="logo-div"><h2 className='header'>KD</h2></div>
+        <h2 className='header-2'>{klass.name}</h2>
+        <p>Tr: {klass.teacher.first_name} {klass.teacher.last_name}</p>
         <button className="button-5" type="submit" onClick={()=> {setModal(true)
            handleClick(klass.id)}} >See Students</button>
       </div>
+      
     ))}
+</div>
     {modal &&
     <Modal setModal={setModal} modalData={modalData}/>
 }
