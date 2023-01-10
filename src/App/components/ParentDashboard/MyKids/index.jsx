@@ -15,7 +15,7 @@ const {parent} = useContext(ParentContext)
 
 const parent_data = localStorage.getItem("parent_data")
 
- const list =  JSON.parse(parent_data)
+ const list = JSON.parse(parent_data)
   return (
     <div className="px-4 sm:px-6 lg:px-8">
       <div className="sm:flex sm:items-center">
@@ -71,7 +71,7 @@ const parent_data = localStorage.getItem("parent_data")
                 </thead>
                 <tbody className="bg-white">
                   {list.data.students.map((person, personIdx) => (
-                  <tr key={person.admission_number}>
+                  <tr key={personIdx}>
                       <td
                         className={classNames(
                           personIdx !== students.length - 1 ? 'border-b border-gray-200' : '',

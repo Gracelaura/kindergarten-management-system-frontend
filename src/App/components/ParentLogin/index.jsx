@@ -10,7 +10,6 @@ function ParentLogin() {
   const [login, setLogin] = useState([])
   
   function onSubmit(data){
-    console.log(data)
     fetch("http://127.0.0.1:3000/parent_login", {
       method: "POST",
       headers: {
@@ -22,10 +21,10 @@ function ParentLogin() {
     res.json().then((res) => 
       {
         setLogin(res)
-        console.log(res.jwt)
-        navigate("/parents_dashboard")
         localStorage.setItem("jwt", res.jwt)
-        localStorage.setItem("parent", `${res.parent}`)
+        localStorage.setItem("parent", `${res.parent.id}`)
+        navigate("/parents_dashboard")
+        console.log(res)
       })
     }else{
       res.json().then((error)=> alert(error.errors))
