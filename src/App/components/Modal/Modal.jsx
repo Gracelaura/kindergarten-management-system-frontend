@@ -19,7 +19,7 @@ function Modal({setModal, modalData}) {
     </div>
     </div>
     ))}
-    <button className='button-6'onClick={()=>setModal(false)} >Back</button>
+    <button className='button-6 animate-bounce'onClick={()=>setModal(false)} >Back</button>
     </div>
   
   )

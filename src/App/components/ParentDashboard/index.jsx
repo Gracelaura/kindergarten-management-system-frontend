@@ -3,7 +3,7 @@ import axios from "axios";
 import { Fragment, useState } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import ParentContext from "../ParentContext";
-import { Link } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import Logo from "../Home/assets/pre-logo.png";
 import {
   Bars3Icon,
@@ -49,9 +49,15 @@ export default function ParentDashboard() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
 const [parent,setParent] = useState({})
 // context
-
+const navigate = useNavigate()
 const token = localStorage.getItem("jwt")
 const parentId = localStorage.getItem("parent");
+
+
+function handleLogout() {
+  localStorage.clear()
+  Navigate("/parent_login")
+}
 
 const config = {
   headers:{
@@ -212,7 +218,7 @@ if(token){
                   ))}
                 </div>
                 <div className="mt-5 flex justify-start pl-12" aria-label="Sidebar ">
-                  <button className="border p-2 px-4 rounded">Logout</button>
+                  <button onClick={()=>handleLogout()} className="border p-2 px-4 rounded">Logout</button>
                 </div>
               </nav>
             </div>
@@ -265,7 +271,7 @@ if(token){
                                 Looks like you're lost
                             </h1>
                             <p class="my-2 text-gray-800">Sorry about that! Please visit our hompage to get where you need to go.</p>
-                            <button class="sm:w-full lg:w-auto my-2 border rounded md py-4 px-8 text-center bg-[#B124A3] text-white hover:bg-[#B124A3] focus:outline-none focus:ring-2 focus:ring-[#B124A3] focus:ring-opacity-50">Return to Home!</button>
+                            <button onClick={()=>navigate("/")} class="sm:w-full lg:w-auto my-2 border rounded md py-4 px-8 text-center bg-[#B124A3] text-white hover:bg-[#B124A3] focus:outline-none focus:ring-2 focus:ring-[#B124A3] focus:ring-opacity-50">Return to Home!</button>
                         </div>
                     </div>
                     <div>
