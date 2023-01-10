@@ -76,7 +76,7 @@ function handleAbsent(e,k) {
   });
 
   return (
-    <div className="w-4/5 m-auto bg-slate-50">
+    <div className="w-4/5 m-auto bg-slate-50 ">
       <button
         onClick={takeAttendance}
         className="rounded-md shadow-md h-10 outline outline-1 text-pink-500 mt-4 mr-4 px-2 sm:float-right hover:text-white hover:bg-pink-500">
