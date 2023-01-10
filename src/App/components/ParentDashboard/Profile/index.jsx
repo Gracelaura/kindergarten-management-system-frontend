@@ -1,8 +1,9 @@
 import React from 'react'
 
 function Profile() {
-  const parent = localStorage.getItem('parent')
-  // console.log(JSON.parse(parent))
+  
+  const parent = localStorage.getItem("parent_data")
+let list = JSON.parse(parent)
   return (
   <div className='bg-pink-50 h-full '>
     <div className='text-pink-600 text-xl text-center p-5'>PARENTS PROFILE.</div>
@@ -22,19 +23,19 @@ Edit
           <input className="h-28 rounded-md bg-pink-200 text-pink-600 text-center text-4xl"
             type='text'
             name='FirstName'
-            value='Grace'
+            value={list.data.first_name}
           />
           <input
           className="h-28 rounded-md bg-pink-200 text-pink-600 text-center text-4xl"
             type='text'
             name='LastName'
-            value='Njuguna'
+            value={list.data.last_name}
           />
           <input
           className="h-28 rounded-md bg-pink-200 text-pink-600 text-center text-4xl"
             type='number'
             name='phonenumber'
-            value= "079398373334"
+            value={list.data.phone_number}
           /> 
       </form>
     </div>
