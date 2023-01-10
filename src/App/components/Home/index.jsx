@@ -7,6 +7,7 @@ import Footer from "../Home/Footer";
 function Home() {
   return (
     <div class="">
+      {/* pages */}
       <Nav />
       <Homepage />
       <Reviews />

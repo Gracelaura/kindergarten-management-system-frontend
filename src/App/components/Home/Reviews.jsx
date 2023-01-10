@@ -16,7 +16,7 @@ function Reviews() {
           <p class="leading-relaxed mb-1 text-sm">Kinderjoy prep student information system (SIS), is
                   comprehensive, Web-based with real-time access to
                   administration,communication, curriculum, reporting and more.</p>
-          <a class="inline-flex items-center">
+          <a class="inline-flex items-center ">
             {/* <img alt="testimonial" src="https://dummyimage.com/106x106" class="w-12 h-12 rounded-full flex-shrink-0 object-cover object-center"> */}
             <span class="flex-grow flex flex-col pl-4">
               <span class="title-font font-medium text-[#B124A3]">Grace Njuguna</span>
