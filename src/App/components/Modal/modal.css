@@ -7,12 +7,16 @@
     background-color: rgba(0,0,0,0.5);
     display: flex;
     align-items: center;
+    flex-direction: column;
     justify-content: center;
+    justify-content: space-around;
 }
 
 .modal-content{
     width: 500px;
     background-color: #fff;
+    text-align: center;
+    border-radius: 15px;
 }
 
 .modal-header, .modal-footer{
@@ -20,7 +24,7 @@
 }
 
 .modal-title{
-    margin: 0;
+    margin: 10px;
 }
 
 .modal-body{
