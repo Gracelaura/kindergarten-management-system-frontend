@@ -1,4 +1,3 @@
-import { EyeIcon, EyeSlashIcon, PencilIcon, TrashIcon } from "@heroicons/react/24/solid";
 import { useContext, useEffect, useState } from "react"
 import { Link, useNavigate } from "react-router-dom";
 import ParentContext from "../../ParentContext";
@@ -11,7 +10,6 @@ export default function MyKids() {
 const {parent} = useContext(ParentContext)
   const [loading, setLoading] = useState(false);
   const [students, setStudents] = useState([]);
-  const navigate=useNavigate()
 
 
 const parent_data = localStorage.getItem("parent_data")
@@ -27,14 +25,14 @@ const parent_data = localStorage.getItem("parent_data")
             Click View row to view more details.
           </p>
         </div>
-        <div className="mt-4 sm:mt-0 sm:ml-16 sm:flex-none">
+        {/* <div className="mt-4 sm:mt-0 sm:ml-16 sm:flex-none">
           <button
             type="button"
             className="inline-flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 sm:w-auto"
           >
             Add Kid
           </button>
-        </div>
+        </div> */}
       </div>
       {loading ? <p className="mt-5 text-5xl text-center">Loading Children....</p> :  <div className="mt-8 flex flex-col">
         <div className="-my-2 -mx-4 sm:-mx-6 lg:-mx-8">
@@ -72,8 +70,9 @@ const parent_data = localStorage.getItem("parent_data")
                   </tr>
                 </thead>
                 <tbody className="bg-white">
-                  {list.data.students.map((person, personIdx) => (
-                  <tr key={person.admission_number}>
+                {console.log(parent.students)}
+                  {parent.students.map((person, personIdx) => (
+                    <tr key={personIdx}>
                       <td
                         className={classNames(
                           personIdx !== students.length - 1 ? 'border-b border-gray-200' : '',
