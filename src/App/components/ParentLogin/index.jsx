@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 import { Link, Navigate, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import Nav from "../Home/Nav";
+import kid from './kids.svg'
 
 function ParentLogin() {
   const navigate = useNavigate();
@@ -48,8 +49,9 @@ function ParentLogin() {
     });
   }
   return (
-    <div className="w-screen h-screen">
+    <div className=" main w-screen h-screen">
     <Nav />
+    <hr className="border border-1"></hr>
       {" "}
       {modal ? (
           <div className=" bg-pink-200 text-center h-12 w-full rounded-md m-auto ">
@@ -65,9 +67,9 @@ function ParentLogin() {
 
         <div className="main-container">
           <div className="card-one sm:block">
-            <div className="sub-card">
+            <div className="sub-card ">
               <img
-                src="https://i.ibb.co/QQrkZHb/Screenshot-2023-01-02-at-23-23-28.png"
+                src={kid}
                 alt="image"></img>
             </div>
             <h2 className="text text-pink-500">Kinderjoy Parent</h2>
@@ -78,7 +80,7 @@ function ParentLogin() {
               </Link>
             </h2>
           </div>
-          <div className="card-two bg-gradient-to-r from-pink-100 to-transparent border">
+          <div className="card-two  border">
             <div className="img-div">
               <img
                 src="https://i.ibb.co/qDhqYnx/Screenshot-2023-01-02-at-23-26-59.png"
