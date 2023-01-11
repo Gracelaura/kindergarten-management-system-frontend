@@ -1,6 +1,7 @@
 import { EyeIcon, EyeSlashIcon, PencilIcon, TrashIcon } from "@heroicons/react/24/solid";
 import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom";
+import StudentModal from "../../Modal/StudentModal";
 
 
 function classNames(...classes) {
@@ -8,16 +9,22 @@ function classNames(...classes) {
 }
 
 export default function MyKids() {
-
+  const [singleKidData, setSingleKidData] = useState()
+  const [singleKid, setSingleKid] = useState(false)
   const [loading, setLoading] = useState(false);
   const [students, setStudents] = useState([]);
-  const navigate=useNavigate()
+ 
 
   const  url = 'http://localhost:3000/students'
-
+  const token = localStorage.getItem("teacherToken")
   useEffect(() => {
     setLoading(true)
-    fetch(url)
+    fetch(url,{
+      headers:{
+        "Content-Type" : "application/json",
+        Authorization : `Bearer ${token}`
+      }
+    })
      .then((response) => response.json())
      .then((data) => {
         console.log(data)
@@ -26,10 +33,21 @@ export default function MyKids() {
       });
   },[])
 
-  function handleClick(){
-    navigate('/parents_dashboard/my_kids/:id')
+  function fetchSingleKid(id){
+    console.log(id)
+    fetch(`http://localhost:3000/students/${id}`,{
+      headers:{
+      "Content-Type" : "appliction/json",
+      Authorization : `Bearer ${token}`
+      }
+    }).then(res => res.json())
+    .then((res) => setSingleKidData((res)))
   }
+  // const iterableData = singleKidData.map((item) => ({[item]: singleKidData[item]}))
+   console.log(singleKidData)
 
+
+  // const arrayOfObjs = Object.keys(obj).map((key) => ({[key]: obj[key]}))
 
   
   return (
@@ -123,7 +141,8 @@ export default function MyKids() {
                           'relative whitespace-nowrap py-4 pr-4 pl-3 text-right text-sm font-medium sm:pr-6 lg:pr-8'
                         )}
                       >
-                       <button onClick={handleClick}><span className="text-gray-00 hover:text-red-900 border border-gray-600 mx-5 rounded-[16px] p-3">
+                       <button onClick={()=> {setSingleKid(true) 
+                        fetchSingleKid(person.id)}}><span className="text-gray-00 hover:text-red-900 border border-gray-600 mx-5 rounded-[16px] p-3">
                           <EyeIcon className="inline text-pink-900 h-5 mx-2"/>
                           View<span className="sr-only">, {person.name}</span>
                         </span></button> 
@@ -145,7 +164,7 @@ export default function MyKids() {
         </div>
       </div>
       }
-     
+     {singleKid && <StudentModal setSingleKid={setSingleKid} singleKidData={singleKidData}/>}
     </div>
   )
 }
