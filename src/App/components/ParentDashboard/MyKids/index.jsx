@@ -1,4 +1,3 @@
-import { EyeIcon, } from "@heroicons/react/24/solid";
 import { useContext, useEffect, useState } from "react"
 import { Link, useNavigate } from "react-router-dom";
 import ParentContext from "../../ParentContext";
@@ -11,7 +10,6 @@ export default function MyKids() {
 const {parent} = useContext(ParentContext)
   const [loading, setLoading] = useState(false);
   const [students, setStudents] = useState([]);
-  const navigate=useNavigate()
 
 
 const parent_data = localStorage.getItem("parent_data")
@@ -72,6 +70,7 @@ const parent_data = localStorage.getItem("parent_data")
                   </tr>
                 </thead>
                 <tbody className="bg-white">
+                {console.log(parent.students)}
                   {parent.students.map((person, personIdx) => (
                     <tr key={personIdx}>
                       <td
@@ -88,7 +87,7 @@ const parent_data = localStorage.getItem("parent_data")
                           'whitespace-nowrap px-3 py-4 text-center text-gray-500 hidden lg:table-cell'
                         )}
                       >
-                        {/* {person.first_name} */}
+                        {person.first_name}
                       </td>
                       <td
                         className={classNames(
@@ -96,7 +95,7 @@ const parent_data = localStorage.getItem("parent_data")
                           'whitespace-nowrap px-3 py-4 text-center text-gray-500'
                         )}
                       >
-                        {/* {person.second_name} */}
+                        {person.second_name}
                       </td>
                       <td
                         className={classNames(

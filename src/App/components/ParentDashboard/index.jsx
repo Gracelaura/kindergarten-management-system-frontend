@@ -3,7 +3,8 @@ import axios from "axios";
 import { Fragment, useState } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import ParentContext from "../ParentContext";
-import { Link, Navigate, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import Logo from "../Home/assets/pre-logo.png";
 import {
   Bars3Icon,
   // CalendarIcon,
@@ -170,14 +171,14 @@ export default function ParentDashboard() {
               {/* Sidebar component, swap this element with another sidebar if you like */}
               <div className="flex min-h-0 flex-1 flex-col border-r border-gray-200 bg-gray-100">
                 <div className="flex flex-1 flex-col overflow-y-auto pt-5 pb-4">
-                  {/* <div className="flex flex-shrink-0 items-center px-4">
+                  <div className="flex flex-shrink-0 items-center px-4">
                   <img
-                    className="h-8 w-auto"
-                    src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
+                    className="h-20 w-auto"
+                    src={Logo}
                     alt="Your Company"
                   />
-                </div> */}
-                  <nav className="mt-5 flex-1" aria-label="Sidebar">
+                </div>
+                  <nav className="mt-5 flex justify-between h-full flex-col" aria-label="Sidebar">
                     <div className="space-y-1 px-2">
                       {navigation.map((item) => (
                         <Link
@@ -272,14 +273,14 @@ export default function ParentDashboard() {
               </div>
             </div>
             <div>
-              <img src="https://i.ibb.co/G9DC8S0/404-2.png" />
+              <img src="https://i.ibb.co/G9DC8S0/404-2.png" alt="logo"/>
             </div>
           </div>
         </div>
         <div>
           {/* login sign up */}
           <div>
-            <img src="https://media.tenor.com/6rGhXJSw7A8AAAAi/funder-the-sea-octopus.gif" />
+            <img src="https://media.tenor.com/6rGhXJSw7A8AAAAi/funder-the-sea-octopus.gif" alt="gif"/>
           </div>
 
           {/* login sign up */}
