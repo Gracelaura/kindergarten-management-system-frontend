@@ -67,9 +67,9 @@ axios.get(url, config)
 .then(data => setParent(data.data))
 
 },[])
-console.log(parent)
+
   return (
-    <ParentContext.Provider value={{parent:parent}}>
+    <ParentContext.Provider value={{parent: parent}}>
     <div className="flex h-screen">
       <Transition.Root show={sidebarOpen} as={Fragment}>
         <Dialog

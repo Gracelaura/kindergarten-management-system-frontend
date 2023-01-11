@@ -1,4 +1,4 @@
-import { EyeIcon, EyeSlashIcon, PencilIcon, TrashIcon } from "@heroicons/react/24/solid";
+import { EyeIcon, } from "@heroicons/react/24/solid";
 import { useContext, useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom";
 import ParentContext from "../../ParentContext";
@@ -18,7 +18,7 @@ const {parent} = useContext(ParentContext)
     navigate('/parents_dashboard/my_kids/:id')
   }
 
-console.log(parent)
+console.log(parent.students)
   
   return (
     <div className="px-4 sm:px-6 lg:px-8">
@@ -85,15 +85,15 @@ console.log(parent)
                   </tr>
                 </thead>
                 <tbody className="bg-white">
-                  {students.map((person, personIdx) => (
-                    <tr key={person.email}>
+                  {parent.students.map((person, personIdx) => (
+                    <tr key={personIdx}>
                       <td
                         className={classNames(
                           personIdx !== students.length - 1 ? 'border-b border-gray-200' : '',
                           'whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6 lg:pl-8'
                         )}
                       >
-                        {person.name}
+                        {person.admission_number}
                       </td>
                       <td
                         className={classNames(
@@ -101,7 +101,7 @@ console.log(parent)
                           'whitespace-nowrap px-3 py-4 text-sm text-gray-500 hidden lg:table-cell'
                         )}
                       >
-                        {person.class}
+                        {/* {person.class} */}
                       </td>
                       <td
                         className={classNames(
@@ -109,7 +109,7 @@ console.log(parent)
                           'whitespace-nowrap px-3 py-4 text-sm text-gray-500'
                         )}
                       >
-                        {person.parentContact}
+                        {/* {person.parentContact} */}
                       </td>
                       <td
                         className={classNames(
@@ -119,7 +119,7 @@ console.log(parent)
                       >
                        <button onClick={handleClick}><span className="text-gray-00 hover:text-red-900 border border-gray-600 mx-5 rounded-[16px] p-3">
                           <EyeIcon className="inline text-pink-900 h-5 mx-2"/>
-                          View<span className="sr-only">, {person.name}</span>
+                          View<span className="sr-only">,</span>
                         </span></button> 
                         {/* <span className="text-gray-00 hover:text-red-900 border border-gray-600 mx-5 rounded-[16px] p-3">
                           <PencilIcon className="inline text-indigo-900 h-5 mx-2"/>
