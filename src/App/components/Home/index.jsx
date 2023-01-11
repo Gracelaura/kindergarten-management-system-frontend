@@ -1,13 +1,19 @@
-import React from 'react'
+import React from "react";
+import Nav from "../Home/Nav";
+import Homepage from "./Homepage";
+import Reviews from "../Home/Reviews";
+import Footer from "../Home/Footer";
 
 function Home() {
   return (
-    <div className=''>
-        <div className='bg-slate-500 h-11'>one</div>
-        <div className='bg-yellow-300 h-11'>two</div>
-        <div className='bg-black h-11'>three</div>
+    <div class="">
+      {/* pages */}
+      <Nav />
+      <Homepage />
+      <Reviews />
+      <Footer />
     </div>
-  )
+  );
 }
 
 export default Home;

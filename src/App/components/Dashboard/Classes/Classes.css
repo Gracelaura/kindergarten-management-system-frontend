@@ -1,7 +1,8 @@
 .classes-page {
-    display: flex;
-    flex-direction: column;
     align-items: center;
+    gap: 100px;
+    text-align: center;
+    margin-top: 100px;
   }
   
   .class-card {
@@ -12,15 +13,84 @@
     border-radius: 4px;
     padding: 20px;
     margin: 20px 0;
-    width: 500px;
+    width: 20%;
+    height: 20%;
+    border-radius: 10px;
   }
   
-  .class-card h2 {
-    font-size: 24px;
+  .header-2 {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+    color: #70708C;
     margin: 10px 0;
   }
   
   .class-card p {
-    font-size: 18px;
-    margin: 5px 0;
+font-weight: 500;
+font-size: 15px;
+line-height: 18px;
+padding: 10px;
+color: #292968;
+
+  }
+
+  .button-5 {
+    background-color: 
+    #B124A3;
+    border-radius: 8px;
+    border-style: none;
+    box-sizing: border-box;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline-block;
+    font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    height: 40px;
+    line-height: 20px;
+    list-style: none;
+    margin: 0;
+    outline: none;
+    padding: 10px 16px;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    transition: color 100ms;
+    vertical-align: baseline;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+  
+  }
+
+  .logo-div{
+    width: 55px;
+    height: 55px;
+    background: #B124A3;
+    border-radius: 10px;
+    text-align: center;
+    align-self: flex-start;
+    
+  }
+
+  .header{
+    align-self: center;
+    color: #FFFFFF;
+    margin-top: 15px;
+  }
+
+  .classes-page h1 {
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 50px;
+    letter-spacing: 0.2px;
+    color: #B124A3;
+  }
+
+  .sub-div{
+    display: flex;
+    width: 100%;
+    gap: 100px;
+    justify-content: center;
   }

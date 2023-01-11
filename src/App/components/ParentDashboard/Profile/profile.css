@@ -1,0 +1,35 @@
+.profile {
+    border: 4px solid #1a0c13;
+    border-radius: 10px;
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 100px auto;
+    align-items: center;
+    padding-top: 30px;
+    background-color: #B124A3;
+    /* background-image: url("/home/moringa/Development/code/phase5/kindergarten-management-system-frontend/src/App/components/ParentDashboard/Profile/assets/parent with kids2.png"); */
+    background-repeat: no-repeat;
+    background-size: cover;
+} 
+
+.profile h1{
+    font-size: 25px;
+    font-family: "Montserrat";
+    font-weight: 700;
+}
+
+.profile-form{
+    display: flex;
+    flex-direction: column;
+    width: 50vh;
+}
+
+.profile-form input {
+  margin: 50px 0;
+  font-size: 20px;
+  padding: 45px 65px;
+  border-radius: 5px;
+  background-color: #EAC7C7;
+}

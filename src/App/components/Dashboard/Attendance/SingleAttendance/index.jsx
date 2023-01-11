@@ -5,10 +5,16 @@ import { useParams } from "react-router-dom";
 function SingleAttendance() {
   const [dayAttendance, setDayAttendance] = useState([]);
   const { date } = useParams();
-
+  const token = localStorage.getItem("jwt")
+  const config = {
+    headers:{
+    "content-type": "application/json",
+     Authorization: `Bearer ${token}` 
+    }
+  }
   useEffect(() => {
     axios
-      .get("http://localhost:3000/attendances")
+      .get("http://localhost:3000/attendances",config)
       .then((res) =>
         setDayAttendance(res.data.filter((data) => data.date === date))
       );

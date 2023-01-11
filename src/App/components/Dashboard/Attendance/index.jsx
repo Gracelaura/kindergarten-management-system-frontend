@@ -6,15 +6,21 @@ function Attendance() {
   const [dates, setDates] = useState(null);
   const [modal, setModal] = useState(false);
   const [kid, setKid] = useState([]);
-
+  const token = localStorage.getItem("jwt")
+  const config = {
+    headers:{
+    "content-type": "application/json",
+     Authorization: `Bearer ${token}` 
+    }
+  }
   useEffect(() => {
     axios
-      .get("http://localhost:3000/attendances")
+      .get("http://localhost:3000/attendances",config)
       .then((res) => setAttend(res.data));
   }, []);
 
   useEffect(() => {
-    axios.get("http://localhost:3000/students").then((res) => setKid(res.data));
+    axios.get("http://localhost:3000/students",config).then((res) => setKid(res.data));
   }, []);
 
   function takeAttendance() {
@@ -41,7 +47,7 @@ function handlePresent(e,k) {
     status: e.target.innerText,
     date: myDate
   }
-  axios.post("http://localhost:3000/attendances",myData).then(res=>console.log(res))
+  axios.post("http://localhost:3000/attendances",config,myData).then(res=>console.log(res))
 e.target.parentElement.style.display = "none"
 
 }
@@ -57,7 +63,7 @@ function handleAbsent(e,k) {
     status: e.target.innerText,
     date: myDate
   }
-  axios.post("http://localhost:3000/attendances",myData).then(res=>console.log(res))
+  axios.post("http://localhost:3000/attendances",config,myData).then(res=>console.log(res))
   return e.target.parentElement.style.display = "none"
   }
 
@@ -76,7 +82,7 @@ function handleAbsent(e,k) {
   });
 
   return (
-    <div className="w-4/5 m-auto bg-slate-50">
+    <div className="w-4/5 m-auto bg-slate-50 ">
       <button
         onClick={takeAttendance}
         className="rounded-md shadow-md h-10 outline outline-1 text-pink-500 mt-4 mr-4 px-2 sm:float-right hover:text-white hover:bg-pink-500">
