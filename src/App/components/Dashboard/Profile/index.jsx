@@ -23,6 +23,12 @@ function Profile() {
     // do something with formData
     console.log(formData);
   };
+
+  const teacherInfo= localStorage.getItem("teacherInfo");
+
+  const teacherDetails = JSON.parse(teacherInfo);
+  console.log('teacherDetails', teacherDetails)
+
   return (
     <div className="container" class='flex flex-col items-center'>
       <h1>Teacher's Profile</h1>
@@ -34,7 +40,7 @@ function Profile() {
           Name
         </label>
         <input
-          className="h-28 rounded-md bg-pink-200 text-pink-600 text-center text-4xl"
+          className="h-20 rounded-md bg-pink-200 text-pink-600 text-center text-4xl"
           type="text"
           name="name"
           id="name"
@@ -73,7 +79,7 @@ function Profile() {
           Email
         </label>
         <input
-          className="h-28 rounded-md bg-pink-200 text-pink-600 text-center text-4xl"
+          className="h-20 rounded-md bg-pink-200 text-pink-600 text-center text-4xl"
           type="email"
           name="email"
           id="email"
@@ -88,8 +94,8 @@ function Profile() {
             className="mr-2"
             type="radio"
             name="gender"
-            id="male"
-            value="male"
+            // id="male"
+            // value="male"
             onChange={handleInputChange}
             checked={formData.gender === "male"}
           />

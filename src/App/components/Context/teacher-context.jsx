@@ -21,7 +21,9 @@ export const TeacherContextProvider = (props) => {
            body: JSON.stringify(data),
          }).then((res)=>{
            if(res.ok){
-             res.json().then((teacher) =>{localStorage.setItem("teacherToken", teacher.jwt)
+             res.json().then((teacher) =>{
+              localStorage.setItem("teacherToken", teacher.jwt);
+              localStorage.setItem('teacherInfo', JSON.stringify(teacher.teacher));
               setLogin(teacher)
               navigate("/dashboard")})
            }else{
@@ -43,6 +45,7 @@ export const TeacherContextProvider = (props) => {
              res.json().then((data) =>{
              setTeacher(data)
              localStorage.setItem("teacherToken" ,data[1].token)
+             localStorage.setItem('teacherInfo', JSON.stringify(data[1].teacher))
              navigate("/dashboard") 
              })
            }else{
