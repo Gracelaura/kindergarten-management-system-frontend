@@ -1,7 +1,4 @@
 
-import { EyeIcon, EyeSlashIcon, PencilIcon, TrashIcon } from "@heroicons/react/24/solid";
-import { useEffect, useState } from "react"
-import { useNavigate } from "react-router-dom";
 import EditStudent from "../../Modal/EditStudent";
 import StudentModal from "../../Modal/StudentModal";
 
@@ -32,7 +29,7 @@ export default function MyKids() {
  
 
   const  url = 'http://localhost:3000/students'
-  const token = localStorage.getItem("teacherToken")
+  
   useEffect(() => {
     setLoading(true)
     fetch(url,{
@@ -80,7 +77,7 @@ function handleUpdate(data) {
   console.log(data)
 }
 
-  const [loading, setLoading] = useState(false);
+ 
   const [teacher, setTeacher] = useState({});
 
   const navigate = useNavigate();
@@ -216,14 +213,8 @@ function handleUpdate(data) {
                           <TrashIcon className="inline text-red-600 h-5 mx-2"/>
                           Delete<span className="sr-only">, {person.name}</span>
                         </button>
-                      </td>
-                    </tr>
-                          personIdx !== kidList.length - 1
-                            ? "border-b border-gray-200"
-                            : "",
-                          "whitespace-nowrap px-3 py-4 text-sm text-gray-500"
-                        )}>
-                        {person.surname}
+                      
+                
                       </div>
                       <div className="grid grid-cols-2">
                         <Link to={`${person.id}`}>
