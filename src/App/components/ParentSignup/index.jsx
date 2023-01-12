@@ -1,102 +1,113 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { useForm } from 'react-hook-form';
+import { useForm } from "react-hook-form";
 import "./ParentSignup.css";
-import Nav from "../Home/Nav"
+import Nav from "../Home/Nav";
 
-function ParentSignup({ onLogin}) {
-  const [parent, setParent] = useState([])
-  const {register, handleSubmit} = useForm()
+function ParentSignup() {
+  const [parent, setParent] = useState([]);
+  const [modal,setModal] = useState(false)
+  const { register, handleSubmit } = useForm();
   const [errors, setErrors] = useState([]);
   const navigate = useNavigate();
 
- 
-  
-  
-  
-  
+  function handleNotification() {
+setModal(true);
+handleClose()
+  }
 
-   function onSubmit(data) {
-   console.log(data)
+function handleClose(){
+  setTimeout(()=>{
+    setModal(false)
+    navigate("/parent_dashboard")
+  },3000)
+}
+
+  async function onSubmit(data) {
     setErrors([]);
-    fetch("http://127.0.0.1:3000/parents", {
+    await fetch("http://127.0.0.1:3000/parents", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(data),
-    }).then((res)=>{
-      if(res.ok){
-        res.json().then((data) => setParent(data), navigate("/parents_dashboard"), localStorage.setItem("jwt", data.jwt))
-      }else{
-        res.json().then((error)=> alert(error.errors))
+    }).then((res) => {
+      if (res.ok) {
+        res.json().then((data) => {
+          localStorage.setItem("jwt", data.jwt);
+          localStorage.setItem("parent", data.parent.id);
+          handleNotification()
+        })
+      } else {
+        res.json().then((error) => alert(error.errors));
       }
-    })
+    });
   }
-  
-  const token = localStorage.getItem("jwt")
-  console.log(token)
-  console.log(parent)
-
-  
   return (
-  <div className=" w-screen h-screen">
-       <Nav/>
-  <div className="main-container">
-      <div className="card-one">
-        <div className="sub-card">
-          <img src="https://i.ibb.co/rkY319L/Screenshot-2023-01-01-at-01-08-52.png" alt="image"></img>
+    <div className=" w-screen h-screen bg-[#B124A3]">
+      <Nav />
+      <hr className="border border-1"></hr>
+      <div className="main-container">
+        <div className="card-one">
+          <div className="sub-card">
+            <img
+              src="https://i.ibb.co/rkY319L/Screenshot-2023-01-01-at-01-08-52.png"
+              alt="image"></img>
+          </div>
+          <h2 className="text">Kinderjoy Parent</h2>
+          <h2 className="text2">
+            Already have an account?{" "}
+            <Link to="/parent_login" style={{ color: "#B124A3" }}>
+              Login Here
+            </Link>
+          </h2>
         </div>
-        <h2 className="text">Kinderjoy Parent</h2>
-        <h2 className="text2">Already have an account? <Link to="/parent_login" style={{ color: "#B124A3"}}>
-          Login Here
-        </Link>
-</h2>
-      </div>
-      <div className="card-two">
-        <h3>New Parent Registration</h3>
-        <form className="form" onSubmit={handleSubmit(onSubmit)} >
-        <input
-        id="first_name"
-        className="input"
-        type="text"
-        name="first_name"
-        placeholder="Enter your first name..."
-        {...register('first_name') }
-      />
-      <input
-        id="last_name"
-        className="input"
-        type="text"
-        name="last_name"
-        placeholder="Enter your last name..."
-        {...register('last_name') }
-      />
-      <input
-        id="phone_number"
-        className="input"
-        type="number"
-        name="phone_number"
-        placeholder="Enter your phone number..."
-        {...register('phone_number') }
-      />
-      <input
-        id="password"
-        className="input"
-        type="password"
-        name="password"
-        placeholder="Enter your password..."
-        {...register('password')}
-      />
-      <button className="button-1" type="submit">Register</button>
-    </form>
+        <div className="card-two">
+          <h3>New Parent Registration</h3>
+          <form className="form" onSubmit={handleSubmit(onSubmit)}>
+            {modal?<div className="h-10 text-pink-600 text-center bg-white rounded-md shadow-md">
+              Signup Succesfull
+            </div>:null}
+            <input
+              id="first_name"
+              className="input text-pink-600"
+              type="text"
+              name="first_name"
+              placeholder="Enter your first name..."
+              {...register("first_name")}
+            />
+            <input
+              id="last_name"
+              className="input  text-pink-600"
+              type="text"
+              name="last_name"
+              placeholder="Enter your last name..."
+              {...register("last_name")}
+            />
+            <input
+              id="phone_number"
+              className="input text-pink-600"
+              type="number"
+              name="phone_number"
+              placeholder="Enter your phone number..."
+              {...register("phone_number")}
+            />
+            <input
+              id="password"
+              className="input"
+              type="password"
+              name="password"
+              placeholder="Enter your password..."
+              {...register("password")}
+            />
+            <button className="button-1" type="submit">
+              Register
+            </button>
+          </form>
+        </div>
       </div>
     </div>
-    </div>
-    
-    
-  
-  )
+  );
 }
 
-export default ParentSignup
+export default ParentSignup;
