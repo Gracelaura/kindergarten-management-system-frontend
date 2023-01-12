@@ -49,7 +49,7 @@ function ParentLogin() {
     });
   }
   return (
-    <div className=" main w-screen h-screen">
+    <div className=" main w-screen h-screen bg-[#B124A3]">
     <Nav />
     <hr className="border border-1"></hr>
       {" "}

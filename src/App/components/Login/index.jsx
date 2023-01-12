@@ -10,8 +10,9 @@ function Login() {
 
   const {register, handleSubmit} = useForm()
   return (
-    <div className="w-screen h-screen">
+    <div className="w-screen h-screen bg-[#B124A3]">
       <Nav/>
+      <hr className="border border-1"></hr>
       <div >
     <div className="main-container">
         <div className="card-one">
@@ -34,7 +35,7 @@ function Login() {
           <label className='label'>Enter Email</label>
         <input
           id="email"
-          className="input2"
+          className="input2 block"
           type="text"
           name="email"
           placeholder="Enter your email..."

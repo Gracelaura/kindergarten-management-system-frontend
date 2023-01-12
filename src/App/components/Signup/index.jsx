@@ -10,8 +10,9 @@ function Signup({ onLogin }) {
  
  return(
   <div>
-    <div className="w-screen h-screen">
+    <div className="w-screen h-screen bg-[#B124A3]">
     <Nav/>
+    <hr className="border border-1"></hr>
     <div className="main-container">
         <div className="card-one">
           <div className="sub-card">

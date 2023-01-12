@@ -44,8 +44,9 @@ function handleClose(){
     });
   }
   return (
-    <div className=" w-screen h-screen">
+    <div className=" w-screen h-screen bg-[#B124A3]">
       <Nav />
+      <hr className="border border-1"></hr>
       <div className="main-container">
         <div className="card-one">
           <div className="sub-card">
@@ -69,7 +70,7 @@ function handleClose(){
             </div>:null}
             <input
               id="first_name"
-              className="input"
+              className="input text-pink-600"
               type="text"
               name="first_name"
               placeholder="Enter your first name..."
@@ -77,7 +78,7 @@ function handleClose(){
             />
             <input
               id="last_name"
-              className="input"
+              className="input  text-pink-600"
               type="text"
               name="last_name"
               placeholder="Enter your last name..."

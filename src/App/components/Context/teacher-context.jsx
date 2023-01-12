@@ -6,8 +6,8 @@ export const TeacherContext = createContext();
 export const TeacherContextProvider = (props) => {
   const navigate = useNavigate();
 
-  const [onLogin, setLogin] = useState([]);
-  const [teacher, setTeacher] = useState([]);
+  const [onLogin, setLogin] = useState({});
+  const [teacher, setTeacher] = useState({});
   const [modal, setModal] = useState(false);
   function handleNotification() {
     setModal(true);
@@ -17,7 +17,7 @@ export const TeacherContextProvider = (props) => {
   function handleClose() {
     setTimeout(() => {
       setModal(false);
-      navigate("/dashboard")
+      navigate("/dashboard");
     }, 3000);
   }
 
@@ -32,9 +32,13 @@ export const TeacherContextProvider = (props) => {
     }).then((res) => {
       if (res.ok) {
         res.json().then((teacher) => {
+          localStorage.clear();
           localStorage.setItem("teacherToken", teacher.jwt);
-          setLogin(teacher);
-          navigate("/dashboard");
+          localStorage.setItem("teacher", `${teacher.teacher.id}`)
+          localStorage.setItem("teacher_data", JSON.stringify(teacher));
+          setLogin((onLogin) => teacher);
+          navigate("/dashboard")
+          console.log(teacher)
         });
       } else {
         res.json().then((error) => alert(error.errors));
@@ -52,9 +56,12 @@ export const TeacherContextProvider = (props) => {
     }).then((res) => {
       if (res.ok) {
         res.json().then((data) => {
+         
           setTeacher(data);
+          localStorage.clear();
           localStorage.setItem("teacherToken", data[1].token);
           localStorage.setItem("teacher", data[0].id);
+          localStorage.setItem("teacher_data", JSON.stringify(data));
           handleNotification();
         });
       } else {
@@ -64,7 +71,7 @@ export const TeacherContextProvider = (props) => {
   }
   const token = localStorage.getItem("teacherToken");
   const teacher_id = localStorage.getItem("teacher");
-  const contextValue = { onSubmit, onSubmition,teacher_id, modal, token };
+  const contextValue = { onSubmit, onSubmition, teacher_id, modal, token };
   return (
     <TeacherContext.Provider value={contextValue}>
       {props.children}

@@ -8,11 +8,11 @@ const token = localStorage.getItem("teacherToken")
 
 if(token){
   return (
-    <div className='flex sm:flex-row bg-pink-500'>
-        <div className='w-1/6 bg-slate-200 sm:h-screen'>
+    <div className='flex sm:flex-row'>
+        <div className='w-1/6 sm:h-screen'>
             <Sidebar />
         </div>
-        <div className='w-5/6 m-3 bg-slate-200'>
+        <div className='w-5/6 m-3 '>
         <Outlet/>
         </div>
        

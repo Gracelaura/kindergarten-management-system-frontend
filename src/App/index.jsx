@@ -19,6 +19,7 @@ import ParentSignup from "./components/ParentSignup";
 import Welcome from "./components/ParentDashboard/Welcome";
 import SingleAttendance from "./components/Dashboard/Attendance/SingleAttendance";
 import { TeacherContextProvider } from "./components/Context/teacher-context";
+import SingleStudent from "./components/Dashboard/KidsList/SingleStudent";
 
 
 function App() {
@@ -32,7 +33,12 @@ function App() {
         <Route path="/parent_signup" element={<ParentSignup />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="dashboard" element={<Dashboard />}>
-          <Route path="kids_list" element={<KidsList />} />
+          <Route path="kids_list">
+            <Route index element={<KidsList/>} />
+            <Route path=":id" element={<SingleStudent/>}/>
+            </Route>
+
+
           <Route path="attendance" >
             <Route index element={<Attendance />} />
            <Route path=":date" element={<SingleAttendance />} />
