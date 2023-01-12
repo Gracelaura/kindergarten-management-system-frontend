@@ -33,6 +33,19 @@ export default function MyKids() {
       });
   },[])
 
+  function handleDelete(id){
+    setStudents((value) => value.filter((val) => id !== val.id))
+    fetch(`http://localhost:3000/students/${id}`,{
+      method: "DELETE",
+      headers:{
+        Authorization : `Bearer ${token}`
+      }
+    })
+  }
+  // fetch(`/reviews/${id}`, {
+  //   method: "DELETE",
+  // });
+
   function fetchSingleKid(id){
     console.log(id)
     fetch(`http://localhost:3000/students/${id}`,{
@@ -41,8 +54,8 @@ export default function MyKids() {
       Authorization : `Bearer ${token}`
       }
     }).then(res => res.json())
-    .then((res) => setSingleKidData((res)))
-  }
+    .then((res) => setSingleKidData(res)
+  )}
   // const iterableData = singleKidData.map((item) => ({[item]: singleKidData[item]}))
    console.log(singleKidData)
 
@@ -150,10 +163,10 @@ export default function MyKids() {
                           <PencilIcon className="inline text-indigo-900 h-5 mx-2"/>
                           Edit<span className="sr-only">, {person.name}</span>
                         </span>
-                        <span className="text-gray-00 hover:text-red-900 border border-gray-600 mx-5 rounded-[16px] p-3">
+                        <button className="text-gray-00 hover:text-red-900 border border-gray-600 mx-5 rounded-[16px] p-3" onClick={() => handleDelete(person.id)}>
                           <TrashIcon className="inline text-red-600 h-5 mx-2"/>
                           Delete<span className="sr-only">, {person.name}</span>
-                        </span>
+                        </button>
                       </td>
                     </tr>
                   ))}
