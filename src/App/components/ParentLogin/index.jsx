@@ -63,7 +63,7 @@ function ParentLogin() {
         password: "765476", */}
 
         <div className="main-container">
-          <div className="card-one sm:block">
+          <div className="card-one sm:block hidden">
             <div className="sub-card ">
               <img src={kid} alt="parents with kids"></img>
             </div>
@@ -80,21 +80,19 @@ function ParentLogin() {
               <img src={logo} alt="logo" />
             </div>
             <div className="flex justify-center">
-              <p className="font-mono text-2xl font-semibold">Parent Login</p>
+              <p className="text-2xl font-semibold">Parent Login</p>
             </div>
             <div className="flex justify-center mt-2 mb-7">
-              <p className="text-[#9FA2B4]">
-                Enter your phone number and password below
-              </p>
+              <p className="text-[#9FA2B4]">Enter your credentials below</p>
             </div>
 
             <form
-              className="grid grid-cols-1"
+              className="grid grid-cols-1 gap-3 m-10"
               onSubmit={handleSubmit(onSubmit)}>
               <label className="">PHONENUMBER</label>
               <input
                 id="phone_number"
-                // className="input2 "
+                className="border rounded-md p-3"
                 type="number"
                 name="phone_number"
                 placeholder="Phone number"
@@ -105,7 +103,7 @@ function ParentLogin() {
               <label className="">PASSWORD</label>
               <input
                 id="password"
-                // className="input2"
+                className="border rounded-md p-3"
                 type="password"
                 name="password"
                 placeholder="Enter your password..."
@@ -113,7 +111,11 @@ function ParentLogin() {
                   required: true,
                 })}
               />
-              Login
+              <button
+                className="px-5 p-3 bg-[#B124A3] rounded-md"
+                type="submit">
+                Login
+              </button>
             </form>
           </div>
         </div>

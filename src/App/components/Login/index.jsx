@@ -6,7 +6,7 @@ import Nav from "../Home/Nav.jsx";
 import icon from "./icon.svg";
 import { TeacherContext } from "../Context/teacher-context";
 function Login() {
-  const { onSubmit } = useContext(TeacherContext);
+  const { onSubmit, modal } = useContext(TeacherContext);
 
   const { register, handleSubmit } = useForm();
   return (
@@ -33,6 +33,26 @@ function Login() {
                 Enter your email and password below
               </h2>
             </div>
+            {modal ? (
+              <div className="items-center flex justify-center text-white italic bg-[#B124A3] rounded-md">
+                <div className="m-2">Login sucessfull</div>
+                <div>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    class="w-6 h-6">
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"
+                    />
+                  </svg>
+                </div>
+              </div>
+            ) : null}
             <form
               className="grid grid-cols-1 gap-3 m-10"
               onSubmit={handleSubmit(onSubmit)}>
@@ -55,7 +75,7 @@ function Login() {
                 {...register("password")}
               />
               <button
-                className="px-5 p-3 bg-[#B124A3] rounded-md"
+                className="px-5 p-3 bg-[#B124A3] text-white rounded-md"
                 type="submit">
                 Login
               </button>
