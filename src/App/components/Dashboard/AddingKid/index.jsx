@@ -89,16 +89,16 @@ function AddKid() {
 
             <div className="sm:col-span-3">
               <label
-                htmlFor="country"
+                htmlFor="class"
                 className="block text-sm font-medium text-gray-700"
               >
                 Class
               </label>
               <div className="mt-1">
                 <select
-                  id="country"
-                  name="country"
-                  autoComplete="country-name"
+                  id="class"
+                  name="class"
+                  autoComplete="class"
                   className="block w-1/4 rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                 >
                   <option>1</option>
@@ -108,8 +108,55 @@ function AddKid() {
               </div>
             </div>
 
+            <div className="sm:col-span-3">
+              <label
+                htmlFor="Age"
+                className="block text-sm font-medium text-gray-700"
+              >
+                Age
+              </label>
+              <div className="mt-1">
+                <select
+                  id="age"
+                  name="age of kid"
+                  autoComplete="Age of kid "
+                  className="block w-1/4 rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                >
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                  <option>5</option>
+                  <option>6</option>
+                </select>
+              </div>
+            </div>
+            <div className="sm:col-span-3">
+              <label
+                htmlFor="Gender"
+                className="block text-sm font-medium text-gray-700"
+              >
+                Gender
+              </label>
+              <div className="mt-1">
+                <select
+                  id="gender"
+                  name="gender of kid"
+                  autoComplete="gender of kid "
+                  className="block w-1/4 rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                >
+                  <option>Female</option>
+                  <option>Male</option>
+                </select>
+              </div>
+            </div>
+
             <div className="sm:col-span-4 w-2/3 rounded flex pl-0 items-center">
-              <button className="w-1/4 h-10 rounded border bg-gray-400">SUBMIT</button>
+              <button className="w-1/4 h-10 rounded border bg-gray-400">SAVE</button>
+            </div>
+
+            <div className="sm:col-span-1 w-2/3 rounded flex pl-0 items-center">
+              <button className="w-full h-10 rounded border bg-gray-400">BACK</button>
             </div>
           </div>
         </form>
