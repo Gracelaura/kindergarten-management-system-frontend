@@ -44,6 +44,7 @@ function handleClose(){
     });
   }
   return (
+
     <div className=" w-screen h-screen bg-[#B124A3]">
       <Nav />
       <hr className="border border-1"></hr>
@@ -104,6 +105,7 @@ function handleClose(){
               Register
             </button>
           </form>
+
         </div>
       </div>
     </div>
