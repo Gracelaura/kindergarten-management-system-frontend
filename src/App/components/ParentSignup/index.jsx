@@ -40,7 +40,7 @@ function ParentSignup({ onLogin}) {
 
   
   return (
-  <div className=" w-screen h-screen">
+  <div className=" w-screen h-screen bg-">
        <Nav/>
   <div className="main-container">
       <div className="card-one">

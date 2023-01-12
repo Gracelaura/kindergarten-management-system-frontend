@@ -5,6 +5,7 @@ import { Link, Navigate, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import Nav from "../Home/Nav";
 import kid from './kids.svg'
+import logo from './logo.svg'
 
 function ParentLogin() {
   const navigate = useNavigate();
@@ -58,7 +59,7 @@ function ParentLogin() {
             Login Successful
           </div>
         ) : null}
-      <div className="flex fixed items-center justify-center ">
+      <div className="flex items-center justify-center ">
         
      
 
@@ -70,7 +71,7 @@ function ParentLogin() {
             <div className="sub-card ">
               <img
                 src={kid}
-                alt="image"></img>
+                alt="parents with kids"></img>
             </div>
             <h2 className="text text-pink-500">Kinderjoy Parent</h2>
             <h2 className="text2">
@@ -80,30 +81,36 @@ function ParentLogin() {
               </Link>
             </h2>
           </div>
-          <div className="card-two  border">
-            <div className="img-div">
+          <div className="bg-white border rounded-r-3xl">
+            <div className="flex items-center justify-center mt-12 mb-4">
               <img
-                src="https://i.ibb.co/qDhqYnx/Screenshot-2023-01-02-at-23-26-59.png"
-                alt=""
+                src={logo}
+                alt="logo"
               />
-              <h2 className="h2-text">Kinderjoy School</h2>
             </div>
-            <form className="login-form" onSubmit={handleSubmit(onSubmit)}>
-              <label className="label">Enter Number</label>
+            <div className="flex justify-center">
+               <p className="font-mono text-2xl font-semibold">Parent Login</p>
+            </div>
+            <div className="flex justify-center mt-2 mb-7">
+              <p className="text-[#9FA2B4]">Enter your phone number and password below</p>
+            </div> 
+           
+            <form className="grid grid-cols-1" onSubmit={handleSubmit(onSubmit)}>
+              <label className="">PHONENUMBER</label>
               <input
                 id="phone_number"
-                className="input2 text-pink-600"
+                // className="input2 "
                 type="number"
                 name="phone_number"
-                placeholder="Enter your phone number..."
+                placeholder="Phone number"
                 {...register("phone_number", {
                   required: true,
                 })}
               />
-              <label className="label">Enter Password</label>
+              <label className="">PASSWORD</label>
               <input
                 id="password"
-                className="input2"
+                // className="input2"
                 type="password"
                 name="password"
                 placeholder="Enter your password..."
@@ -111,12 +118,7 @@ function ParentLogin() {
                   required: true,
                 })}
               />
-              <div className="flex items-center justify-center">
-              <label>show password</label>
-              <input type="checkbox"
-              />
-              </div>
-              <button className="button-2" type="submit">
+              <button className="" type="submit">
                 Login
               </button>
             </form>
