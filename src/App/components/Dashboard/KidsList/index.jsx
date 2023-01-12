@@ -1,6 +1,7 @@
 import { EyeIcon, EyeSlashIcon, PencilIcon, TrashIcon } from "@heroicons/react/24/solid";
 import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom";
+import EditStudent from "../../Modal/EditStudent";
 import StudentModal from "../../Modal/StudentModal";
 
 
@@ -9,6 +10,8 @@ function classNames(...classes) {
 }
 
 export default function MyKids() {
+  const [edit, setEdit] = useState(false)
+  const [editId, setEditId] = useState()
   const [singleKidData, setSingleKidData] = useState()
   const [singleKid, setSingleKid] = useState(false)
   const [loading, setLoading] = useState(false);
@@ -32,6 +35,8 @@ export default function MyKids() {
         setLoading(false);
       });
   },[])
+
+
 
   function handleDelete(id){
     setStudents((value) => value.filter((val) => id !== val.id))
@@ -57,10 +62,11 @@ export default function MyKids() {
     .then((res) => setSingleKidData(res)
   )}
   // const iterableData = singleKidData.map((item) => ({[item]: singleKidData[item]}))
-   console.log(singleKidData)
+   
+function handleUpdate(data) {
+  console.log(data)
+}
 
-
-  // const arrayOfObjs = Object.keys(obj).map((key) => ({[key]: obj[key]}))
 
   
   return (
@@ -159,10 +165,11 @@ export default function MyKids() {
                           <EyeIcon className="inline text-pink-900 h-5 mx-2"/>
                           View<span className="sr-only">, {person.name}</span>
                         </span></button> 
-                        <span className="text-gray-00 hover:text-red-900 border border-gray-600 mx-5 rounded-[16px] p-3">
+                        <button className="text-gray-00 hover:text-red-900 border border-gray-600 mx-5 rounded-[16px] p-3" onClick={(e) => {setEdit(true) 
+                          setEditId(person.id)}}>
                           <PencilIcon className="inline text-indigo-900 h-5 mx-2"/>
                           Edit<span className="sr-only">, {person.name}</span>
-                        </span>
+                        </button>
                         <button className="text-gray-00 hover:text-red-900 border border-gray-600 mx-5 rounded-[16px] p-3" onClick={() => handleDelete(person.id)}>
                           <TrashIcon className="inline text-red-600 h-5 mx-2"/>
                           Delete<span className="sr-only">, {person.name}</span>
@@ -177,7 +184,8 @@ export default function MyKids() {
         </div>
       </div>
       }
-     {singleKid && <StudentModal setSingleKid={setSingleKid} singleKidData={singleKidData}/>}
+      {edit&& <EditStudent setEdit={setEdit} editId={editId} setStudents={setStudents}/>}
+     {singleKid && <StudentModal setSingleKid={setSingleKid} singleKidData={singleKidData} setEdit={setEdit}/>}
     </div>
   )
 }
