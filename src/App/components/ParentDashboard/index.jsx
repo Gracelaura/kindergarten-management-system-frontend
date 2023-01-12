@@ -186,15 +186,15 @@ export default function ParentDashboard() {
                           to={item.href}
                           className={classNames(
                             item.current
-                              ? "bg-gray-200 text-gray-900"
-                              : "text-gray-600 hover:bg-gray-50 hover:text-gray-900",
+                              ? "bg-gray-200 text-gray-900 focus:bg-gray-500 focus:text-pink-500 "
+                              : "text-gray-600 focus:bg-gray-500 focus:text-pink-500 hover:text-gray-900",
                             "group flex items-center px-2 py-2 text-sm font-medium rounded-md"
                           )}>
                           <item.icon
                             className={classNames(
                               item.current
-                                ? "text-gray-500"
-                                : "text-gray-400 group-hover:text-gray-500",
+                                ? " focus:text-pink-500"
+                                : "text-gray-400 focus:bg-pink-500  group-hover:text-gray-500 ",
                               "mr-3 h-6 w-6"
                             )}
                             aria-hidden="true"
