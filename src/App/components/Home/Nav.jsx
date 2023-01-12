@@ -11,7 +11,7 @@ const navigate = useNavigate()
   };
 
   return (
-    <div className=" flex  flex-row justify-between items-center h-24  mx-auto px-8 text-[#FFFFFF]">
+    <div className=" flex  flex-row justify-between items-center h-24  mx-auto px-8 text-black">
       <div>
       <div className="md:flex" >
      

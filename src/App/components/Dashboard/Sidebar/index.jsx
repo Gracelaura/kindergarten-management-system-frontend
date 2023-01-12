@@ -1,9 +1,19 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 function Sidebar() {
+  const navigate = useNavigate()
+function handleLogout() {
+  localStorage.removeItem("teacherToken")
+  localStorage.removeItem("teacher");
+  navigate("/login")
+}
+
+
   return (
     <div className="mt-10">
-      <Link to="" className="hover:bg-pink-500 outline text-pink-500 outline-1 flex hover:text-white text-center text-xl h-14 rounded-md p-3 m-2">
+
+      <Link to="" className="hover:bg-pink-500  text-pink-500  flex hover:text-white text-center text-xl h-14 rounded-md p-3 m-2">
+
         <svg
           class="w-6 h-6 mr-2"
           fill="none"
@@ -18,7 +28,9 @@ function Sidebar() {
         </svg>
         <span>Dashboard</span>
       </Link>
-      <Link to="classes" className="hover:bg-pink-500 outline text-pink-500 outline-1  flex hover:text-white text-center text-xl h-14 rounded-md p-3 m-2">
+
+      <Link to="classes" className="hover:bg-pink-500  text-pink-500   flex hover:text-white text-center text-xl h-14 rounded-md p-3 m-2">
+
         <svg
           class="w-6 h-6 mr-2"
           fill="none"
@@ -33,7 +45,9 @@ function Sidebar() {
         </svg>
         <span>Classes</span>
       </Link>
-      <Link to="attendance" className="hover:bg-pink-500 outline text-pink-500 outline-1  flex hover:text-white text-center text-xl h-14 rounded-md p-3 m-2">
+
+      <Link to="attendance" className="hover:bg-pink-500 text-pink-500   flex hover:text-white text-center text-xl h-14 rounded-md p-3 m-2">
+
         <svg
           class="w-6 h-6 mr-2"
           fill="none"
@@ -48,7 +62,9 @@ function Sidebar() {
         </svg>
         <span> Attendance</span>
       </Link>
-      <Link to="parents" className="hover:bg-pink-500 outline text-pink-500 outline-1  flex hover:text-white text-center text-xl h-14 rounded-md p-3 m-2">
+
+      <Link to="parents" className="hover:bg-pink-500  text-pink-500 flex hover:text-white text-center text-xl h-14 rounded-md p-3 m-2">
+
         <svg
           class="w-6 h-6 mr-2"
           fill="none"
@@ -63,7 +79,9 @@ function Sidebar() {
         </svg>
         <span>Parents</span>
       </Link>
-      <Link to="kids_list" className="hover:bg-pink-500 outline text-pink-500 outline-1  flex hover:text-white text-center text-xl h-14 rounded-md p-3 m-2">
+
+      <Link to="kids_list" className="hover:bg-pink-500  text-pink-500  flex hover:text-white text-center text-xl h-14 rounded-md p-3 m-2">
+
         <svg
           class="w-6 h-6 mr-2"
           fill="none"
@@ -78,7 +96,9 @@ function Sidebar() {
         </svg>
         <span>KidList</span>
       </Link>
-      <Link to="discipline" className="hover:bg-pink-500 outline text-pink-500 outline-1  flex hover:text-white text-center text-xl h-14 rounded-md p-3 m-2">
+
+      <Link to="discipline" className="hover:bg-pink-500  text-pink-500  flex hover:text-white text-center text-xl h-14 rounded-md p-3 m-2">
+
         <svg
           class="w-6 h-6"
           fill="none"
@@ -95,7 +115,9 @@ function Sidebar() {
         </svg>
         <span>Discipline</span>
       </Link>
-      <Link to="profile" className="hover:bg-pink-500 outline text-pink-500 outline-1  flex hover:text-white text-center text-xl h-14 rounded-md p-3 m-2">
+
+      <Link to="profile" className="hover:bg-pink-500  text-pink-500  flex hover:text-white text-center text-xl h-14 rounded-md p-3 m-2">
+
         <svg
           class="w-6 h-6 mr-2"
           fill="none"
@@ -111,7 +133,9 @@ function Sidebar() {
         <span>Profile</span>
       </Link>
 
-      <div className="hover:bg-pink-500 outline text-pink-500 outline-1  flex hover:text-white text-center text-xl h-14 rounded-md p-3 m-2">
+
+      <div onClick={handleLogout} className="hover:bg-pink-500  text-pink-500 flex hover:text-white text-center text-xl h-14 rounded-md p-3 m-2 cursor-pointer">
+
         <svg
           class="w-6 h-6 mr-2"
           fill="none"
