@@ -125,7 +125,7 @@ let kidList = data.teacher.classroom.students
                               : "",
                             "whitespace-nowrap px-3 py-4 text-sm text-gray-500"
                           )}>
-                          {person.second_name}
+                          {person.surname}
                         </div>
                         <div
                           className="grid grid-cols-2">
