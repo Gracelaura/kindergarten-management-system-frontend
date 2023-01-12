@@ -1,9 +1,17 @@
+
+import { EyeIcon, EyeSlashIcon, PencilIcon, TrashIcon } from "@heroicons/react/24/solid";
+import { useEffect, useState } from "react"
+import { useNavigate } from "react-router-dom";
+import EditStudent from "../../Modal/EditStudent";
+import StudentModal from "../../Modal/StudentModal";
+
 import {
   EyeIcon,
   EyeSlashIcon,
   PencilIcon,
   TrashIcon,
 } from "@heroicons/react/24/solid";
+
 
 import axios from "axios";
 import { useEffect, useState } from "react";
@@ -14,6 +22,64 @@ function classNames(...classes) {
 }
 
 export default function MyKids() {
+
+  const [edit, setEdit] = useState(false)
+  const [editId, setEditId] = useState()
+  const [singleKidData, setSingleKidData] = useState()
+  const [singleKid, setSingleKid] = useState(false)
+  const [loading, setLoading] = useState(false);
+  const [students, setStudents] = useState([]);
+ 
+
+  const  url = 'http://localhost:3000/students'
+  const token = localStorage.getItem("teacherToken")
+  useEffect(() => {
+    setLoading(true)
+    fetch(url,{
+      headers:{
+        "Content-Type" : "application/json",
+        Authorization : `Bearer ${token}`
+      }
+    })
+     .then((response) => response.json())
+     .then((data) => {
+        console.log(data)
+        setStudents(data);
+        setLoading(false);
+      });
+  },[])
+
+
+
+  function handleDelete(id){
+    setStudents((value) => value.filter((val) => id !== val.id))
+    fetch(`http://localhost:3000/students/${id}`,{
+      method: "DELETE",
+      headers:{
+        Authorization : `Bearer ${token}`
+      }
+    })
+  }
+  // fetch(`/reviews/${id}`, {
+  //   method: "DELETE",
+  // });
+
+  function fetchSingleKid(id){
+    console.log(id)
+    fetch(`http://localhost:3000/students/${id}`,{
+      headers:{
+      "Content-Type" : "appliction/json",
+      Authorization : `Bearer ${token}`
+      }
+    }).then(res => res.json())
+    .then((res) => setSingleKidData(res)
+  )}
+  // const iterableData = singleKidData.map((item) => ({[item]: singleKidData[item]}))
+   
+function handleUpdate(data) {
+  console.log(data)
+}
+
   const [loading, setLoading] = useState(false);
   const [teacher, setTeacher] = useState({});
 
@@ -35,6 +101,7 @@ export default function MyKids() {
   }, []);
   const data = JSON.parse(localStorage.getItem("teacher_data"));
   let kidList = data.teacher.classroom.students;
+
 
   return (
     <div className="px-4 sm:px-6 lg:px-8 m-5">
@@ -130,6 +197,27 @@ export default function MyKids() {
                       </div>
                       <div
                         className={classNames(
+
+                          personIdx !== students.length - 1 ? 'border-b border-gray-200' : '',
+                          'relative whitespace-nowrap py-4 pr-4 pl-3 text-right text-sm font-medium sm:pr-6 lg:pr-8'
+                        )}
+                      >
+                       <button onClick={()=> {setSingleKid(true) 
+                        fetchSingleKid(person.id)}}><span className="text-gray-00 hover:text-red-900 border border-gray-600 mx-5 rounded-[16px] p-3">
+                          <EyeIcon className="inline text-pink-900 h-5 mx-2"/>
+                          View<span className="sr-only">, {person.name}</span>
+                        </span></button> 
+                        <button className="text-gray-00 hover:text-red-900 border border-gray-600 mx-5 rounded-[16px] p-3" onClick={(e) => {setEdit(true) 
+                          setEditId(person.id)}}>
+                          <PencilIcon className="inline text-indigo-900 h-5 mx-2"/>
+                          Edit<span className="sr-only">, {person.name}</span>
+                        </button>
+                        <button className="text-gray-00 hover:text-red-900 border border-gray-600 mx-5 rounded-[16px] p-3" onClick={() => handleDelete(person.id)}>
+                          <TrashIcon className="inline text-red-600 h-5 mx-2"/>
+                          Delete<span className="sr-only">, {person.name}</span>
+                        </button>
+                      </td>
+                    </tr>
                           personIdx !== kidList.length - 1
                             ? "border-b border-gray-200"
                             : "",
@@ -153,13 +241,21 @@ export default function MyKids() {
                         </button>
                       </div>
                     </div>
+
                   ))}
                 </div>
               </div>
             </div>
           </div>
         </div>
+
+      </div>
+      }
+      {edit&& <EditStudent setEdit={setEdit} editId={editId} setStudents={setStudents}/>}
+     {singleKid && <StudentModal setSingleKid={setSingleKid} singleKidData={singleKidData} setEdit={setEdit}/>}
+
       )}
+
     </div>
   );
 }
