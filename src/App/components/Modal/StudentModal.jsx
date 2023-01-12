@@ -1,13 +1,13 @@
 import React from 'react'
 import "./studentmodal.css"
-// import { VscAccount } from "react-icons/vsc";
+import  icon from "./student.svg";
 function StudentModal({setSingleKid, singleKidData}) {
   return (
     <div className='modal'>StudentModal
    
     <div className="kid-card">
         <div className="avatar">
-        <img src="https://i.ibb.co/8D0GSPz/Screenshot-2023-01-11-at-23-59-17.png" alt="Screenshot-2023-01-11-at-23-59-17" border="0"/>
+        <img src={icon} alt="Screenshot-2023-01-11-at-23-59-17" border="0"/>
         </div>
         <h2 className='header-name'>{singleKidData.first_name}</h2>
         <div className="text-card">
@@ -26,6 +26,7 @@ function StudentModal({setSingleKid, singleKidData}) {
   
 
     </div>
+
    
     
   )
