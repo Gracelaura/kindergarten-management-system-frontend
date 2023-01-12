@@ -48,6 +48,7 @@ function handleClose(){
     <div className=" w-screen h-screen bg-[#B124A3]">
       <Nav />
       <hr className="border border-1"></hr>
+      <div className="flex justify-center">
       <div className="main-container">
         <div className="card-one">
           <div className="sub-card">
@@ -64,49 +65,59 @@ function handleClose(){
           </h2>
         </div>
         <div className="card-two">
-          <h3>New Parent Registration</h3>
-          <form className="form" onSubmit={handleSubmit(onSubmit)}>
+         <div className="">
+         <h3 className="text-center">Parent Registration</h3>
+          <h1 className="text-center text-gray-400">New Parent Registration</h1>
+         </div>
+          <form className="grid grid-cols-1 gap-3 m-10" onSubmit={handleSubmit(onSubmit)}>
             {modal?<div className="h-10 text-pink-600 text-center bg-white rounded-md shadow-md">
               Signup Succesfull
             </div>:null}
+            <label>First Name</label>
             <input
               id="first_name"
-              className="input text-pink-600"
+              className="border rounded-md p-3"
               type="text"
               name="first_name"
               placeholder="Enter your first name..."
               {...register("first_name")}
             />
+             <label>Last Name</label>
             <input
               id="last_name"
-              className="input  text-pink-600"
+              className="border rounded-md p-3"
               type="text"
               name="last_name"
               placeholder="Enter your last name..."
               {...register("last_name")}
             />
+             <label>Phone Number</label>
             <input
               id="phone_number"
-              className="input text-pink-600"
+              className="border rounded-md p-3"
               type="number"
               name="phone_number"
               placeholder="Enter your phone number..."
               {...register("phone_number")}
             />
+            <label>Password</label>
             <input
               id="password"
-              className="input"
+              className="border rounded-md p-3"
               type="password"
               name="password"
               placeholder="Enter your password..."
               {...register("password")}
             />
-            <button className="button-1" type="submit">
-              Register
-            </button>
+             <button
+                className="px-5 p-3 bg-[#B124A3] text-white rounded-md"
+                type="submit">
+                Register
+              </button>
           </form>
 
         </div>
+      </div>
       </div>
     </div>
   );
