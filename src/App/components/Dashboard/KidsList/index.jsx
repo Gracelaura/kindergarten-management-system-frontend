@@ -53,9 +53,7 @@ let kidList = data.teacher.classroom.students
       });
   }, []);
 
-  function handleClick() {
-    navigate("/parents_dashboard/my_kids/:id");
-  }
+
 
   return (
     <div className="px-4 sm:px-6 lg:px-8 m-5">
