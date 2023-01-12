@@ -4,8 +4,8 @@ import { useForm } from "react-hook-form";
 import { Link, Navigate, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import Nav from "../Home/Nav";
-import kid from './kids.svg'
-import logo from './logo.svg'
+import kid from "./kids.svg";
+import logo from "./logo.svg";
 
 function ParentLogin() {
   const navigate = useNavigate();
@@ -51,29 +51,21 @@ function ParentLogin() {
   }
   return (
     <div className=" main w-screen h-screen bg-[#B124A3]">
-    <Nav />
-    <hr className="border border-1"></hr>
-      {" "}
+      <Nav />
+      <hr className="border border-1"></hr>{" "}
       {modal ? (
-
-          <div className=" bg-pink-200 text-center h-12 w-full rounded-md m-auto ">
-            Login Successful
-          </div>
-        ) : null}
+        <div className=" bg-pink-200 text-center h-12 w-full rounded-md m-auto ">
+          Login Successful
+        </div>
+      ) : null}
       <div className="flex items-center justify-center ">
-        
-     
-
-
         {/* phone_number: "743564786",
         password: "765476", */}
 
         <div className="main-container">
           <div className="card-one sm:block">
             <div className="sub-card ">
-              <img
-                src={kid}
-                alt="parents with kids"></img>
+              <img src={kid} alt="parents with kids"></img>
             </div>
             <h2 className="text text-pink-500">Kinderjoy Parent</h2>
             <h2 className="text2">
@@ -85,19 +77,20 @@ function ParentLogin() {
           </div>
           <div className="bg-white border rounded-r-3xl">
             <div className="flex items-center justify-center mt-12 mb-4">
-              <img
-                src={logo}
-                alt="logo"
-              />
+              <img src={logo} alt="logo" />
             </div>
             <div className="flex justify-center">
-               <p className="font-mono text-2xl font-semibold">Parent Login</p>
+              <p className="font-mono text-2xl font-semibold">Parent Login</p>
             </div>
             <div className="flex justify-center mt-2 mb-7">
-              <p className="text-[#9FA2B4]">Enter your phone number and password below</p>
-            </div> 
-           
-            <form className="grid grid-cols-1" onSubmit={handleSubmit(onSubmit)}>
+              <p className="text-[#9FA2B4]">
+                Enter your phone number and password below
+              </p>
+            </div>
+
+            <form
+              className="grid grid-cols-1"
+              onSubmit={handleSubmit(onSubmit)}>
               <label className="">PHONENUMBER</label>
               <input
                 id="phone_number"
@@ -120,9 +113,7 @@ function ParentLogin() {
                   required: true,
                 })}
               />
-
-                Login
-              
+              Login
             </form>
           </div>
         </div>
