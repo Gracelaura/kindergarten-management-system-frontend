@@ -11,11 +11,11 @@ const navigate = useNavigate()
   };
 
   return (
-    <div className=" flex  flex-row justify-between items-center h-24  mx-auto px-8 text-black">
+    <div className=" flex  flex-row justify-between items-center h-24  mx-auto px-8 text-white">
       <div>
       <div className="md:flex" >
      
-        <img className="w-16 h-8 " src={Logo} alt="" />
+        <img className="w-20 h-20 " src={Logo} alt="" />
         <div><h1 className="text-3xl font-bold text-[#B124A3]">KinderJoy.</h1></div>
         
       </div>
@@ -27,7 +27,7 @@ const navigate = useNavigate()
 </div>
       
 
-      <ul className="hidden md:flex">
+      <ul className="hidden md:flex bg-[#B124A3] rounded-md">
         <li onClick={()=>navigate("/")}  className="p-4 cursor-pointer">Home</li>
         <li onClick={()=>navigate("/parent_login")} className="p-4 cursor-pointer">Parent Login</li>
         <li onClick={()=>navigate("/parent_signup")}  className="p-4 cursor-pointer">Parent Register</li>

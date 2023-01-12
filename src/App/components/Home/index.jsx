@@ -6,12 +6,16 @@ import Footer from "../Home/Footer";
 
 function Home() {
   return (
-    <div class="">
+    <div class="flex flex-col h-screen justify-between">
       {/* pages */}
+      <div>
       <Nav />
       <Homepage />
       <Reviews />
+      </div>
+      <div>
       <Footer />
+      </div>
     </div>
   );
 }

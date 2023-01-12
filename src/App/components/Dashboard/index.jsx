@@ -8,8 +8,8 @@ const token = localStorage.getItem("teacherToken")
 
 if(token){
   return (
-    <div className='flex sm:flex-row'>
-        <div className='w-1/6 sm:h-screen'>
+    <div className='flex sm:flex-row m-10 h-full'>
+        <div className='w-1/7 sm:h-full'>
             <Sidebar />
         </div>
         <div className='w-5/6 m-3 '>

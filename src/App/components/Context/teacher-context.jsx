@@ -37,7 +37,7 @@ export const TeacherContextProvider = (props) => {
           localStorage.setItem("teacher", `${teacher.teacher.id}`)
           localStorage.setItem("teacher_data", JSON.stringify(teacher));
           setLogin((onLogin) => teacher);
-          navigate("/dashboard")
+         handleNotification()
           console.log(teacher)
         });
       } else {
