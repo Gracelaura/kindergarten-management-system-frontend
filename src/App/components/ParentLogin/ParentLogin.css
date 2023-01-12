@@ -1,9 +1,8 @@
 .input2{
-    /* position: relative; */
+    position: relative;
     border-radius: 12px;
     border: 1px solid gray; 
     box-sizing: border-box;
-    color: #eee;
     font-size: 18px;
     height: 3rem;
     outline: 1;
@@ -48,38 +47,38 @@
   
   }
 
-  .img-div{
+  /* .img-div{
     background-color: black;
     height: 120px;
     width: 120px;
     left: 45rem;
     position: absolute;
     top: 2rem;
-  }
+  } */
 
-  .login-form{
-    /* background-color: black; */
+  /* .login-form{
+     background-color: black;
     position: absolute;
     top: 14rem;
     margin: 0;
     align-items: center;
     min-height: fit-content;
-    max-width: fit-content;
-  }
+    max-width: fit-content; 
+  } */
 
-  .img-div img{
+  /* .img-div img{
     width: inherit;
     height: inherit;
-  }
+  } */
 
-  .h2-text{
+  /* .h2-text{
 font-weight: 700;
 font-size: 24px;
 line-height: 30px;
 text-align: center;
 letter-spacing: 0.3px;
 position: absolute;
-  }
+  } */
 .label{
 position: relative;
 font-family: 'Mulish';
@@ -96,4 +95,8 @@ top: 2rem;
 
 .errormsg{
   color: red;
+}
+
+.main{
+  background-color: #B124A3;
 }

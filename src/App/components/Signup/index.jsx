@@ -2,14 +2,17 @@ import React, { useContext, useState } from "react";
 import { useForm } from 'react-hook-form';
 import { Link, useNavigate } from "react-router-dom";
 import { TeacherContext } from "../Context/teacher-context";
+import Nav from "../Home/Nav"
 import "./signup.css"
 function Signup({ onLogin }) {
  const {register, handleSubmit} = useForm()
- const {onSubmition} = useContext(TeacherContext)
+ const {onSubmition,modal} = useContext(TeacherContext)
  
  return(
   <div>
-    <div className="container">
+    <div className="w-screen h-screen bg-[#B124A3]">
+    <Nav/>
+    <hr className="border border-1"></hr>
     <div className="main-container">
         <div className="card-one">
           <div className="sub-card">
@@ -27,6 +30,7 @@ function Signup({ onLogin }) {
             <img src="https://i.ibb.co/qDhqYnx/Screenshot-2023-01-02-at-23-26-59.png" alt="" />
             <h2 className='h2-text'>Kinderjoy School</h2>
           </div>
+          {modal?<div>Signup sucessfull</div>:null}
           <form className='login-form' onSubmit={handleSubmit(onSubmition)}>
         <input
           id="first_name"

@@ -1,16 +1,17 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Logo from "../Home/assets/pre-logo.png";
 // import { AiOutlineClose, AiOutlineMenu } from 'react-icons/ai';
 
 const Navbar = () => {
   const [nav, setNav] = useState(true);
-
+const navigate = useNavigate()
   const handleNav = () => {
     setNav(!nav);
   };
 
   return (
-    <div className=" flex  flex-row justify-between items-center h-24  mx-auto px-8 text-[#B124A3]">
+    <div className=" flex  flex-row justify-between items-center h-24  mx-auto px-8 text-black">
       <div>
       <div className="md:flex" >
      
@@ -27,10 +28,11 @@ const Navbar = () => {
       
 
       <ul className="hidden md:flex">
-        <li className="p-4">Home</li>
-        <li className="p-4">Login</li>
-        <li className="p-4">Register</li>
-        <li className="p-4">Contacts</li>
+        <li onClick={()=>navigate("/")}  className="p-4 cursor-pointer">Home</li>
+        <li onClick={()=>navigate("/parent_login")} className="p-4 cursor-pointer">Parent Login</li>
+        <li onClick={()=>navigate("/parent_signup")}  className="p-4 cursor-pointer">Parent Register</li>
+        <li onClick={()=>navigate("/login")} className="p-4 cursor-pointer">Teacher Login</li>
+        <li onClick={()=>navigate("/signup")} className="p-4 cursor-pointer">Teacher Signup</li>
       </ul>
       {/* <div onClick={handleNav} className='block md:hidden'>
           {nav ? <AiOutlineClose size={20}/> : <AiOutlineMenu size={20} />}

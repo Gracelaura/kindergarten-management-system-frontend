@@ -1,88 +1,134 @@
-import React from 'react'
-import "./ParentLogin.css"
-import { useForm } from 'react-hook-form';
-import { Link, useNavigate } from "react-router-dom";
-import { useState } from 'react';
+import React from "react";
+import "./ParentLogin.css";
+import { useForm } from "react-hook-form";
+import { Link, Navigate, useNavigate } from "react-router-dom";
+import { useState } from "react";
+import Nav from "../Home/Nav";
+import kid from './kids.svg'
+import logo from './logo.svg'
+
 function ParentLogin() {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   // Make sure to install useForm using npm to avoid errors
-  const {register, handleSubmit, formState: {errors}} = useForm()
-  const [login, setLogin] = useState([])
-  
-  function onSubmit(data){
-    console.log(data)
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+  const [login, setLogin] = useState([]);
+  const [modal, setModal] = useState(false);
+
+  function handleNotification() {
+    setModal(true);
+    handleClose();
+  }
+
+  function handleClose() {
+    setTimeout(() => {
+      setModal(false);
+      navigate("/parent_dashboard");
+    }, 2000);
+  }
+
+  function onSubmit(data) {
     fetch("http://127.0.0.1:3000/parent_login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(data),
-    }).then((res)=>{
-      if(res.ok) {
-    res.json().then((res) => 
-      {
-        setLogin(res)
-        console.log(res.jwt)
-        navigate("/parents_dashboard")
-        localStorage.setItem("jwt", res.jwt)
-        localStorage.setItem("parent", `${res.parent}`)
-      })
-    }else{
-      res.json().then((error)=> alert(error.errors))
-    }
-  })
+    }).then((res) => {
+      if (res.ok) {
+        res.json().then((res) => {
+          localStorage.setItem("jwt", res.jwt);
+          localStorage.setItem("parent", `${res.parent.id}`);
+          return handleNotification();
+        });
+      } else {
+        res.json().then((error) => alert(error.errors));
+      }
+    });
   }
   return (
-    
-    <div className="flex items-center justify-center">
-    <div className="main-container">
-        <div className="card-one">
-          <div className="sub-card">
-            <img src="https://i.ibb.co/QQrkZHb/Screenshot-2023-01-02-at-23-23-28.png" alt="image"></img>
+    <div className=" main w-screen h-screen bg-[#B124A3]">
+    <Nav />
+    <hr className="border border-1"></hr>
+      {" "}
+      {modal ? (
+
+          <div className=" bg-pink-200 text-center h-12 w-full rounded-md m-auto ">
+            Login Successful
           </div>
-          <h2 className="text">Kinderjoy Parent</h2>
-          <h2 className="text2">Don't have an account? <Link to="/parent_signup" style={{ color: "#B124A3"}}>
-          Sign Up Here
-        </Link>
-</h2>
-          
-        </div>
-        <div className="card-two">
-          <div className="img-div">
-            <img src="https://i.ibb.co/qDhqYnx/Screenshot-2023-01-02-at-23-26-59.png" alt="" />
-            <h2 className='h2-text'>Kinderjoy School</h2>
+        ) : null}
+      <div className="flex items-center justify-center ">
+        
+     
+
+
+        {/* phone_number: "743564786",
+        password: "765476", */}
+
+        <div className="main-container">
+          <div className="card-one sm:block">
+            <div className="sub-card ">
+              <img
+                src={kid}
+                alt="parents with kids"></img>
+            </div>
+            <h2 className="text text-pink-500">Kinderjoy Parent</h2>
+            <h2 className="text2">
+              Don't have an account?{" "}
+              <Link to="/parent_signup" style={{ color: "#B124A3" }}>
+                Sign Up Here
+              </Link>
+            </h2>
           </div>
-          <form className='login-form' onSubmit={handleSubmit(onSubmit)}>
-          <label className='label'>Enter Number</label>
-        <input
-          id="phone_number"
-          className="input2"
-          type="number"
-          name="phone_number"
-          placeholder="Enter your phone number..."
-          {...register('phone_number', {
-            required: true
-          })}
-        />
-        <label className='label'>Enter Password</label>
-        <input
-          id="password"
-          className="input2"
-          type="password"
-          name="password"
-          placeholder="Enter your password..."
-          {...register('password', {
-            required: true
-          })}
-        />
-        <button className="button-2" type="submit">Login</button>
-      </form>
+          <div className="bg-white border rounded-r-3xl">
+            <div className="flex items-center justify-center mt-12 mb-4">
+              <img
+                src={logo}
+                alt="logo"
+              />
+            </div>
+            <div className="flex justify-center">
+               <p className="font-mono text-2xl font-semibold">Parent Login</p>
+            </div>
+            <div className="flex justify-center mt-2 mb-7">
+              <p className="text-[#9FA2B4]">Enter your phone number and password below</p>
+            </div> 
+           
+            <form className="grid grid-cols-1" onSubmit={handleSubmit(onSubmit)}>
+              <label className="">PHONENUMBER</label>
+              <input
+                id="phone_number"
+                // className="input2 "
+                type="number"
+                name="phone_number"
+                placeholder="Phone number"
+                {...register("phone_number", {
+                  required: true,
+                })}
+              />
+              <label className="">PASSWORD</label>
+              <input
+                id="password"
+                // className="input2"
+                type="password"
+                name="password"
+                placeholder="Enter your password..."
+                {...register("password", {
+                  required: true,
+                })}
+              />
+
+                Login
+              
+            </form>
+          </div>
         </div>
       </div>
-      </div>
-      
-      
-  )
+    </div>
+  );
 }
 
-export default ParentLogin
+export default ParentLogin;

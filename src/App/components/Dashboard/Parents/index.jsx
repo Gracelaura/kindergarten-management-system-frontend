@@ -1,40 +1,36 @@
 import React from 'react'
 import { useEffect, useState } from "react"
-import { useNavigate } from "react-router-dom";
+import { resolvePath, useNavigate } from "react-router-dom";
 import { EyeIcon} from "@heroicons/react/24/solid";
+import axios from 'axios';
 
 
 export default function Parents() {
   const [parents, setParents] = useState([]);
-  const token = localStorage.getItem("logintoken")
+  const token = localStorage.getItem("teacherToken")
   const navigate=useNavigate()
 
   const  url = 'http://127.0.0.1:3000/parents'
+  const config = {
+    headers: {
+      "content-type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+  };
 
   useEffect(() => {
-    
-    fetch(url,{
-      method: "get",
-      headers: {
-        "content-type": "application/json",
-        Authorization: `Bearer ${token}`
-      }
-    })
-     .then((response) => response.json())
-     .then((data) => {
-        console.log(data)
-        setParents(data);
-        
-      });
+    axios.get(url,config)
+    .then(data=>setParents(data.data)).catch(e=>console.log(e.message))
   }, [])
   
+
   return (
     <div className="px-4 sm:px-6 lg:px-8">
       <div className="sm:flex sm:items-center">
         <div className="sm:flex-auto">
           <h1 className="text-xl font-semibold text-pink-500">Parents</h1>
           <p className="mt-2 text-sm text-lime-900">
-            A list of all the parents in your account including their name and phone number.
+            A list of all the parents in your account including their name and phone number andnpm start others.
           </p>
         </div>
        

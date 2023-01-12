@@ -7,33 +7,51 @@ import "./Profile.css"
 
 
 function Profile() {
-  const [teacherDetails, setTeacherDetails] = useState({});
+  // const [teacherDetails, setTeacherDetails] = useState({});
  
-  useEffect(() => {
+//   useEffect(() => {
 
-  const teacherInfo= localStorage.getItem("teacherInfo");
 
-  const teacherDetails = JSON.parse(teacherInfo);
-  // console.log('teacherDetails', teacherDetails)
-  setTeacherDetails(teacherDetails);
-}, []);
+// }, []);
+const teacherInfo= localStorage.getItem("teacher_data");
+
+const teacherDetails = JSON.parse(teacherInfo);
+// console.log('teacherDetails', teacherDetails)
+// setTeacherDetails(teacherDetails);
 
   return (
     <div className="hero" >
-      <div className='container1'>
+      {/* <div className='container1'>
         <h2>Teacher's Profile</h2>
-        {/* https://img.freepik.com/free-photo/mother-with-daughter_144627-13199.jpg?w=740&t=st=1673381036~exp=1673381636~hmac=be0eb86900ef6d793a8d3b0e3f6df54fdb7ad78048676e284ae975c66d6f1f4e */}
-        <img src={avatar1} alt="Avatar" className="avatar" />
-      </div>
-      <div className='container2'>
-      <p>Full Name: {teacherDetails.first_name} {teacherDetails.last_name}</p>
-      <p>Career Name: {teacherDetails.career_name}</p>
-      <p>Email: {teacherDetails.email}</p>
-      <div className='container3'>
-      <p>Phone Number: {teacherDetails.phone_number}</p>
-      <p>Gender: {teacherDetails.gender}</p>
-      {/* <h1>Other Profiles</h1> */}
-      </div>
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTn4PsQCVFAt-oxVMzrHp66Rc7YCvfqXwNKcw&usqp=CAU" alt="Avatar" className="avatar" />
+      </div> */}
+      <div className='container2 flex justify-center items-center'>
+      
+      <form className='bg-[#F9FAFE] p-6 mt-6 rounded-lg shadow-md flex flex-col w-3/5'>
+      {/* {teacherDetails.first_name} {teacherDetails.last_name} */}
+      <p className='text-gray-500'>Full Name: </p>
+     <input className="h-10 rounded-md bg-white text-black italic"
+       value={teacherDetails.teacher.first_name +' ' + teacherDetails.teacher.last_name} 
+     />
+      <p className='text-gray-500'>Career Name:</p>
+     <input className="h-10 rounded-md bg-white text-black italic "
+       value={teacherDetails.teacher.career_name}
+     />
+     <p className='text-gray-500'>Email:</p>
+      <input className="h-10 rounded-md bg-white text-black italic"
+       value={teacherDetails.teacher.email}
+     />
+      <p className='text-gray-500'>Phone Number:</p>
+      <input className="h-10 rounded-md bg-gray text-black italic"
+       value={teacherDetails.teacher.phone_number}
+     />
+           <p className='text-gray-500'>Gender:</p>
+     <input className="h-8 rounded-md bg-white text-black italic"
+       value={teacherDetails.teacher.gender}
+     />
+      <button class="bg-[#B124A3] text-white py-2 px-4 mt-2 rounded-lg" href="#">Back</button>
+     </form>
+      {/* </div> */}
       </div>
   </div>
   );

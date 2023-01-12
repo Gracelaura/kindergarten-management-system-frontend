@@ -1,14 +1,14 @@
 
 .main-container{
-    position: relative;
+    /* position: relative; */
     display: flex;
     width: 980px;
     height: 582px;
     background-color: gray;
     border-radius: 30px;
-    /* margin-top: 3rem; */
-    /* margin-left: 9rem; */
-    /* margin-right: 9rem; */
+    margin-top: 6rem;
+    /* margin-left: 9rem;
+    margin-right: 9rem; */
     left: 9rem;
     top: 3rem;
   
@@ -27,7 +27,6 @@
   height: 314px;
   left: 120px;
   top: 73px;
-  background-color: black;
   }
   .text{
   width: 362px;
@@ -72,7 +71,7 @@
     border-radius: 12px;
     border: 1px solid gray; 
     box-sizing: border-box;
-    color: #eee;
+ 
     font-size: 18px;
     height: 10%;
     outline: 1;

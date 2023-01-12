@@ -23,7 +23,7 @@ useEffect(()=>{
   return (
     <div>
       {modal ?
-        <div className='fixed h-28 border bg-red-500 flex justify-center items-center w-full'>
+        <div className='m-auto h-20 border bg-red-500 flex justify-center items-center w-1/2'>
           
         hello discipline
       </div>:null
