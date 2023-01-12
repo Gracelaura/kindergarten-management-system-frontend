@@ -26,8 +26,7 @@ const navigate = useNavigate()
       </div>
 </div>
       
-
-      <ul className="hidden md:flex">
+      <ul className="hidden md:flex bg-[#B124A3]">
         <li onClick={()=>navigate("/")}  className="p-4 cursor-pointer">Home</li>
         <li onClick={()=>navigate("/parent_login")} className="p-4 cursor-pointer">Parent Login</li>
         <li onClick={()=>navigate("/parent_signup")}  className="p-4 cursor-pointer">Parent Register</li>

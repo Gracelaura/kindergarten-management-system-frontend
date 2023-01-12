@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useState } from 'react';
 import Nav from "../Home/Nav.jsx"
 import { TeacherContext } from '../Context/teacher-context';
+import icon from './icon.svg'
 function Login() {
   const {onSubmit} = useContext(TeacherContext)
   
@@ -16,7 +17,7 @@ function Login() {
     <div className="main-container">
         <div className="card-one">
           <div className="sub-card">
-            <img src="https://i.ibb.co/QQrkZHb/Screenshot-2023-01-02-at-23-23-28.png" alt="image"></img>
+            <img src={icon} alt="image"></img>
           </div>
           <h2 className="text">Kinderjoy Teacher</h2>
           <h2 className="text2">Don't have an account? <Link to="/signup" style={{ color: "#B124A3"}}>

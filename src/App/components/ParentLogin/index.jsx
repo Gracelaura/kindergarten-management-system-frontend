@@ -68,8 +68,7 @@ function ParentLogin() {
         <div className="main-container">
           <div className="card-one sm:block">
             <div className="sub-card ">
-              <img
-                src={kid}
+              <img src={kid}
                 alt="image"></img>
             </div>
             <h2 className="text text-pink-500">Kinderjoy Parent</h2>
@@ -83,7 +82,7 @@ function ParentLogin() {
           <div className="card-two  border">
             <div className="img-div">
               <img
-                src="https://i.ibb.co/qDhqYnx/Screenshot-2023-01-02-at-23-26-59.png"
+                src={kid}
                 alt=""
               />
               <h2 className="h2-text">Kinderjoy School</h2>
