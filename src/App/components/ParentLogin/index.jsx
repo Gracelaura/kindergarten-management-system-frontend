@@ -122,7 +122,7 @@ function ParentLogin() {
               />
 
                 Login
-              </button>
+              
             </form>
           </div>
         </div>
