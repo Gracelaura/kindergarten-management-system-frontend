@@ -1,6 +1,14 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 function Sidebar() {
+  const navigate = useNavigate()
+function handleLogout() {
+  localStorage.removeItem("teacherToken")
+  localStorage.removeItem("teacher");
+  navigate("/login")
+}
+
+
   return (
     <div className="mt-10">
       <Link to="" className="hover:bg-pink-500 outline text-pink-500 outline-1 flex hover:text-white text-center text-xl h-14 rounded-md p-3 m-2">
@@ -111,7 +119,7 @@ function Sidebar() {
         <span>Profile</span>
       </Link>
 
-      <div className="hover:bg-pink-500 outline text-pink-500 outline-1  flex hover:text-white text-center text-xl h-14 rounded-md p-3 m-2">
+      <div onClick={handleLogout} className="hover:bg-pink-500 outline text-pink-500 outline-1  flex hover:text-white text-center text-xl h-14 rounded-md p-3 m-2 cursor-pointer">
         <svg
           class="w-6 h-6 mr-2"
           fill="none"

@@ -1,9 +1,9 @@
 import React from 'react'
-import { Outlet } from 'react-router-dom'
+import { Outlet, useNavigate } from 'react-router-dom'
 import Sidebar from './Sidebar'
 
 function Dashboard() {
-
+const navigate = useNavigate()
 const token = localStorage.getItem("teacherToken")
 
 if(token){
@@ -29,7 +29,7 @@ if(token){
                                 Looks like you're lost
                             </h1>
                             <p class="my-2 text-gray-800">Sorry about that! Please visit our hompage to get where you need to go.</p>
-                            <button class="sm:w-full lg:w-auto my-2 border rounded md py-4 px-8 text-center bg-[#B124A3] text-white hover:bg-[#B124A3] focus:outline-none focus:ring-2 focus:ring-[#B124A3] focus:ring-opacity-50">Return to Home!</button>
+                            <button onClick={()=>navigate("/")} class="sm:w-full lg:w-auto my-2 border rounded md py-4 px-8 text-center bg-[#B124A3] text-white hover:bg-[#B124A3] focus:outline-none focus:ring-2 focus:ring-[#B124A3] focus:ring-opacity-50">Return to Home!</button>
                         </div>
                     </div>
                     <div>

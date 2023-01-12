@@ -21,19 +21,6 @@ export default function Parents() {
   useEffect(() => {
     axios.get(url,config)
     .then(data=>setParents(data.data)).catch(e=>console.log(e.message))
-  //   fetch(url,{
-  //     method: "GET",
-  //     headers: {
-  //       "content-type": "application/json",
-  //       Authorization: `Bearer ${token}`
-  //     }
-  //   })
-  //    .then((response) => response.json())
-  //    .then((data) => {
-  //       console.log(data)
-  //       setParents(data);
-        
-  //     }).catch(e =>console.log(e.message))
   }, [])
   
 
@@ -43,7 +30,7 @@ export default function Parents() {
         <div className="sm:flex-auto">
           <h1 className="text-xl font-semibold text-pink-500">Parents</h1>
           <p className="mt-2 text-sm text-lime-900">
-            A list of all the parents in your account including their name and phone number and others.
+            A list of all the parents in your account including their name and phone number andnpm start others.
           </p>
         </div>
        

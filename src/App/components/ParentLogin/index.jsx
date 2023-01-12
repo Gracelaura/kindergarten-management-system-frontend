@@ -49,17 +49,13 @@ function ParentLogin() {
   }
   return (
     <div className="w-screen h-screen">
-    <Nav />
-      {" "}
+      <Nav />{" "}
       {modal ? (
-          <div className=" bg-pink-200 text-center h-12 w-full rounded-md m-auto ">
-            Login Successful
-          </div>
-        ) : null}
+        <div className=" bg-pink-200 text-center h-12 w-full rounded-md m-auto ">
+          Login Successful
+        </div>
+      ) : null}
       <div className="flex fixed items-center justify-center ">
-        
-     
-
         {/* phone_number: "743564786",
         password: "765476", */}
 
@@ -110,9 +106,8 @@ function ParentLogin() {
                 })}
               />
               <div className="flex items-center justify-center">
-              <label>show password</label>
-              <input type="checkbox"
-              />
+                <label>show password</label>
+                <input type="checkbox" />
               </div>
               <button className="button-2" type="submit">
                 Login

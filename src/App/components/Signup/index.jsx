@@ -6,7 +6,7 @@ import Nav from "../Home/Nav"
 import "./signup.css"
 function Signup({ onLogin }) {
  const {register, handleSubmit} = useForm()
- const {onSubmition} = useContext(TeacherContext)
+ const {onSubmition,modal} = useContext(TeacherContext)
  
  return(
   <div>
@@ -29,6 +29,7 @@ function Signup({ onLogin }) {
             <img src="https://i.ibb.co/qDhqYnx/Screenshot-2023-01-02-at-23-26-59.png" alt="" />
             <h2 className='h2-text'>Kinderjoy School</h2>
           </div>
+          {modal?<div>Signup sucessfull</div>:null}
           <form className='login-form' onSubmit={handleSubmit(onSubmition)}>
         <input
           id="first_name"
