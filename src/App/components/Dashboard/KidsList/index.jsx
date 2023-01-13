@@ -139,14 +139,14 @@ export default function MyKids() {
                       </div>
                       <div className="grid grid-cols-2">
                         <Link to={`${person.id}`}>
-                          <button className="border m-2 rounded-xl">
-                            <EyeIcon className="inline text-pink-900 h-3" />
+                          <button className="border m-2 rounded-xl px-2 h-9">
+                            <EyeIcon className="inline text-pink-900 h-5" />
                             View
                             <span className="sr-only">, {person.name}</span>
                           </button>
                         </Link>
 
-                        <button className="border m-2 px-2 rounded-xl">
+                        <button className="border m-2 px-1 rounded-xl">
                           <TrashIcon className="inline text-red-600 h-3" />
                           Delete
                           <span className="sr-only">, {person.name}</span>
