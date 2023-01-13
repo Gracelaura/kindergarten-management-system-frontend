@@ -10,11 +10,19 @@
     flex-direction: column;
     justify-content: center;
     justify-content: space-around;
+    animation-name: fade-in;
+    animation-duration: 15s;
+    animation-iteration-count: infinite;
 }
 
+@keyframes fade-in {
+    from {background-color: rgba(0,0,0,0.5)}
+    to {background-color: rgba(0,0,0, 0.9)}
+}
 .kid-card{
     /* background-color: blueviolet; */
     box-sizing: border-box;
+    
     width: 40%;
     height: 50vh;
     border: 0.5px solid #E0E7FE;
@@ -24,9 +32,16 @@
     background: #F9FAFE;
     min-height: fit-content;
     /* margin-bottom: 10px; */
-
+    /* transition: width 2s, height 2s, transform 2s; */
 
 }
+
+/* .kid-card:hover{
+    width: 40%;
+    height: 50vh;
+  transform: rotate(-360deg);
+} */
+
 
 .avatar{
 width: 100px;
