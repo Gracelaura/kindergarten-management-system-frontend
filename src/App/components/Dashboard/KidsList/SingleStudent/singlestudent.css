@@ -1,0 +1,146 @@
+.modal{
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.5);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    justify-content: space-around;
+}
+
+.kid-card{
+    /* background-color: blueviolet; */
+    box-sizing: border-box;
+    width: 40%;
+    height: 50vh;
+    border: 0.5px solid #E0E7FE;
+    box-shadow: 15px 15px 30px rgba(182, 182, 190, 0.4);
+    border-radius: 30px;
+    text-align: center;
+    background: #F9FAFE;
+    min-height: fit-content;
+    /* margin-bottom: 10px; */
+
+
+}
+
+.avatar{
+width: 100px;
+height: 100px;
+background-color: aqua;
+border-radius: 50%;
+display: flex;
+align-items: flex-end;
+margin: 0 auto;
+}
+
+.header-name{
+position: relative;
+font-weight: 500;
+font-size: 25px;
+line-height: 30px;
+color: #B124A3;
+display: inline;
+}
+
+.text-card{
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: space-around;
+    padding-left: 20px;
+}
+.button-10 {
+    background: #F9FAFE;
+    border: 0.5px solid #E0E7FE;
+    box-shadow: 15px 15px 30px rgba(182, 182, 190, 0.4);
+    border-radius: 8px;
+    border-style: none;
+    box-sizing: border-box;
+    color: #9595A6;
+    cursor: pointer;
+    display: inline-block;
+    font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    height: 40px;
+    line-height: 20px;
+    list-style: none;
+    /* margin: 0; */
+    outline: none;
+    padding: 10px 16px;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    transition: color 100ms;
+    vertical-align: baseline;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    /* margin-right: 10px; */
+    width: 208.2px;
+    
+  }
+
+  .button-11 {
+    background-color: 
+    #B124A3;
+    border-radius: 8px;
+    border-style: none;
+    box-sizing: border-box;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline-block;
+    font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    height: 40px;
+    line-height: 20px;
+    list-style: none;
+    /* margin: 0; */
+    outline: none;
+    padding: 10px 16px;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    transition: color 100ms;
+    vertical-align: baseline;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    width: 208.2px;
+    /* padding-bottom: 10px; */
+    /* margin-left: 10px; */
+   
+  }
+
+  .text-card label{
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    color: #3D3D66;
+  }
+  .h3{
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 19px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    
+  }
+  .avatar img{
+    width: inherit;
+    height: inherit;
+    border-radius: 50%;
+  }
+
+  .buttonContainer{
+    display: flex;
+    justify-content: space-around;
+  }
