@@ -3,32 +3,40 @@ import axios from "axios";
 import { useParams } from "react-router-dom";
 
 function SingleAttendance() {
-  const [dayAttendance, setDayAttendance] = useState([]);
+  const [allAttendance, setAllAttendance] = useState([]);
   const { date } = useParams();
-  const token = localStorage.getItem("teacherToken")
+  const token = localStorage.getItem("teacherToken");
+  const id = localStorage.getItem("teacher");
   const config = {
-    headers:{
-    "content-type": "application/json",
-     Authorization: `Bearer ${token}` 
-    }
-  }
+    headers: {
+      "content-type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+  };
+
   useEffect(() => {
-    axios
-      .get("http://localhost:3000/attendances",config)
-      .then((res) =>
-        setDayAttendance(res.data.filter((data) => data.date === date))
-      );
+    axios.get(`http://localhost:3000/teachers/${id}`, config).then((res) => {
+      const arr = [];
+      for (let data of res.data.classroom.attendances) {
+        if (data.date == date) {
+          arr.push(data);
+        } else {
+          console.log("not possible");
+        }
+      }
+
+      setAllAttendance(arr);
+    });
   }, []);
-console.log(dayAttendance);
   return (
     <ul className="sm:mt-8 p-4 w-4/5 m-auto">
       <p className="text-2xl font-extrabold text-center">
         List of student register for date {date}{" "}
       </p>
-      {dayAttendance.length < 1 ? (
+      {allAttendance.length < 1 ? (
         <div>no attendance for this date</div>
       ) : (
-        dayAttendance.map((item, i) => {
+        allAttendance.map((item, i) => {
           return (
             <li
               key={i}

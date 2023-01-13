@@ -1,21 +1,50 @@
+import axios from "axios";
 import { useContext, useEffect, useState } from "react"
 import { Link, useNavigate } from "react-router-dom";
-import ParentContext from "../../ParentContext";
+// import ParentContext from "../../ParentContext";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
 export default function MyKids() {
-const {parent} = useContext(ParentContext)
+const [adm,setAdm] = useState(0)
+
+
+const token = localStorage.getItem("jwt")
+const config = {
+  headers: {
+    "content-type": "application/json",
+    Authorization: `Bearer ${token}`,
+  },
+};
   const [loading, setLoading] = useState(false);
   const [students, setStudents] = useState([]);
-
-
-const parent_data = localStorage.getItem("parent_data")
-
- const list =  JSON.parse(parent_data)
+  const [modal,setModal] = useState(false)
+  const parent_id = localStorage.getItem("parent")
+  const [update,setUpdate] = useState(false);
+  useEffect(()=>{
+    axios.get(`http://localhost:3000/parents/${parent_id}`,config)
+    .then(res => setStudents(res.data.students))
+  },[update])
  
+async function addKid(e) {
+  e.preventDefault()
+  const {data} = await axios.get("http://localhost:3000/students",config)
+  let kid = data.find(data=>data.admission_number == adm)
+
+const requestData = {
+  parent_id: parseInt(parent_id),
+  student_id: kid.id
+}
+
+const {newR} = await axios.post("http://localhost:3000/parent_students",requestData,config)
+setUpdate(update => !update)  
+setModal(false)
+
+
+}
+
   return (
     <div className="px-4 sm:px-6 lg:px-8">
       <div className="sm:flex sm:items-center">
@@ -24,15 +53,21 @@ const parent_data = localStorage.getItem("parent_data")
           <p className="mt-2 text-sm text-gray-700">
             Click View row to view more details.
           </p>
-        </div>
-        {/* <div className="mt-4 sm:mt-0 sm:ml-16 sm:flex-none">
+        </div> 
+        <div className="mt-4 sm:mt-0 sm:ml-16 sm:flex-none grid grid-cols-1 p-2">
+          {modal ?<form  className="grid grid-cols-1 m-2" onSubmit={addKid}>
+            <input onChange={(e)=>setAdm(e.target.value)} type="number" className="border h-8 p-3 m-2" placeholder="enter your kids admission and hit submit"/>
+            <input type="submit" className="text-white m-2 rounded-md px-3 bg-[#B124A3]" value="submit" />
+          </form>:null}
           <button
+          onClick={()=>setModal(true)}
             type="button"
             className="inline-flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 sm:w-auto"
           >
             Add Kid
           </button>
-        </div> */}
+        </div>
+
       </div>
       {loading ? <p className="mt-5 text-5xl text-center">Loading Children....</p> :  <div className="mt-8 flex flex-col">
         <div className="-my-2 -mx-4 sm:-mx-6 lg:-mx-8">
@@ -70,8 +105,7 @@ const parent_data = localStorage.getItem("parent_data")
                   </tr>
                 </thead>
                 <tbody className="bg-white">
-                {console.log(parent.students)}
-                  {parent.students.map((person, personIdx) => (
+                  {students.map((person, personIdx) => (
                     <tr key={personIdx}>
                       <td
                         className={classNames(
