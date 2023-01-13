@@ -1,6 +1,8 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import "./singlestudent.css"
+import  icon from "./student.svg";
+import { useParams, Link } from 'react-router-dom'
 
 function SingleStudent() {
   const [student,setStudent] = useState({})
@@ -20,24 +22,30 @@ useEffect(() =>{
 
 console.log(student)
   return (
-    <div className='grid h-full col-span-1 w-full'>
-      <div className='h-4/5 w-2/3 p-auto m-auto flex flex-col items-center justify-around'>
-        <div>
-          <input type="text" value={student.admission_number}/>
+    <div className='modal'>
+   
+    <div className="kid-card">
+      
+        <div className="avatar">
+        <img src={icon} alt="Screenshot-2023-01-11-at-23-59-17" border="0"/>
         </div>
-        <div>
-          <input type="text" value={student.first_name}/>
+        <h2 className='header-name'>{student.first_name}</h2>
+        <div className="text-card">
+        <label>Name:</label>
+        <h3 className='h3'>{student.first_name} {student.second_name} {student.surname}</h3>
+        <label>Details:</label>
+        <p className='details'>Age: {student.age}</p>
+        <p>Admission No. {student.admission_number}</p>
+        <span style={{display: "inline"}}>Description: {student.description}</span>
         </div>
-        <div>
-          <input type="text" value={student.second_name}/>
+        <div className='buttonContainer'>
+       <Link to="..">
+        <button className="button-11" type="submit" >Back</button>
+        </Link>
         </div>
-        <div>
-          <input type="text" value={student.surname}/>
-        </div>
-        <div>
-          <input type="text" value="average student"/>
-  </div>
-   </div> 
+    </div>
+
+
     </div>
   )
 }
