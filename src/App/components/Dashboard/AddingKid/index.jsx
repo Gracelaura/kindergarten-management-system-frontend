@@ -1,5 +1,5 @@
 import React from "react";
-
+import { Link } from "react-router-dom";
 function AddKid() {
   return (
     <div className="w-3/4 m-auto">
@@ -156,7 +156,9 @@ function AddKid() {
             </div>
 
             <div className="sm:col-span-1 w-2/3 rounded flex pl-0 items-center">
+              
               <button className="w-full h-10 rounded border bg-gray-400">BACK</button>
+             
             </div>
           </div>
         </form>
