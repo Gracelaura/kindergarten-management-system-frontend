@@ -112,7 +112,7 @@ function ParentLogin() {
                 })}
               />
               <button
-                className="px-5 p-3 bg-[#B124A3] rounded-md"
+                className="px-5 p-3 bg-[#B124A3] text-white rounded-md"
                 type="submit">
                 Login
               </button>

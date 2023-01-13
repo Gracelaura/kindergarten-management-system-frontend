@@ -5,7 +5,7 @@ import { useParams } from "react-router-dom";
 function SingleAttendance() {
   const [dayAttendance, setDayAttendance] = useState([]);
   const { date } = useParams();
-  const token = localStorage.getItem("jwt")
+  const token = localStorage.getItem("teacherToken")
   const config = {
     headers:{
     "content-type": "application/json",
@@ -19,7 +19,7 @@ function SingleAttendance() {
         setDayAttendance(res.data.filter((data) => data.date === date))
       );
   }, []);
-
+console.log(dayAttendance);
   return (
     <ul className="sm:mt-8 p-4 w-4/5 m-auto">
       <p className="text-2xl font-extrabold text-center">

@@ -2,11 +2,11 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 function Attendance() {
-  const [attend, setAttend] = useState();
+  const [attend, setAttend] = useState([]);
   const [dates, setDates] = useState(null);
   const [modal, setModal] = useState(false);
   const [kid, setKid] = useState([]);
-  const token = localStorage.getItem("jwt")
+  const token = localStorage.getItem("teacherToken")
   const config = {
     headers:{
     "content-type": "application/json",
@@ -35,7 +35,7 @@ function Attendance() {
     }
 }
 
-function handlePresent(e,k) {
+async function handlePresent(e,k) {
   let date = new Date()
   let day = date.getDate()
   let month = date.getMonth()+1
@@ -47,9 +47,10 @@ function handlePresent(e,k) {
     status: e.target.innerText,
     date: myDate
   }
-  axios.post("http://localhost:3000/attendances",config,myData).then(res=>console.log(res))
+  const {data} = await axios.post("http://localhost:3000/attendances",config,myData)
 e.target.parentElement.style.display = "none"
-
+console.log(data)
+ return data
 }
 function handleAbsent(e,k) {
   let date = new Date()
@@ -104,7 +105,6 @@ function handleAbsent(e,k) {
 
       {modal ? <ul className="sm:mt-8 p-4">{register}</ul> : null}
 
-      <ul className="sm:mt-8 p-4">
         {dates ? (
           <li className="border m-2 rounded-md p-5">
             This is attendance for date {dates} --click view for more details
@@ -115,7 +115,7 @@ function handleAbsent(e,k) {
             </Link>
           </li>
         ) : null}
-      </ul>
+      
     </div>
   );
 }
