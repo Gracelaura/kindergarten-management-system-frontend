@@ -1,4 +1,4 @@
-.edit-modal{
+.add-modal{
     position: fixed;
     left: 0;
     top: 0;
@@ -11,7 +11,7 @@
      justify-content: center;
     /*justify-content: space-around; */
     z-index: 5;
-    min-width: fit-content;
+  
 }
 
 .button-12 {
@@ -46,7 +46,7 @@
     
   }
 
-  .edit-card{
+  .add-card{
     display: flex;
     width: 25%;
     height: 50vh;
@@ -58,13 +58,13 @@
     z-index: 5;
   }
 
-  .input-container{
+  .inputs{
     /* background-color: black; */
     height: 40vh;
     width: 80%;
   }
 
-  .input-form{
+  .input-forms{
     display: flex;
     justify-content: center;
     /* justify-content: space-between; */
@@ -72,7 +72,7 @@
     padding-top: 10px;
     padding-left: 5px;
     padding-right: 5px; 
-    gap: 1rem;
+    gap: .5rem;
   }
 
   .input-form label{
@@ -84,16 +84,23 @@
   }
 
   .title{
-    height: 8vh;
+    height: 5vh;
+    border-radius: 5px;
+    background-color: #E0E7FE;
+  }
+
+  .date{
+    height: 5vh;
     border-radius: 5px;
     background-color: #E0E7FE;
   }
 
   .description{
    
-    height: 8vh;
+    height: 5vh;
     border-radius: 5px;
     background-color: #E0E7FE;
+    display: block;
   }
 
   .button-13 {
@@ -124,11 +131,6 @@
     -webkit-user-select: none;
     touch-action: manipulation;
     width: 15vw;
-
+    /* margin-top: .5rem; */
     
-  }
-
-  .btn-wrapper{
-    display: flex;
-    gap: .5rem;
   }

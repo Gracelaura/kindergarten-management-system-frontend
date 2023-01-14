@@ -8,12 +8,18 @@ import {
 } from "@heroicons/react/24/solid";
 import { Link } from "react-router-dom";
 import ViewDiscipline from '../../Modal/ViewDiscipline';
+import AddCase from '../../Modal/AddCase';
 function Discipline() {
+
+const [addcase, setAddCase] =useState(false)
 const [view, setView] =useState(false)
 const [disciplanes, setDisciplanes] = useState()
 const token = localStorage.getItem("teacherToken")
 const [edit, setEdit] =useState(false)
+const [editId ,setEditId] = useState()
+const [studentId, setStudentId] = useState()
 console.log(token)
+console.log(studentId)
 
 function fetchDisciplanes(){
   fetch("http://127.0.0.1:3000/disciplines",{
@@ -26,7 +32,6 @@ function fetchDisciplanes(){
     .then((res)=> setDisciplanes(res))
 }
 console.log(disciplanes)
-
 useEffect(() => {
   fetchDisciplanes()
  }, [])
@@ -124,14 +129,17 @@ useEffect(() => {
                     </div>
                     <div className="grid grid-cols-2">
                       <Link >
-                        <button className="border m-2 rounded-xl px-2 h-9" onClick={() => setView(true)}>
+                        <button className="border m-2 rounded-xl px-2 h-9" onClick={() => {setView(true)
+                               setStudentId(item.id) 
+                               localStorage.setItem("studentId", item.student.id)     }}>
                           <EyeIcon className="inline text-pink-900 h-4" />
                           View
                           <span className="sr-only"></span>
                         </button>
                       </Link>
 
-                      <button className="border m-2 px-1 rounded-xl" onClick={()=> setEdit(true)}>
+                      <button className="border m-2 px-1 rounded-xl" onClick={()=> {setEdit(true)
+                              setEditId(item.id)   }}>
                         <PencilIcon className="inline text-red-600 h-4 m-1" />
                         Edit
                         <span className="sr-only"></span>
@@ -144,8 +152,9 @@ useEffect(() => {
           </div>
         </div>
       </div>
-  {edit && <EditStudent setEdit={setEdit}/>}
-  {view && <ViewDiscipline setView={setView}/>}
+  {edit && <EditStudent setEdit={setEdit} editId={editId} setDisciplanes={setDisciplanes}/>}
+  {view && <ViewDiscipline setView={setView} setAddCase={setAddCase} studentId={studentId}/>}
+  {addcase && <AddCase setView={setView} setAddCase={setAddCase} setDisciplanes={setDisciplanes}/>}
   </div>
 );
 }

@@ -4,7 +4,7 @@ import {useForm} from 'react-hook-form'
 
 const token = localStorage.getItem("teacherToken")
 
-function EditStudent({setEdit, editId, setStudents}) {
+function EditStudent({setEdit, editId, setDisciplanes}) {
     const {register, handleSubmit} = useForm()
     
     function handleEdit(){
@@ -14,7 +14,7 @@ function EditStudent({setEdit, editId, setStudents}) {
     function onSubmit(data){
         console.log(editId, data)
         // handleEdit()
-        fetch(`http://localhost:3000/students/${editId}`,{
+        fetch(`http://localhost:3000/disciplines/${editId}`,{
             method: "PATCH",
             headers:{
                 "Content-Type" : "application/json",
@@ -22,7 +22,8 @@ function EditStudent({setEdit, editId, setStudents}) {
             },
             body: JSON.stringify(data),
         }).then((res) => res.json())
-          .then(res=> {setStudents(res)
+          .then(res=> {
+            setDisciplanes(res)
            handleEdit()  
         })
     }
@@ -32,8 +33,8 @@ function EditStudent({setEdit, editId, setStudents}) {
         <div className='edit-card'>
         <div className="input-container">
             <form className='input-form' onSubmit={handleSubmit(onSubmit)}>
-                <label>Age:</label>
-                <input type="number" className='age' {...register('age')}/>
+                <label>title:</label>
+                <input type="text" className='title' {...register('title')}/>
                 <label>Description:</label>
                 <input type="text" className='description' {...register('description')}/>
                 <button className="button-12" type="button" onClick={handleEdit}>Back</button>
