@@ -18,8 +18,7 @@ const token = localStorage.getItem("teacherToken")
 const [edit, setEdit] =useState(false)
 const [editId ,setEditId] = useState()
 const [studentId, setStudentId] = useState()
-console.log(token)
-console.log(studentId)
+
 
 function fetchDisciplanes(){
   fetch("http://127.0.0.1:3000/disciplines",{
@@ -31,7 +30,7 @@ function fetchDisciplanes(){
     .then((res)=> res.json())
     .then((res)=> setDisciplanes(res))
 }
-console.log(disciplanes)
+
 useEffect(() => {
   fetchDisciplanes()
  }, [])
