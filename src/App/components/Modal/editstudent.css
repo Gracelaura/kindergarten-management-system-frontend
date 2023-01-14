@@ -1,0 +1,134 @@
+.edit-modal{
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.5);
+    display: flex;
+    align-items: center;
+    /*flex-direction: column; */
+     justify-content: center;
+    /*justify-content: space-around; */
+    z-index: 5;
+    min-width: fit-content;
+}
+
+.button-12 {
+    background-color: 
+    #B124A3;
+    border: 0.5px solid #E0E7FE;
+    box-shadow: 15px 15px 30px rgba(182, 182, 190, 0.4);
+    border-radius: 8px;
+    border-style: none;
+    box-sizing: border-box;
+    color: #9595A6;
+    cursor: pointer;
+    display: inline-block;
+    font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    height: 40px;
+    line-height: 20px;
+    list-style: none;
+    margin: 0 auto;
+    outline: none;
+    padding: 10px 16px;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    transition: color 100ms;
+    vertical-align: baseline;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    width: 15vw;
+    
+  }
+
+  .edit-card{
+    display: flex;
+    width: 25%;
+    height: 50vh;
+    background-color: white;
+    border-radius: 10px;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    z-index: 5;
+  }
+
+  .input-container{
+    /* background-color: black; */
+    height: 40vh;
+    width: 80%;
+  }
+
+  .input-form{
+    display: flex;
+    justify-content: center;
+    /* justify-content: space-between; */
+    flex-direction: column;
+    padding-top: 10px;
+    padding-left: 5px;
+    padding-right: 5px; 
+    gap: 1rem;
+  }
+
+  .input-form label{
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    color: #3D3D66;
+  }
+
+  .title{
+    height: 8vh;
+    border-radius: 5px;
+    background-color: #E0E7FE;
+  }
+
+  .description{
+   
+    height: 8vh;
+    border-radius: 5px;
+    background-color: #E0E7FE;
+  }
+
+  .button-13 {
+    background: #F9FAFE;
+    border: 0.5px solid #E0E7FE;
+    box-shadow: 15px 15px 30px rgba(182, 182, 190, 0.4);
+    border-radius: 8px;
+    border-style: none;
+    box-sizing: border-box;
+    color: #9595A6;
+    cursor: pointer;
+    display: inline-block;
+    font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    height: 40px;
+    line-height: 20px;
+    list-style: none;
+    margin: 0 auto;
+    outline: none;
+    padding: 10px 16px;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    transition: color 100ms;
+    vertical-align: baseline;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    width: 15vw;
+
+    
+  }
+
+  .btn-wrapper{
+    display: flex;
+    gap: .5rem;
+  }
