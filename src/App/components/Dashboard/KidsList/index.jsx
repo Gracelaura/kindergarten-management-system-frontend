@@ -15,26 +15,36 @@ function classNames(...classes) {
 
 export default function MyKids() {
   const [loading, setLoading] = useState(false);
-  const [teacher, setTeacher] = useState({});
-
-  const navigate = useNavigate();
+  const [teacher, setTeacher] = useState([]);
   const token = localStorage.getItem("teacherToken");
-  const teacher_id = localStorage.getItem("teacher");
-  const id = parseInt(teacher_id);
-  const config = {
-    headers: {
-      "content-type": "application/json",
-      Authorization: `Bearer ${token}`,
-    },
-  };
+  
+  
+  
 
   useEffect(() => {
-    axios
-      .get(`http://localhost:3000/teachers/${id}`, config)
-      .then((res) => setTeacher(res));
+    fetch("http://localhost:3000/profile",{
+      headers: {
+        "content-type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    }).then((res) => res.json())
+      .then((res)=> setTeacher(res[0].classroom.students))
   }, []);
   const data = JSON.parse(localStorage.getItem("teacher_data"));
-  let kidList = data.teacher.classroom.students;
+  localStorage.setItem("kids", teacher )
+  localStorage.setItem("kidState", setTeacher)
+   
+  function handleDelete(id){
+      setTeacher((value) => value.filter((item) => id !== item.id))
+      fetch(`http://localhost:3000/students/${id}`,{
+        method: "DELETE",
+        headers:{
+          Authorization: `Bearer ${token}`,
+        }
+      })
+  }
+
+  
 
   return (
     <div className="px-4 sm:px-6 lg:px-8 m-5">
@@ -97,13 +107,13 @@ export default function MyKids() {
                 </div>
 
                 <div className="bg-white w-full">
-                  {kidList.map((person, personIdx) => (
+                  {teacher.map((person, personIdx) => (
                     <div
-                      key={person.admission_number}
+                      key={person.id}
                       className="w-full grid grid-cols-5 gap-4">
                       <div
                         className={classNames(
-                          personIdx !== kidList.length - 1
+                          personIdx !== teacher.length - 1
                             ? "border-b border-gray-200"
                             : "",
                           "whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6 lg:pl-8"
@@ -112,7 +122,7 @@ export default function MyKids() {
                       </div>
                       <div
                         className={classNames(
-                          personIdx !== kidList.length - 1
+                          personIdx !== teacher.length - 1
                             ? "border-b border-gray-200"
                             : "",
                           "whitespace-nowrap px-3 py-4 text-sm text-gray-500 hidden lg:table-cell"
@@ -121,7 +131,7 @@ export default function MyKids() {
                       </div>
                       <div
                         className={classNames(
-                          personIdx !== kidList.length - 1
+                          personIdx !== teacher.length - 1
                             ? "border-b border-gray-200"
                             : "",
                           "whitespace-nowrap px-3 py-4 text-sm text-gray-500"
@@ -130,7 +140,7 @@ export default function MyKids() {
                       </div>
                       <div
                         className={classNames(
-                          personIdx !== kidList.length - 1
+                          personIdx !== teacher.length - 1
                             ? "border-b border-gray-200"
                             : "",
                           "whitespace-nowrap px-3 py-4 text-sm text-gray-500"
@@ -146,7 +156,7 @@ export default function MyKids() {
                           </button>
                         </Link>
 
-                        <button className="border m-2 px-1 rounded-xl">
+                        <button className="border m-2 px-1 rounded-xl" onClick={()=>handleDelete(person.id)}>
                           <TrashIcon className="inline text-red-600 h-3" />
                           Delete
                           <span className="sr-only">, {person.name}</span>
@@ -161,5 +171,6 @@ export default function MyKids() {
         </div>
       )}
     </div>
+    
   );
 }

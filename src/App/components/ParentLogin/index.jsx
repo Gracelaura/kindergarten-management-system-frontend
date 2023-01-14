@@ -1,7 +1,7 @@
 import React from "react";
 import "./ParentLogin.css";
 import { useForm } from "react-hook-form";
-import { Link, Navigate, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import Nav from "../Home/Nav";
 import kid from "./kids.svg";
@@ -13,9 +13,7 @@ function ParentLogin() {
   const {
     register,
     handleSubmit,
-    formState: { errors },
   } = useForm();
-  const [login, setLogin] = useState([]);
   const [modal, setModal] = useState(false);
 
   function handleNotification() {
