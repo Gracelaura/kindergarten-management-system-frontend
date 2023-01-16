@@ -1,32 +1,22 @@
-import React, { useContext, useEffect, useState } from 'react'
-import Modal from '../../Modal/Modal'
-import "./Classes.css"
+import axios from "axios";
+import React, { useContext, useEffect, useState } from "react";
+import Modal from "../../Modal/Modal";
+import "./Classes.css";
 
+function Classes() {
+  const [classroom, setClassroom] = useState({});
+  const [modal, setModal] = useState(false);
+  const [modalData, setModalData] = useState();
+  const token = localStorage.getItem("teacherToken");
+  const teacher_id = localStorage.getItem("teacher");
 
-
-function Classes(){
-  const [classes, setClasses] = useState()
-  const [modal, setModal] = useState(false)
-  const [modalData, setModalData] = useState()
-  const token = localStorage.getItem("teacherToken")
-  console.log(token)
-
-  function getClasses(){
-    fetch("http://127.0.0.1:3000/classrooms",{
-      headers: {
-        "content-type": "application/json",
-        Authorization: `Bearer ${token}`
-      }
-    }).then((res)=> res.json())
-      .then((data)=> setClasses(data))
-    
-  }
-  console.log(classes)
-
-  useEffect(()=>{
-  getClasses()
-},[])
-
+  useEffect(() => {
+    axios.get(`http://127.0.0.1:3000/teachers/${parseInt(teacher_id)}`,{ headers: {
+      "content-type": "application/json",
+      Authorization: `Bearer ${token}`,
+    }})
+      .then((data) => setClassroom(data.data.classroom));
+  },[])
   function handleClick(id){
     fetch(`http://127.0.0.1:3000/classrooms/${id}`,{
       headers:{
@@ -35,31 +25,33 @@ function Classes(){
       }
     }).then((res) => res.json())
       .then((res) => setModalData(res.students))
-
   }
-  console.log(modalData)
 
   return (
     <div className="classes-page">
-    <h1>Classes</h1>
-    <div className='sub-div'>
-    {classes && classes.map(klass => (
-      <div className="class-card" key={klass.id}>
-        <div className="logo-div"><h2 className='header'>KD</h2></div>
-        <h2 className='header-2'>{klass.name}</h2>
-        <p>Tr: {klass.teacher.first_name} {klass.teacher.last_name}</p>
-        <button className="button-5" type="submit" onClick={()=> {setModal(true)
-           handleClick(klass.id)}} >See Students</button>
+      <h1>Classes</h1>
+      <div className="sub-div">
+        <div className="class-card">
+          <div className="logo-div">
+            <h2 className="header">KD</h2>
+          </div>
+          <h2 className="header-2">{classroom.name}</h2>
+          <p>
+          </p>
+          <button
+            className="button-5"
+            type="submit"
+            onClick={() => {
+              setModal(true);
+              handleClick(classroom.id);
+            }}>
+            See Students
+          </button>
+        </div>
       </div>
-      
-    ))}
-</div>
-    {modal &&
-    <Modal setModal={setModal} modalData={modalData}/>
-}
-  </div>
-  
-  )
+      {modal && <Modal setModal={setModal} modalData={modalData} />}
+    </div>
+  );
 }
 
-export default Classes
+export default Classes;
