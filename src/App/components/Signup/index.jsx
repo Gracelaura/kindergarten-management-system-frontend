@@ -16,7 +16,7 @@ function Signup({ onLogin }) {
         <hr className="border border-1"></hr>
         <div className="flex justify-center">
           <div className="main-container bg-white">
-            <div className="card-one">
+            <div className="card-one sm:block hidden">
               <div className="sub-card">
                 <img
                   src={icon}
@@ -94,7 +94,7 @@ function Signup({ onLogin }) {
                   {...register("gender")}
                 />
                 <button
-                  className="px-5 p-3 bg-[#B124A3] rounded-md"
+                  className="px-5 p-3 bg-[#B124A3] text-white rounded-md"
                   type="submit">
                   Register
                 </button>

@@ -19,7 +19,7 @@ const Navbar = () => {
     <div className=" flex  flex-row justify-between items-center h-24  mx-auto px-8 text-white">
       <div>
         <div className="md:flex">
-          <img className="w-20 h-20 " src={Logo} alt="" />
+          <img className="w-15 h-10 " src={Logo} alt="" />
           <div>
             <h1 className="text-3xl font-bold text-[#B124A3]">KinderJoy.</h1>
           </div>
@@ -40,7 +40,7 @@ const Navbar = () => {
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke-width="1.5"
-                stroke="currentColor"
+                stroke="black"
                 class="w-6 h-6 outline outline-1 text-[#B124A3] md  "
               >
                 <path

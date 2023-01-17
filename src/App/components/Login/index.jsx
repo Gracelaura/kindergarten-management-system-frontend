@@ -38,7 +38,7 @@ function Login() {
       <hr className="border border-1"></hr>
       <div className="flex justify-center">
         <div className="main-container bg-white">
-          <div className="card-one">
+          <div className="card-one sm:block hidden">
             <div className="sub-card">
               <img src={icon} alt="image"></img>
             </div>
