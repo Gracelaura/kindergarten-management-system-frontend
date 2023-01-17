@@ -54,7 +54,22 @@ This project is a fullstack application for managing a kindergarten. It includes
 - Ruby on Rails - developing the backend API
 - Railway - Hosting the API
 - Vercel - Hosting the Frontend
+
+## MVPS
+1. Authentication – login /sign up page. 
+2. Landing page.
+3. Admin(teacher) and Parents Dashboard.
+4. Student details card.
 ## User Stories
+ <li>A teacher gets logged in as an admin while a parent loins as a normal user.</li>
+<li>A Landing page that displays a welcome message.</li>
+<li>A page that displays a teacher’s dashboard.</li>
+<li>A Page that displays a parent’s dashboard.</li>
+<li>The option for a teacher to add or delete a new student including the parent’s contact information.</li>
+<li>The option for a teacher to view a student’s  information.</li>
+<li>The option for a teacher to promote a student to the next class.</li>
+<li>The option for a teacher take attendance and view attendance.</li>
+<li>The option for a parent to view their child’s attendance and discipline.</li>
 
 ## How it works
 
