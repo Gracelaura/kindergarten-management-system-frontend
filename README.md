@@ -84,12 +84,12 @@ Run: npm install to install all the dependencies.
 
 ## How it works
 <p>After a successful launch, the user is redirected to a home page</p>
-<img src=""/>
+<img src="./src/App/components/images/home.png"/>
 
 <p>From homepage a user will have to login either as a teacher or a parent.</p>
 
-<p>Upon a successful Login, You will be redirected to admin dashboard logged in as a teacher</p> <img src=""/> <p>or to parent's dashboard logged in as a parent.</p>
-<img src=""/>
+<p>Upon a successful Login, You will be redirected to admin dashboard logged in as a teacher</p> <img src="./src/App/components/images/t-dashboard.png" alt='teacher dashboard'/> <p>or to parent's dashboard logged in as a parent.</p>
+<img src="./src/App/components/images/parent-dashboard.png" alt='parent dashboard'/>
 <p>From there a teacher is able to track attendence of a kid, view a list of classes, view names of the parents, view students discipline and also his/her profile</p>
 <p>A parent is able to view kidlist, his/her own kid displinary issues and also his/her own profile.</p>
 
