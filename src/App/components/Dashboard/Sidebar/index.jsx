@@ -15,7 +15,7 @@ function Sidebar() {
         <img className="m-auto" src={logo} alt="logo"/>
         <Link
           to=""
-          className="hover:text-[#B124A3]  text-gray-500 flex text-center text-xl h-14 rounded-md p-3 m-2">
+          className="hover:text-[#B124A3] focus:text-pink-500 text-gray-500 flex text-center text-xl h-14 rounded-md p-3 m-2">
           <svg
             class="w-6 h-6 mr-2"
             fill="none"
@@ -33,7 +33,7 @@ function Sidebar() {
 
         <Link
           to="classes"
-          className="hover:text-[#B124A3]  text-gray-500 flex text-center text-xl h-14 rounded-md p-3 m-2">
+          className="hover:text-[#B124A3] focus:text-pink-500 text-gray-500 flex text-center text-xl h-14 rounded-md p-3 m-2">
           <svg
             class="w-6 h-6 mr-2"
             fill="none"
@@ -51,7 +51,7 @@ function Sidebar() {
 
         <Link
           to="attendance"
-          className="hover:text-[#B124A3]  text-gray-500 flex text-center text-xl h-14 rounded-md p-3 m-2">
+          className="hover:text-[#B124A3] focus:text-pink-500  text-gray-500 flex text-center text-xl h-14 rounded-md p-3 m-2">
           <svg
             class="w-6 h-6 mr-2"
             fill="none"
@@ -69,7 +69,7 @@ function Sidebar() {
 
         <Link
           to="parents"
-          className="hover:text-[#B124A3]  text-gray-500 flex text-center text-xl h-14 rounded-md p-3 m-2">
+          className="hover:text-[#B124A3] focus:text-pink-500 text-gray-500 flex text-center text-xl h-14 rounded-md p-3 m-2">
           <svg
             class="w-6 h-6 mr-2"
             fill="none"
@@ -87,7 +87,7 @@ function Sidebar() {
 
         <Link
           to="kids_list"
-          className="hover:text-[#B124A3]  text-gray-500  flex  text-center text-xl h-14 rounded-md p-3 m-2">
+          className="hover:text-[#B124A3] focus:text-pink-500 text-gray-500  flex  text-center text-xl h-14 rounded-md p-3 m-2">
           <svg
             class="w-6 h-6 mr-2"
             fill="none"
@@ -105,7 +105,7 @@ function Sidebar() {
 
         <Link
           to="discipline"
-          className="hover:text-[#B124A3]  text-gray-500 flex text-center text-xl h-14 rounded-md p-3 m-2">
+          className="hover:text-[#B124A3] focus:text-pink-500 text-gray-500 flex text-center text-xl h-14 rounded-md p-3 m-2">
           <svg
             class="w-6 h-6"
             fill="none"
@@ -125,7 +125,7 @@ function Sidebar() {
 
         <Link
           to="profile"
-          className="hover:text-[#B124A3]  text-gray-500 flex  text-center text-xl h-14 rounded-md p-3 m-2">
+          className="hover:text-[#B124A3]  text-gray-500 flex focus:text-pink-500 text-center text-xl h-14 rounded-md p-3 m-2">
           <svg
             class="w-6 h-6 mr-2"
             fill="none"

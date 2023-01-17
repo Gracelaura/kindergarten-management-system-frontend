@@ -20,7 +20,7 @@ const navigation = [
     name: "Dashboard",
     href: "/parent_dashboard",
     icon: HomeIcon,
-    current: true,
+    // current: true,
   },
   {
     name: "My Kids",
@@ -186,15 +186,15 @@ export default function ParentDashboard() {
                           to={item.href}
                           className={classNames(
                             item.current
-                              ? "bg-gray-200 text-gray-900 focus:bg-gray-500 focus:text-pink-500 "
-                              : "text-gray-600 focus:bg-gray-500 focus:text-pink-500 hover:text-gray-900",
+                              ? "bg-gray-200 text-gray-900 focus:text-pink-500 "
+                              : "text-gray-600  focus:text-pink-500 hover:text-gray-900",
                             "group flex items-center px-2 py-2 text-sm font-medium rounded-md"
                           )}>
                           <item.icon
                             className={classNames(
                               item.current
                                 ? " focus:text-pink-500"
-                                : "text-gray-400 focus:bg-pink-500  group-hover:text-gray-500 ",
+                                : "text-gray-400  group-hover:text-gray-500 ",
                               "mr-3 h-6 w-6"
                             )}
                             aria-hidden="true"
@@ -220,13 +220,13 @@ export default function ParentDashboard() {
           <div className="flex min-w-0 flex-1 flex-col overflow-hidden">
             <div className="lg:hidden">
               <div className="flex items-center justify-between border-b border-gray-200 bg-gray-50 px-4 py-1.5">
-                {/* <div>
+                <div>
                 <img
                   className="h-8 w-auto"
                   src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
                   alt="Your Company"
                 />
-              </div> */}
+              </div>
                 <div>
                   <button
                     type="button"
