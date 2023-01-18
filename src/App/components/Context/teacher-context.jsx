@@ -59,6 +59,7 @@ export const TeacherContextProvider = (props) => {
          
           setTeacher(data);
           localStorage.clear();
+          console.log(data)
           localStorage.setItem("teacherToken", data[1].token);
           localStorage.setItem("teacher", data[0].id);
           localStorage.setItem("teacher_data", JSON.stringify(data));

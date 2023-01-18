@@ -22,7 +22,7 @@ import { TeacherContextProvider } from "./components/Context/teacher-context";
 import TeacherWelcome from "./components/Dashboard/Welcome";
 import SingleStudent from "./components/Dashboard/KidsList/SingleStudent";
 
-import AddKid from "./components/Dashboard/AddingKid/index";
+import AddKid from "./components/Dashboard/AddKid";
 
 function App() {
   return (
