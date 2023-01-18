@@ -7,8 +7,9 @@ import Nav from "../Home/Nav.jsx";
 import icon from "./icon.svg";
 import { TeacherContext } from "../Context/teacher-context";
 function Login() {
-  const { onSubmit, modal } = useContext(TeacherContext);
+  const { onSubmit, modal,setDone,done } = useContext(TeacherContext);
 
+  
   const { register, handleSubmit } = useForm();
   return (
     <div className="w-screen h-screen bg-[#B124A3]">
@@ -68,6 +69,7 @@ function Login() {
                 name="email"
                 placeholder="Enter your email..."
                 {...register("email")}
+                required
               />
               <label className="">Enter Password</label>
               <input
@@ -77,11 +79,17 @@ function Login() {
                 name="password"
                 placeholder="Enter your password..."
                 {...register("password")}
+                required
               />
               <button
-                className="px-5 p-3 bg-[#B124A3] text-white rounded-md"
+                className="px-5 flex justify-center p-3 bg-[#B124A3] text-white rounded-md"
                 type="submit">
-                Login
+                {done ? (
+                  <svg
+                    class="animate-spin h-5 w-5 outline outline-3 mr-1 rounded-full"
+                    viewBox="0 0 24 24"></svg>
+                ) : null}
+                <span>Login</span>
               </button>
             </form>
 

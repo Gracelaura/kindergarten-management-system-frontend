@@ -10,7 +10,7 @@ function Sidebar() {
   }
 
   return (
-    <div className="flex flex-col justify-between h-screen">
+    <div className="sm:flex flex-col sm:block hidden justify-between h-screen">
       <div className="mt-5">
         <img className="m-auto" src={logo} alt="logo"/>
         <Link

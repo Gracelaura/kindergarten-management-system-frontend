@@ -15,7 +15,7 @@ const [postCase, setPostCase] = useState({
         e.preventDefault()
         console.log(editId)
         // handleEdit()
-        fetch('http://localhost:3000/disciplines',{
+        fetch('/disciplines',{
             method: "POST",
             headers:{
                 "Content-Type" : "application/json",

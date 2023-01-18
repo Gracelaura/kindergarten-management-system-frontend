@@ -16,7 +16,7 @@ function ViewDiscipline({setView, setAddCase, studentId}) {
   }
 
   useEffect(()=>{
-    fetch(`http://localhost:3000/disciplines/${studentId}`,{
+    fetch(`/disciplines/${studentId}`,{
         headers:{
           Authorization : `Bearer ${token}`
         }
