@@ -28,14 +28,14 @@ function Discipline() {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:3000/teachers/${parseInt(teacher_id)}`, config)
+      .get(`/teachers/${parseInt(teacher_id)}`, config)
       .then((res) => setDisciplanes(res.data.classroom.disciplines))
       .catch((e) => console.log(e.message));
   }, []);
 
   function handleStudent(arg) {
     axios
-      .get(`http://localhost:3000/students/${arg}`, config)
+      .get(`/students/${arg}`, config)
       .then((res) => console.log(res.data));
   }
   const list = disciplanes.map((d) => <h1>hello</h1>);
