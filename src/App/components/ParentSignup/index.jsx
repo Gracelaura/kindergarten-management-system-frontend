@@ -49,8 +49,8 @@ function handleClose(){
       <Nav />
       <hr className="border border-1"></hr>
       <div className="flex justify-center">
-      <div className="main-container">
-        <div className="card-one">
+      <div className="main-container bg-white">
+        <div className="card-one sm:block hidden">
           <div className="sub-card">
             <img
               src="https://i.ibb.co/rkY319L/Screenshot-2023-01-01-at-01-08-52.png"

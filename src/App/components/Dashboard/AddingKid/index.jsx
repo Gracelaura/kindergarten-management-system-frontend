@@ -39,20 +39,21 @@ const state = localStorage.getItem("kidState")
 
 
   return (
-    <div className="w-3/4 m-auto">
+    <div className=" w-1/2 m-auto">
+
       <div className="pt-8">
         <div>
-          <h3 className="text-lg font-medium leading-6 text-gray-900">
+          <h1 className="text-center text-3xl font-bold text-[#B124A3]">
             Adding New Student Information
-          </h3>
-          <p className="mt-1 text-sm text-gray-500"> Studnet information </p>
+          </h1>
+          
         </div>
         <form onSubmit={handleSubmit}>
           <div className="mt-6 grid grid-cols-1 gap-y-6 gap-x-4 sm:grid-cols-6">
             <div className="sm:col-span-3">
               <label
                 htmlFor="first-name"
-                className="block text-sm font-medium text-gray-700"
+                className=" text-lg font-medium text-[#B124A3]"
               >
                 First name
               </label>
@@ -63,7 +64,7 @@ const state = localStorage.getItem("kidState")
                   id="first-name"
                   placeholder="First name"
                   autoComplete="given-name"
-                  className="block w-1/2 h-10 rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                  className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-[#B124A3]"
                   onChange={(e)=> setAddKid({...addKid, first_name: e.target.value})}
                 />
               </div>
@@ -71,7 +72,7 @@ const state = localStorage.getItem("kidState")
             <div className="sm:col-span-3">
               <label
                 htmlFor="Second name"
-                className="block text-sm font-medium text-gray-700"
+                className="block text-lg font-medium text-[#B124A3]"
               >
                 Second Name
               </label>
@@ -82,16 +83,15 @@ const state = localStorage.getItem("kidState")
                   id="second_name"
                   autoComplete="family-name"
                   placeholder="Second name"
-                  className="block w-1/2 h-10 rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                  className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-[#B124A3]"
                   onChange={(e)=> setAddKid({...addKid, second_name: e.target.value})}
                 />
               </div>
             </div>
-
             <div className="sm:col-span-3">
               <label
                 htmlFor="surname"
-                className="block text-sm font-medium text-gray-700"
+                className="block text-lg font-medium text-[#B124A3]"
               >
                 Surname
               </label>
@@ -102,16 +102,38 @@ const state = localStorage.getItem("kidState")
                   id="surname"
                   autoComplete="family-name"
                   placeholder="Surname"
-                  className="block w-1/2 h-10 rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                  className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-[#B124A3]"
                   onChange={(e)=> setAddKid({...addKid, surname: e.target.value})}
+                />
+              </div>
+              
+            </div>
+            <div className="sm:col-span-3">
+              <label
+                htmlFor="surname"
+                className="block text-lg font-medium text-[#B124A3]"
+              >
+                Admission Number
+              </label>
+              <div className="mt-1">
+                <input
+                  type="number"
+                  name="admission_number"
+                  id="admission_number"
+                  autoComplete="family-name"
+                  placeholder="Admission Number"
+                  className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-[#B124A3]"
+                  onChange={(e)=> setAddKid({...addKid, admission_number: e.target.value})}
                 />
               </div>
             </div>
 
-            <div className="sm:col-span-4">
+            
+
+            <div className="md:col-span-6">
               <label
                 htmlFor="email"
-                className="block text-sm font-medium text-gray-700"
+                className="block text-lg font-medium text-[#B124A3]"
               >
                 Description of the student
               </label>
@@ -122,46 +144,26 @@ const state = localStorage.getItem("kidState")
                   type="text"
                   placeholder="Write description Here"
                   autoComplete="description"
-                  className="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                  className="block w-full rounded-md border-gray-700 shadow-xl sm:text-lg"
                   onChange={(e)=> setAddKid({...addKid, description: e.target.value})}
                 />
               </div>
             </div>
 
-            {/* <div className="sm:col-span-3">
-              <label
-                htmlFor="class"
-                className="block text-sm font-medium text-gray-700"
-              >
-                Class
-              </label>
-              <div className="mt-1">
-                <select
-                  id="class"
-                  name="class"
-                  autoComplete="class"
-                  className="block w-1/4 rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
-                >
-                  <option>1</option>
-                  <option>2</option>
-                  <option>3</option>
-                </select>
-              </div>
-            </div> */}
-
             <div className="sm:col-span-3">
               <label
                 htmlFor="Age"
-                className="block text-sm font-medium text-gray-700"
+                className="block text-lg font-medium text-[#B124A3]"
               >
                 Age
+                {/* onChange={(e)=> setAddKid({...addKid, age: e.target.value})} */}
               </label>
-              <div className="mt-1">
+              <div className="dropdown inline-block relative">
                 <select
                   id="age"
                   name="age of kid"
                   autoComplete="Age of kid "
-                  className="block w-1/4 rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                  className="bg-gray-300 text-[#B124A3] font-semibold py-2 px-4 rounded inline-flex items-center mr-1 "
                   onChange={(e)=> setAddKid({...addKid, age: e.target.value})}
                 >
                   <option>1</option>
@@ -174,40 +176,30 @@ const state = localStorage.getItem("kidState")
                   <option>8</option>
                 </select>
               </div>
+              
             </div>
             
-            <div className="sm:col-span-3">
-              <label
-                htmlFor="surname"
-                className="block text-sm font-medium text-gray-700"
-              >
-                Admission Number
-              </label>
-              <div className="mt-1">
-                <input
-                  type="number"
-                  name="admission_number"
-                  id="admission_number"
-                  autoComplete="family-name"
-                  placeholder="Admission Number"
-                  className="block w-1/2 h-10 rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
-                  onChange={(e)=> setAddKid({...addKid, admission_number: e.target.value})}
-                />
-              </div>
+          </div>
+          <div className="flex justify-center px-4 pt-4">
+            <div className="md:col-span-3 w-1/3 rounded flex items-center">
+            <button  className="px-10 p-3 bg-[#B124A3] text-white rounded-md"
+                type="submit">
+             Save
+              </button>
             </div>
 
-            <div className="sm:col-span-4 w-2/3 rounded flex pl-0 items-center">
-              <button className="w-1/4 h-10 rounded border bg-gray-400" type="submit" >SAVE</button>
-            </div>
-
-            <div className="sm:col-span-1 w-2/3 rounded flex pl-0 items-center">
+            <div className="sm:col-span-3 w1/2 rounded flex items-center">
               <Link to="..">
-              <button className="w-full h-10 rounded border bg-gray-400">BACK</button>
+              <button  className="px-10 p-3 bg-[#B124A3] text-white rounded-md"
+                type="submit">
+               Back
+              </button>
               </Link>
             </div>
-          </div>
+            </div>
         </form>
       </div>
+      
     </div>
   );
 }
