@@ -26,38 +26,12 @@ function Discipline() {
     },
   };
 
-<<<<<<< HEAD
   useEffect(() => {
     axios
       .get(`http://localhost:3000/teachers/${parseInt(teacher_id)}`, config)
       .then((res) => setDisciplanes(res.data.classroom.disciplines))
       .catch((e) => console.log(e.message));
   }, []);
-=======
-const [addcase, setAddCase] =useState(false)
-const [view, setView] =useState(false)
-const [disciplanes, setDisciplanes] = useState()
-const token = localStorage.getItem("teacherToken")
-const [edit, setEdit] =useState(false)
-const [editId ,setEditId] = useState()
-const [studentId, setStudentId] = useState()
-
-
-function fetchDisciplanes(){
-  fetch("http://127.0.0.1:3000/disciplines",{
-      headers: {
-        "content-type": "application/json",
-        Authorization: `Bearer ${token}`
-      }
-  })
-    .then((res)=> res.json())
-    .then((res)=> setDisciplanes(res))
-}
-
-useEffect(() => {
-  fetchDisciplanes()
- }, [])
->>>>>>> b94b5c9a2df32edc2c13fa05ebba410c69cc8037
 
   function handleStudent(arg) {
     axios
@@ -76,15 +50,6 @@ useEffect(() => {
             A list of all the studentList in your account including their name,
             title, email and role.
           </p>
-        </div>
-        <div className="mt-4 sm:mt-0 sm:ml-16 sm:flex-none ">
-          <Link to="">
-            <button
-              type="button"
-              className="inline-flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 sm:w-auto">
-              Add case
-            </button>
-          </Link>
         </div>
       </div>
       <div className="mt-8 flex flex-col">
