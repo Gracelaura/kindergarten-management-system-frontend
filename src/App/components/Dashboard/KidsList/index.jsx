@@ -22,7 +22,7 @@ export default function MyKids() {
   
 
   useEffect(() => {
-    fetch("http://localhost:3000/profile",{
+    fetch("/profile",{
       headers: {
         "content-type": "application/json",
         Authorization: `Bearer ${token}`,
@@ -36,7 +36,7 @@ export default function MyKids() {
    
   function handleDelete(id){
       setTeacher((value) => value.filter((item) => id !== item.id))
-      fetch(`http://localhost:3000/students/${id}`,{
+      fetch(`/students/${id}`,{
         method: "DELETE",
         headers:{
           Authorization: `Bearer ${token}`,

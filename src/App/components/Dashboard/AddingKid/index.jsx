@@ -22,7 +22,7 @@ const state = localStorage.getItem("kidState")
 
   function handleSubmit(e){
     e.preventDefault()
-    fetch("http://localhost:3000/students",{
+    fetch("/students",{
       method: "POST",
       headers:{
         "Content-Type": "application/json",

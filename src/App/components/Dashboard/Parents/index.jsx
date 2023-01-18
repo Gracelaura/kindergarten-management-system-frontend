@@ -9,7 +9,7 @@ export default function Parents() {
   const token = localStorage.getItem("teacherToken");
   const navigate = useNavigate();
   const teacher_id = localStorage.getItem("teacher");
-  const url2 = `http://127.0.0.1:3000/teachers/${parseInt(teacher_id)}`;
+  const url2 = `/teachers/${parseInt(teacher_id)}`;
   const config = {
     headers: {
       "content-type": "application/json",

@@ -15,7 +15,7 @@ function SingleAttendance() {
   };
 
   useEffect(() => {
-    axios.get(`http://localhost:3000/teachers/${id}`, config).then((res) => {
+    axios.get(`/teachers/${id}`, config).then((res) => {
       const arr = [];
       for (let data of res.data.classroom.attendances) {
         if (data.date == date) {

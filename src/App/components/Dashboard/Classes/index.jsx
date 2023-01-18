@@ -19,14 +19,14 @@ function Classes() {
   };
   useEffect(() => {
     axios
-      .get(`http://127.0.0.1:3000/teachers/${parseInt(teacher_id)}`, config)
+      .get(`/teachers/${parseInt(teacher_id)}`, config)
       .then((data) => setClassroom(data.data.classroom));
   }, [update]);
   function asignClass(id) {
     const data = {
       teacher_id: parseInt(teacher_id),
     };
-    fetch(`http://127.0.0.1:3000/classrooms/${id}`, {
+    fetch(`/classrooms/${id}`, {
       method: "PATCH",
       headers: {
         "content-type": "application/json",
@@ -46,7 +46,7 @@ function Classes() {
 
   useEffect(() => {
     axios
-      .get("http://127.0.0.1:3000/classrooms", {
+      .get("/classrooms", {
         headers: {
           "content-type": "application/json",
           Authorization: `Bearer ${token}`,
@@ -71,7 +71,7 @@ function Classes() {
   });
 
   function handleClick(id) {
-    fetch(`http://127.0.0.1:3000/classrooms/${id}`, {
+    fetch(`/classrooms/${id}`, {
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${token}`,

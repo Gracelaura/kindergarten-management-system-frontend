@@ -20,7 +20,7 @@ function Attendance() {
   const teacher_id = localStorage.getItem("teacher");
   useEffect(() => {
     axios
-      .get(`http://localhost:3000/teachers/${teacher_id}`, config)
+      .get(`/teachers/${teacher_id}`, config)
       .then((res) => {
         setClassroom(res.data.classroom);
         setKid(res.data.classroom.students);
@@ -29,13 +29,13 @@ function Attendance() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3000/attendances", config)
+      .get("/attendances", config)
       .then((res) => setAttend(res.data));
   }, []);
 
   async function takeAttendance(p) {
     setModal2(false);
-    const { data } = await axios.get("http://localhost:3000/attendances");
+    const { data } = await axios.get("/attendances");
     const ans = data.filter((i) => i.date === p);
     if (ans.length === 0) {
       let register = kid.map((k, i) => {
@@ -72,7 +72,7 @@ function Attendance() {
 
     e.target.parentElement.style.display = "none";
     return axios
-      .post("http://localhost:3000/attendances", myData, config)
+      .post("/attendances", myData, config)
       .then((res) => console.log(res));
   }
   function handleAbsent(e, k) {
@@ -85,7 +85,7 @@ function Attendance() {
     };
     e.target.parentElement.style.display = "none";
     return axios
-      .post("http://localhost:3000/attendances", myData, config)
+      .post("/attendances", myData, config)
       .then((res) => console.log(res));
   }
 
