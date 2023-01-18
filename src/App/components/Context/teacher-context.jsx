@@ -5,7 +5,7 @@ import Signup from "../Signup";
 export const TeacherContext = createContext();
 export const TeacherContextProvider = (props) => {
   const navigate = useNavigate();
-
+  const [done, setDone] = useState(false);
   const [onLogin, setLogin] = useState({});
   const [teacher, setTeacher] = useState({});
   const [modal, setModal] = useState(false);
@@ -23,7 +23,7 @@ export const TeacherContextProvider = (props) => {
 
   function onSubmit(data) {
     console.log(data);
-    fetch("http://127.0.0.1:3000/login", {
+    fetch("/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -47,7 +47,7 @@ export const TeacherContextProvider = (props) => {
   }
   //  This function is called in the Signup Component
   function onSubmition(data) {
-    fetch("http://127.0.0.1:3000/teachers", {
+    fetch("/teachers", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -71,7 +71,7 @@ export const TeacherContextProvider = (props) => {
   }
   const token = localStorage.getItem("teacherToken");
   const teacher_id = localStorage.getItem("teacher");
-  const contextValue = { onSubmit, onSubmition, teacher_id, modal, token };
+  const contextValue = { onSubmit, onSubmition, teacher_id, modal, token,done,setDone };
   return (
     <TeacherContext.Provider value={contextValue}>
       {props.children}

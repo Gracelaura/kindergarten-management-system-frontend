@@ -14,7 +14,7 @@ function EditStudent({setEdit, editId, setDisciplanes}) {
     function onSubmit(data){
         console.log(editId, data)
         // handleEdit()
-        fetch(`http://localhost:3000/disciplines/${editId}`,{
+        fetch(`/disciplines/${editId}`,{
             method: "PATCH",
             headers:{
                 "Content-Type" : "application/json",

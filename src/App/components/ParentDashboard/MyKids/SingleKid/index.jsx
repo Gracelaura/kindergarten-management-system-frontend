@@ -16,7 +16,7 @@ const config = {
 const {id} = useParams()
 
 useEffect(()=>{
-  axios.get(`http://localhost:3000/students/${id}`,config)
+  axios.get(`/students/${id}`,config)
   .then(data=>setKid(data.data))
 
 },[])

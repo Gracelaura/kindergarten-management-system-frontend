@@ -25,7 +25,7 @@ function handleClose(){
 
   async function onSubmit(data) {
     setErrors([]);
-    await fetch("http://127.0.0.1:3000/parents", {
+    await fetch("/parents", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

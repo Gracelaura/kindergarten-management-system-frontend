@@ -9,6 +9,7 @@ import logo from "./logo.svg";
 
 function ParentLogin() {
   const navigate = useNavigate();
+  const [done, setDone] = useState(false);
   // Make sure to install useForm using npm to avoid errors
   const {
     register,
@@ -29,7 +30,8 @@ function ParentLogin() {
   }
 
   function onSubmit(data) {
-    fetch("http://127.0.0.1:3000/parent_login", {
+    setDone(true)
+    fetch("/parent_login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -40,6 +42,7 @@ function ParentLogin() {
         res.json().then((res) => {
           localStorage.setItem("jwt", res.jwt);
           localStorage.setItem("parent", `${res.parent.id}`);
+          setDone(false)
           return handleNotification();
         });
       } else {
@@ -110,9 +113,12 @@ function ParentLogin() {
                 })}
               />
               <button
-                className="px-5 p-3 bg-[#B124A3] text-white rounded-md"
+                className="px-3 p-2 flex bg-[#B124A3] justify-center text-white rounded-md"
                 type="submit">
-                Login
+                   {done ?<svg
+                  class="animate-spin h-5 w-5 outline outline-3 mr-1 rounded-full"
+                  viewBox="0 0 24 24"></svg>:null}
+             <span>Login</span>
               </button>
             </form>
           </div>
