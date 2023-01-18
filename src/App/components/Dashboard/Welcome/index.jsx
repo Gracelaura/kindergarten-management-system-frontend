@@ -3,7 +3,7 @@ import icon from "./icon.svg"
 import img from "./img1.svg"
 function Welcome() {
   return (
-    <div className="h-full flex flex-col m-5">
+    <div className="h-full flex flex-col">
       <h1 className="text-center m-2 text-5xl text-[#B124A3]">Teacher Dashboard</h1>
       <div className="h-48 m-auto w-4/5 bg-[#B124A3] rounded-md flex flex-row justify-between">
         <div className="m-auto p-5 h-full w-1/2 text-white">
