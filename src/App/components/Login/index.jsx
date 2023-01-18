@@ -15,25 +15,25 @@ function Login() {
       <Nav />
       {/* */}
       {modal ? (
-        <div className="modal items-center flex fixed italic bg-[#B124A3] rounded-md ">
-          <div className="h-48 w-48 bg-slate-50">
-            Login sucessfull{" "}
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="currentColor"
-              class="w-6 h-6">
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"
-              />
-            </svg>
-          </div>
-          <div></div>
-        </div>
+       <div class="modal fade z-40  fixed top-0 left-0 hidden w-full h-full outline-none overflow-x-hidden overflow-y-auto"
+       id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+       <div class="modal-dialog relative w-auto pointer-events-none">
+         <div
+           class="modal-content border-none shadow-lg relative flex flex-col w-full pointer-events-auto bg-white bg-clip-padding rounded-md outline-none text-current">
+           <div
+             class="modal-header flex flex-shrink-0 items-center justify-between p-4 border-b border-gray-200 rounded-t-md">
+             <h5 class="text-xl font-medium leading-normal text-gray-800" id="exampleModalLabel">Login successful</h5>
+             <button type="button"
+               class="btn-close box-content w-4 h-4 p-1 text-black border-none rounded-none opacity-50 focus:shadow-none focus:outline-none focus:opacity-100 hover:text-black hover:opacity-75 hover:no-underline"
+               data-bs-dismiss="modal" aria-label="Close"></button>
+           </div>
+           <div class="modal-body relative p-4">
+             You have successfully logged in.
+           </div>
+           
+         </div>
+       </div>
+     </div>
       ) : null}
       <hr className="border border-1"></hr>
       <div className="flex justify-center">
