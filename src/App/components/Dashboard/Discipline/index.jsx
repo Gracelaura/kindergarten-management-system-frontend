@@ -21,7 +21,7 @@ const [studentId, setStudentId] = useState()
 
 
 function fetchDisciplanes(){
-  fetch("/disciplines",{
+  fetch("http://127.0.0.1:3000/disciplines",{
       headers: {
         "content-type": "application/json",
         Authorization: `Bearer ${token}`
