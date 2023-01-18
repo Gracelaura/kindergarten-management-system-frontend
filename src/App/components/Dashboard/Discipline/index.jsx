@@ -26,12 +26,38 @@ function Discipline() {
     },
   };
 
+<<<<<<< HEAD
   useEffect(() => {
     axios
       .get(`http://localhost:3000/teachers/${parseInt(teacher_id)}`, config)
       .then((res) => setDisciplanes(res.data.classroom.disciplines))
       .catch((e) => console.log(e.message));
   }, []);
+=======
+const [addcase, setAddCase] =useState(false)
+const [view, setView] =useState(false)
+const [disciplanes, setDisciplanes] = useState()
+const token = localStorage.getItem("teacherToken")
+const [edit, setEdit] =useState(false)
+const [editId ,setEditId] = useState()
+const [studentId, setStudentId] = useState()
+
+
+function fetchDisciplanes(){
+  fetch("http://127.0.0.1:3000/disciplines",{
+      headers: {
+        "content-type": "application/json",
+        Authorization: `Bearer ${token}`
+      }
+  })
+    .then((res)=> res.json())
+    .then((res)=> setDisciplanes(res))
+}
+
+useEffect(() => {
+  fetchDisciplanes()
+ }, [])
+>>>>>>> b94b5c9a2df32edc2c13fa05ebba410c69cc8037
 
   function handleStudent(arg) {
     axios
