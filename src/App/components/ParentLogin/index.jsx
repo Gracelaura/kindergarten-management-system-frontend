@@ -48,19 +48,19 @@ function ParentLogin() {
     });
   }
   return (
-    <div className=" main w-screen h-screen bg-[#B124A3]">
+    <div className="main w-screen h-screen bg-[#B124A3]">
       <Nav />
       <hr className="border border-1"></hr>{" "}
       {modal ? (
-        <div className=" bg-pink-200 text-center h-12 w-full rounded-md m-auto ">
+        <div className=" bg-pink-200 text-center h-auto  m-auto ">
           Login Successful
         </div>
       ) : null}
-      <div className="flex items-center justify-center ">
+      <div className=" flex items-center justify-center ">
         {/* phone_number: "743564786",
         password: "765476", */}
 
-        <div className="main-container">
+        <div className="main-container bg-white">
           <div className="card-one sm:block hidden">
             <div className="sub-card ">
               <img src={kid} alt="parents with kids"></img>
@@ -73,7 +73,7 @@ function ParentLogin() {
               </Link>
             </h2>
           </div>
-          <div className="bg-white border rounded-r-3xl">
+          <div className="bg-white  rounded-r-3xl">
             <div className="flex items-center justify-center mt-12 mb-4">
               <img src={logo} alt="logo" />
             </div>
