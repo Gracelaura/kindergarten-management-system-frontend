@@ -1,9 +1,11 @@
 import React, {useState} from 'react'
 import {useForm} from 'react-hook-form'
+import {  Link, useNavigate } from 'react-router-dom'
 import "./addcase.css"
 function AddCase({editId, setView, setAddCase, setDisciplanes}) {
 const {register, handleSubmit} = useForm()
 const token = localStorage.getItem("teacherToken");
+const navigate = useNavigate()
 const studentId = localStorage.getItem("studentId")
 const [postCase, setPostCase] = useState({
     student_id: studentId,
@@ -50,7 +52,9 @@ const [postCase, setPostCase] = useState({
             <label>Description:</label>
             <input type="text" className='description' onChange={(e)=> setPostCase({...postCase, description: e.target.value})}/>
             <div className='btn-wrapper'>
+                <Link to="/dashboard/discipline">
             <button className="button-12" type="button" onClick={reopenView} >Back</button>
+            </Link>
             <button className="button-13" type="submit" >Add</button>
             </div>
         </form>

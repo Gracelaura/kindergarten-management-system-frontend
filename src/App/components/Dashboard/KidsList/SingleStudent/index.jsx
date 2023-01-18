@@ -39,6 +39,9 @@ console.log(student)
         <span style={{display: "inline"}}>Description: {student.description}</span>
         </div>
         <div className='buttonContainer'>
+          <Link to="/dashboard/addcase">
+        <button className="button-10" type="submit" onClick={()=> localStorage.setItem("studentId", student.id)} >Add Discipline Case</button>
+        </Link>
        <Link to="..">
         <button className="button-11" type="submit" >Back</button>
         </Link>
