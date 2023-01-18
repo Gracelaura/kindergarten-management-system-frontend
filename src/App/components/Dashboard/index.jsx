@@ -10,7 +10,7 @@ function Dashboard() {
 
   if (token) {
     return (
-      <div className="flex sm:flex-row m-10 h-full">
+      <div className="flex sm:flex-row h-screen">
         <div className="w-1/7 sm:h-full">
           <Sidebar />
         </div>

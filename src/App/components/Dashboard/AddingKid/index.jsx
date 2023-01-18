@@ -1,10 +1,11 @@
 import React, {useState} from "react";
-import { Link } from "react-router-dom";
+import { Link,useNavigate } from "react-router-dom";
 
 
 function AddKid() {
   const teacherData = localStorage.getItem("teacher_data")
-  
+  const navigate = useNavigate()
+  const [notify, setNotify] = useState(false)
   let data = JSON.parse(teacherData)
   const token = localStorage.getItem("teacherToken");
   const [addKid, setAddKid] = useState({
@@ -19,10 +20,21 @@ function AddKid() {
 
 const kid = localStorage.getItem("kids")
 const state = localStorage.getItem("kidState")
+function handleClose() {
+  setTimeout(()=>{
+    navigate(-1)
+  },3000)
+}
+
+function handleModal() {
+  setNotify(true)
+  handleClose()
+}
+
 
   function handleSubmit(e){
     e.preventDefault()
-    fetch("http://localhost:3000/students",{
+    fetch("/students",{
       method: "POST",
       headers:{
         "Content-Type": "application/json",
@@ -30,7 +42,9 @@ const state = localStorage.getItem("kidState")
       },
       body: JSON.stringify(addKid)
     }).then((res)=> res.json())
-      .then((res) =>{state([...kid, res])
+      .then((res) =>{
+        handleModal()
+        state([...kid, res])
       
       })
 
@@ -49,6 +63,7 @@ const state = localStorage.getItem("kidState")
           
         </div>
         <form onSubmit={handleSubmit}>
+          {notify ? <div className="w-full bg-[#B124A3] rounded-md text-center text-white text-xl">Kid added succesfully</div>:null}
           <div className="mt-6 grid grid-cols-1 gap-y-6 gap-x-4 sm:grid-cols-6">
             <div className="sm:col-span-3">
               <label
@@ -66,6 +81,7 @@ const state = localStorage.getItem("kidState")
                   autoComplete="given-name"
                   className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-[#B124A3]"
                   onChange={(e)=> setAddKid({...addKid, first_name: e.target.value})}
+                  required
                 />
               </div>
             </div>
@@ -85,6 +101,7 @@ const state = localStorage.getItem("kidState")
                   placeholder="Second name"
                   className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-[#B124A3]"
                   onChange={(e)=> setAddKid({...addKid, second_name: e.target.value})}
+                  required
                 />
               </div>
             </div>
@@ -104,6 +121,7 @@ const state = localStorage.getItem("kidState")
                   placeholder="Surname"
                   className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-[#B124A3]"
                   onChange={(e)=> setAddKid({...addKid, surname: e.target.value})}
+                  required
                 />
               </div>
               
@@ -124,6 +142,7 @@ const state = localStorage.getItem("kidState")
                   placeholder="Admission Number"
                   className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-[#B124A3]"
                   onChange={(e)=> setAddKid({...addKid, admission_number: e.target.value})}
+                  required
                 />
               </div>
             </div>
@@ -146,6 +165,7 @@ const state = localStorage.getItem("kidState")
                   autoComplete="description"
                   className="block w-full rounded-md border-gray-700 shadow-xl sm:text-lg"
                   onChange={(e)=> setAddKid({...addKid, description: e.target.value})}
+                  required
                 />
               </div>
             </div>
@@ -165,6 +185,7 @@ const state = localStorage.getItem("kidState")
                   autoComplete="Age of kid "
                   className="bg-gray-300 text-[#B124A3] font-semibold py-2 px-4 rounded inline-flex items-center mr-1 "
                   onChange={(e)=> setAddKid({...addKid, age: e.target.value})}
+                  required
                 >
                   <option>1</option>
                   <option>2</option>
@@ -182,7 +203,7 @@ const state = localStorage.getItem("kidState")
           </div>
           <div className="flex justify-center px-4 pt-4">
             <div className="md:col-span-3 w-1/3 rounded flex items-center">
-            <button  className="px-10 p-3 bg-[#B124A3] text-white rounded-md"
+            <button className="px-10 p-3 bg-[#B124A3] text-white rounded-md"
                 type="submit">
              Save
               </button>

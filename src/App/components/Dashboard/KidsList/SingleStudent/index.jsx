@@ -16,7 +16,7 @@ function SingleStudent() {
 const {id} = useParams()
 
 useEffect(() =>{
-  axios.get(`http://localhost:3000/students/${id}`,config).then(data => setStudent(data.data))
+  axios.get(`/students/${id}`,config).then(data => setStudent(data.data))
 },[])
 
 
