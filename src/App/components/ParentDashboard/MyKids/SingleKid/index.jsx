@@ -20,6 +20,8 @@ useEffect(()=>{
   .then(data=>setKid(data.data))
 
 },[])
+
+console.log(kid)
   return (
     <div>
       {modal ?
