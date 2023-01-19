@@ -3,24 +3,47 @@
 This project is a fullstack application for managing a kindergarten. It includes two dashboards: an admin dashboard and a parent dashboard. The application allows for the management of students, teachers, and parents, as well as tracking attendance.
 
 # Getting Started
-## Built with
-
+## Tecnologies used
+<ol>
 <li>Reactjs</li>
-
 <li>Ruby on Rails</li>
-
+<li>AWS Deployment</li>
+</ol>
 ## Prerequisites
 
-Ensure you have ruby version(2.7.4, 3.0.0)  and Nodejs installed in your machine(pc,laptop)
+Ensure you have ruby version(2.7.4, 3.0.2)  and Nodejs installed in your machine(pc,laptop)
 
 Run: npm install to install all the dependencies.
 
 ### Installation
-1. Clone the repository: git clone https://github.com/Gracelaura/kindergarten-management-system-frontend.git
+Clone the repository:
+```html
+ git clone https://github.com/Gracelaura/kindergarten-management-system-frontend.git
+```
+## Frontend
 
-2. Install the dependencies: npm install
+ Install the dependencies 
+ ```html
+ npm install
+ ```
+starting react server
+```htm
+ npm start
+```
+## Backend
+installing ruby gems
+```html
+Bundle install
+```
+Run the command below to run pending migrations and seed data
+```html
+Rails db:migrate db:reset
+```
+Starting up the server
 
-3. Start the server: npm start
+```html
+Rails s
+```
 
 4.The application will be available at http://localhost:4000
 ### Usage
@@ -71,6 +94,8 @@ Run: npm install to install all the dependencies.
 2. Landing page.
 3. Admin(teacher) and Parents Dashboard.
 4. Student details card.
+5. Attendance
+6. Disciplinary cases
 ## User Stories
  <li>A teacher gets logged in as an admin while a parent loins as a normal user.</li>
 <li>A Landing page that displays a welcome message.</li>
@@ -116,14 +141,13 @@ please  contact us send your github profile to be allowed access.
 # License
 MIT License
 
-Copyright (c) [2023] [Ronald Kipchirchir]
+```html
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
-<p>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:</p>
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
-<p>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</p>
-
-<p>THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
-
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
+```
 [Go Back to the Top](https://github.com/Gracelaura/kindergarten-management-system-frontend)
 ## Acknowledgements
 
@@ -131,10 +155,7 @@ We would like to express our heartfelt gratitude to [Daniel Karanja](https://mai
 
 # Others
 <p > <span>Live Backend Link </span><span className="text-pink-600">http://35.172.230.181:3000</span></p>
-
-LinkedIn - [Ronald Kipchirchir](https://www.linkedin.com/in/ronald-kipchirchir-034983246/)
-
-Twitter - [@Ronaah_254](https://twitter.com/Ronaah_254)
+<p > <span>Frontend Deployment </span><span className="text-pink-600">http://35.172.230.181:4000</span></p>
 
 [Go Back to the Top](https://github.com/Gracelaura/kindergarten-management-system-frontend)
 
