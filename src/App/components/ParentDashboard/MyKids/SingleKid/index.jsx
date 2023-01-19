@@ -22,13 +22,7 @@ useEffect(()=>{
 },[])
   return (
     <div>
-      {modal ?
-        <div className='m-auto h-20 border bg-red-500 flex justify-center items-center w-1/2'>
-          
-        hello discipline
-      </div>:null
-      }
-
+    
 
     <div className='grid grid-cols-3 gap-3 justify-center items-center'>
       <div className='h-28 bg-pink-100 font-serif flex flex-col justify-center items-center rounded-sm'>
@@ -48,7 +42,29 @@ useEffect(()=>{
       <h1 className='text-pink-600 font-bold'>Students Description</h1>
     <p className=''>{kid.description}</p>
     </div>
+
+    <div className='container mx-auto px-4 sm:px-8'>
+   <table class="items-center table-fixed">
+  <thead>
+    <tr>
+      <th className='text-pink-600'>Title</th>
+      <th className='text-pink-600'>Description</th>
+     
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>{kid.first_name}</td>
+      <td>{kid.description}</td>
+      
+    </tr>
+   
+  
+  </tbody>
+</table>
+   </div>
     </div>
+    
   )
 }
 
