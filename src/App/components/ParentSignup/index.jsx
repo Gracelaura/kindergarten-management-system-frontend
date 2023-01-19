@@ -35,7 +35,7 @@ function handleClose(){
       if (res.ok) {
         res.json().then((data) => {
           localStorage.setItem("jwt", data.jwt);
-          localStorage.setItem("parent", data.parent.id);
+          localStorage.setItem("parent", `${data.parent.id}`);
           localStorage.setItem("parent_data", JSON.stringify(data.parent))
           handleNotification()
         })

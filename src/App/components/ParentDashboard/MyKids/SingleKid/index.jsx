@@ -5,6 +5,7 @@ import ParentContext from '../../../ParentContext'
 function SingleKid() {
 const [kid,setKid] = useState({})
 const [modal,setModal] = useState(false)
+const [disciplines,setDisciplines] = useState([])
  const token = localStorage.getItem("jwt")
 const config = {
   headers:{
@@ -15,11 +16,20 @@ const config = {
 
 const {id} = useParams()
 
+
+useEffect(()=>{
+axios.get("/disciplines",config).then(res=>setDisciplines(res.data))
+
+},[])
+const myCases = disciplines.filter(c=>c.student_id == id)
+console.log(myCases)
 useEffect(()=>{
   axios.get(`/students/${id}`,config)
   .then(data=>setKid(data.data))
 
 },[])
+
+console.log(kid)
   return (
     <div>
     
@@ -35,7 +45,7 @@ useEffect(()=>{
       </div>
       <div className='h-28 bg-pink-100 font-serif flex flex-col justify-center items-center rounded-sm'>
         <h1 className='text-center text-pink-900'>Discipline cases</h1>
-        <p onClick={()=>setModal(true)} className='text-center text-pink-900 outline outline-1 hover:bg-pink-600 hover:text-white px-5 rounded-sm'>view</p>
+        <p  className='text-center text-pink-900 outline outline-1 hover:bg-pink-600 hover:text-white px-5 rounded-sm'>{myCases.length}</p>
       </div>
     </div>
     <div className=' m-6 bg-pink-50 p-8'>
@@ -47,17 +57,23 @@ useEffect(()=>{
    <table class="items-center table-fixed">
   <thead>
     <tr>
+      <th></th>
       <th className='text-pink-600'>Title</th>
       <th className='text-pink-600'>Description</th>
-     
     </tr>
   </thead>
-  <tbody>
-    <tr>
-      <td>{kid.first_name}</td>
-      <td>{kid.description}</td>
+  <tbody className='p-5'>
+    { myCases.map((c,i)=>{
+      return (<tr className=''>
+        <td>{i+1}</td>
+      <td className='mr-2 text-red-500'>{c.title}==></td>
+      <td  className='ml-2' >{c.description}</td>
       
-    </tr>
+    </tr>)
+    })
+      
+    }
+    
    
   
   </tbody>

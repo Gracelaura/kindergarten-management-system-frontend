@@ -42,6 +42,7 @@ function ParentLogin() {
         res.json().then((res) => {
           localStorage.setItem("jwt", res.jwt);
           localStorage.setItem("parent", `${res.parent.id}`);
+          localStorage.setItem("parent_data", JSON.stringify(res.parent))
           setDone(false)
           return handleNotification();
         });

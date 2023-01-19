@@ -3,12 +3,11 @@ import { useNavigate } from "react-router-dom";
 
 function Profile() {
   const navigate = useNavigate()
-  const token = localStorage.getItem("parent");
+  const token = localStorage.getItem("jwt");
   const parent = localStorage.getItem("parent_data");
-  useEffect(() => {}, []);
 
   let list = JSON.parse(parent);
-
+console.log(token)
   return (
     <div className="bg-pink-50 h-full ">
       <div className="text-pink-600 text-xl text-center p-5">
